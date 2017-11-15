@@ -11,7 +11,7 @@ class StationaryEntity : public Entity{
 
 public:
 
-    StationaryEntity(int length, int height, int x_position, int y_position);
+    StationaryEntity(double length, double height, double x_position, double y_position);
 };
 
 

@@ -106,10 +106,22 @@
 		<Unit filename="/Users/Cedric/Documents/CloudStation/School/GP/Gradius/PlayerShip.h">
 			<Option target="Gradius"/>
 		</Unit>
+		<Unit filename="/Users/Cedric/Documents/CloudStation/School/GP/Gradius/Sprite.cpp">
+			<Option target="Gradius"/>
+		</Unit>
+		<Unit filename="/Users/Cedric/Documents/CloudStation/School/GP/Gradius/Sprite.h">
+			<Option target="Gradius"/>
+		</Unit>
 		<Unit filename="/Users/Cedric/Documents/CloudStation/School/GP/Gradius/StationaryEntity.cpp">
 			<Option target="Gradius"/>
 		</Unit>
 		<Unit filename="/Users/Cedric/Documents/CloudStation/School/GP/Gradius/StationaryEntity.h">
+			<Option target="Gradius"/>
+		</Unit>
+		<Unit filename="/Users/Cedric/Documents/CloudStation/School/GP/Gradius/Stopwatch.cpp">
+			<Option target="Gradius"/>
+		</Unit>
+		<Unit filename="/Users/Cedric/Documents/CloudStation/School/GP/Gradius/Stopwatch.h">
 			<Option target="Gradius"/>
 		</Unit>
 		<Unit filename="/Users/Cedric/Documents/CloudStation/School/GP/Gradius/main.cpp">

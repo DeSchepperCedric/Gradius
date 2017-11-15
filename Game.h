@@ -5,16 +5,21 @@
 #ifndef GRADIUS_GAME_H
 #define GRADIUS_GAME_H
 
-#include "Entity.h"
-#include <map>
+#include "Controller.h"
+#include "Model.h"
+#include "View.h"
 
 class Game {
-    std::map<std::pair<int,int>, Entity> field;
+private:
+    controller::Controller controller;
 
-    unsigned int lives;
+    view::View view;
+
+public:
+    Game(view::View &view);
 
 
-
+    void run();
 };
 
 

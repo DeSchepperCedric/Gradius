@@ -5,9 +5,11 @@
 #ifndef GRADIUS_PLAYERSHIP_H
 #define GRADIUS_PLAYERSHIP_H
 
-#include "Entity.h"
+#include "MovingEntity.h"
 
-class PlayerShip: public Entity {
+class PlayerShip: public MovingEntity {
+public:
+    PlayerShip(double length, double height, double x_position, double y_position, double speed);
 
 };
 

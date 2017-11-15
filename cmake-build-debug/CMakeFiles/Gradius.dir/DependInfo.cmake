@@ -8,7 +8,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/Game.cpp" "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles/Gradius.dir/Game.cpp.o"
   "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/MovingEntity.cpp" "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles/Gradius.dir/MovingEntity.cpp.o"
   "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/PlayerShip.cpp" "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles/Gradius.dir/PlayerShip.cpp.o"
+  "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/Sprite.cpp" "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles/Gradius.dir/Sprite.cpp.o"
   "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/StationaryEntity.cpp" "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles/Gradius.dir/StationaryEntity.cpp.o"
+  "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/Stopwatch.cpp" "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles/Gradius.dir/Stopwatch.cpp.o"
   "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/main.cpp" "/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles/Gradius.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

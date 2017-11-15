@@ -231,6 +231,33 @@ PlayerShip.cpp.s:
 	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/PlayerShip.cpp.s
 .PHONY : PlayerShip.cpp.s
 
+Sprite.o: Sprite.cpp.o
+
+.PHONY : Sprite.o
+
+# target to build an object file
+Sprite.cpp.o:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/Sprite.cpp.o
+.PHONY : Sprite.cpp.o
+
+Sprite.i: Sprite.cpp.i
+
+.PHONY : Sprite.i
+
+# target to preprocess a source file
+Sprite.cpp.i:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/Sprite.cpp.i
+.PHONY : Sprite.cpp.i
+
+Sprite.s: Sprite.cpp.s
+
+.PHONY : Sprite.s
+
+# target to generate assembly for a file
+Sprite.cpp.s:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/Sprite.cpp.s
+.PHONY : Sprite.cpp.s
+
 StationaryEntity.o: StationaryEntity.cpp.o
 
 .PHONY : StationaryEntity.o
@@ -257,6 +284,33 @@ StationaryEntity.s: StationaryEntity.cpp.s
 StationaryEntity.cpp.s:
 	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/StationaryEntity.cpp.s
 .PHONY : StationaryEntity.cpp.s
+
+Stopwatch.o: Stopwatch.cpp.o
+
+.PHONY : Stopwatch.o
+
+# target to build an object file
+Stopwatch.cpp.o:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/Stopwatch.cpp.o
+.PHONY : Stopwatch.cpp.o
+
+Stopwatch.i: Stopwatch.cpp.i
+
+.PHONY : Stopwatch.i
+
+# target to preprocess a source file
+Stopwatch.cpp.i:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/Stopwatch.cpp.i
+.PHONY : Stopwatch.cpp.i
+
+Stopwatch.s: Stopwatch.cpp.s
+
+.PHONY : Stopwatch.s
+
+# target to generate assembly for a file
+Stopwatch.cpp.s:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/Stopwatch.cpp.s
+.PHONY : Stopwatch.cpp.s
 
 main.o: main.cpp.o
 
@@ -306,9 +360,15 @@ help:
 	@echo "... PlayerShip.o"
 	@echo "... PlayerShip.i"
 	@echo "... PlayerShip.s"
+	@echo "... Sprite.o"
+	@echo "... Sprite.i"
+	@echo "... Sprite.s"
 	@echo "... StationaryEntity.o"
 	@echo "... StationaryEntity.i"
 	@echo "... StationaryEntity.s"
+	@echo "... Stopwatch.o"
+	@echo "... Stopwatch.i"
+	@echo "... Stopwatch.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

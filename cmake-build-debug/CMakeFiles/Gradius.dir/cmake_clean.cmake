@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Gradius.dir/MovingEntity.cpp.o"
   "CMakeFiles/Gradius.dir/StationaryEntity.cpp.o"
   "CMakeFiles/Gradius.dir/Game.cpp.o"
+  "CMakeFiles/Gradius.dir/Stopwatch.cpp.o"
+  "CMakeFiles/Gradius.dir/Sprite.cpp.o"
   "Gradius.pdb"
   "Gradius"
 )

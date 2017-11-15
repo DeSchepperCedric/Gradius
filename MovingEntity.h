@@ -8,12 +8,12 @@
 #include "Entity.h"
 
 class MovingEntity: public Entity  {
-private:
-    int speed;
+protected:
+    double speed;
 
 public:
 
-    MovingEntity(int length, int height, int x_position, int y_position, int speed);
+    MovingEntity(double length, double height, double x_position, double y_position, double speed);
 
     void move_right();
 
@@ -21,7 +21,7 @@ public:
 
     void move_up();
 
-    void move_down();
+    void move_down(float time);
 };
 
 

@@ -201,6 +201,54 @@ CMakeFiles/Gradius.dir/Game.cpp.o.provides: CMakeFiles/Gradius.dir/Game.cpp.o.re
 CMakeFiles/Gradius.dir/Game.cpp.o.provides.build: CMakeFiles/Gradius.dir/Game.cpp.o
 
 
+CMakeFiles/Gradius.dir/Stopwatch.cpp.o: CMakeFiles/Gradius.dir/flags.make
+CMakeFiles/Gradius.dir/Stopwatch.cpp.o: ../Stopwatch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Gradius.dir/Stopwatch.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Stopwatch.cpp.o -c /Users/Cedric/Documents/CloudStation/School/GP/Gradius/Stopwatch.cpp
+
+CMakeFiles/Gradius.dir/Stopwatch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Stopwatch.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Cedric/Documents/CloudStation/School/GP/Gradius/Stopwatch.cpp > CMakeFiles/Gradius.dir/Stopwatch.cpp.i
+
+CMakeFiles/Gradius.dir/Stopwatch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Stopwatch.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Cedric/Documents/CloudStation/School/GP/Gradius/Stopwatch.cpp -o CMakeFiles/Gradius.dir/Stopwatch.cpp.s
+
+CMakeFiles/Gradius.dir/Stopwatch.cpp.o.requires:
+
+.PHONY : CMakeFiles/Gradius.dir/Stopwatch.cpp.o.requires
+
+CMakeFiles/Gradius.dir/Stopwatch.cpp.o.provides: CMakeFiles/Gradius.dir/Stopwatch.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/Stopwatch.cpp.o.provides.build
+.PHONY : CMakeFiles/Gradius.dir/Stopwatch.cpp.o.provides
+
+CMakeFiles/Gradius.dir/Stopwatch.cpp.o.provides.build: CMakeFiles/Gradius.dir/Stopwatch.cpp.o
+
+
+CMakeFiles/Gradius.dir/Sprite.cpp.o: CMakeFiles/Gradius.dir/flags.make
+CMakeFiles/Gradius.dir/Sprite.cpp.o: ../Sprite.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Gradius.dir/Sprite.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Sprite.cpp.o -c /Users/Cedric/Documents/CloudStation/School/GP/Gradius/Sprite.cpp
+
+CMakeFiles/Gradius.dir/Sprite.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Sprite.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Cedric/Documents/CloudStation/School/GP/Gradius/Sprite.cpp > CMakeFiles/Gradius.dir/Sprite.cpp.i
+
+CMakeFiles/Gradius.dir/Sprite.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Sprite.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Cedric/Documents/CloudStation/School/GP/Gradius/Sprite.cpp -o CMakeFiles/Gradius.dir/Sprite.cpp.s
+
+CMakeFiles/Gradius.dir/Sprite.cpp.o.requires:
+
+.PHONY : CMakeFiles/Gradius.dir/Sprite.cpp.o.requires
+
+CMakeFiles/Gradius.dir/Sprite.cpp.o.provides: CMakeFiles/Gradius.dir/Sprite.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/Sprite.cpp.o.provides.build
+.PHONY : CMakeFiles/Gradius.dir/Sprite.cpp.o.provides
+
+CMakeFiles/Gradius.dir/Sprite.cpp.o.provides.build: CMakeFiles/Gradius.dir/Sprite.cpp.o
+
+
 # Object files for target Gradius
 Gradius_OBJECTS = \
 "CMakeFiles/Gradius.dir/main.cpp.o" \
@@ -208,7 +256,9 @@ Gradius_OBJECTS = \
 "CMakeFiles/Gradius.dir/PlayerShip.cpp.o" \
 "CMakeFiles/Gradius.dir/MovingEntity.cpp.o" \
 "CMakeFiles/Gradius.dir/StationaryEntity.cpp.o" \
-"CMakeFiles/Gradius.dir/Game.cpp.o"
+"CMakeFiles/Gradius.dir/Game.cpp.o" \
+"CMakeFiles/Gradius.dir/Stopwatch.cpp.o" \
+"CMakeFiles/Gradius.dir/Sprite.cpp.o"
 
 # External object files for target Gradius
 Gradius_EXTERNAL_OBJECTS =
@@ -219,6 +269,8 @@ Gradius: CMakeFiles/Gradius.dir/PlayerShip.cpp.o
 Gradius: CMakeFiles/Gradius.dir/MovingEntity.cpp.o
 Gradius: CMakeFiles/Gradius.dir/StationaryEntity.cpp.o
 Gradius: CMakeFiles/Gradius.dir/Game.cpp.o
+Gradius: CMakeFiles/Gradius.dir/Stopwatch.cpp.o
+Gradius: CMakeFiles/Gradius.dir/Sprite.cpp.o
 Gradius: CMakeFiles/Gradius.dir/build.make
 Gradius: /usr/local/lib/libsfml-system.dylib
 Gradius: /usr/local/lib/libsfml-window.dylib
@@ -226,7 +278,7 @@ Gradius: /usr/local/lib/libsfml-graphics.dylib
 Gradius: /usr/local/lib/libsfml-network.dylib
 Gradius: /usr/local/lib/libsfml-audio.dylib
 Gradius: CMakeFiles/Gradius.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Gradius"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Cedric/Documents/CloudStation/School/GP/Gradius/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Gradius"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Gradius.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -240,6 +292,8 @@ CMakeFiles/Gradius.dir/requires: CMakeFiles/Gradius.dir/PlayerShip.cpp.o.require
 CMakeFiles/Gradius.dir/requires: CMakeFiles/Gradius.dir/MovingEntity.cpp.o.requires
 CMakeFiles/Gradius.dir/requires: CMakeFiles/Gradius.dir/StationaryEntity.cpp.o.requires
 CMakeFiles/Gradius.dir/requires: CMakeFiles/Gradius.dir/Game.cpp.o.requires
+CMakeFiles/Gradius.dir/requires: CMakeFiles/Gradius.dir/Stopwatch.cpp.o.requires
+CMakeFiles/Gradius.dir/requires: CMakeFiles/Gradius.dir/Sprite.cpp.o.requires
 
 .PHONY : CMakeFiles/Gradius.dir/requires
 

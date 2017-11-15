@@ -6,23 +6,44 @@
 #define GRADIUS_ENTITY_H
 
 
-class Entity {
+class Entity{
 protected:
-    const int length;
-    const int height;
+    double length;
+    double height;
 
-    int x_position;
-    int y_position;
+    // coordinates of most upper left corner
+    double x_position;
+    double y_position;
 
-    int max_x_position = 4;
-    int min_x_position = -4;
+    double max_x_position = 4;
+    double min_x_position = -4;
 
-    int max_y_position = 3;
-    int min_y_position = -3;
+    double max_y_position = 3;
+    double min_y_position = -3;
+
+    bool changed = false;
 public:
-    Entity(int length, int height, int x_position, int y_position);
+    Entity(double length, double height, double x_position, double y_position);
 
+    const double get_length() const;
 
+    const double get_height() const;
+
+    double get_x_position() const;
+
+    double get_y_position() const;
+
+    double get_max_x_position() const;
+
+    double get_min_x_position() const;
+
+    double get_max_y_position() const;
+
+    double get_min_y_position() const;
+
+    bool is_changed() const;
+
+    void set_changed(bool changed);
 
 
 };
