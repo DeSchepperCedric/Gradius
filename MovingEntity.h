@@ -21,7 +21,7 @@ public:
 
     void move_up();
 
-    void move_down(float time);
+    void move_down();
 };
 
 

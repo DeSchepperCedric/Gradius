@@ -1,3 +1,3 @@
-/Users/Cedric/Documents/CloudStation/School/GP/Gradius/CMakeFiles/rebuild_cache.dir
-/Users/Cedric/Documents/CloudStation/School/GP/Gradius/CMakeFiles/edit_cache.dir
-/Users/Cedric/Documents/CloudStation/School/GP/Gradius/CMakeFiles/Gradius.dir
+/home/uauser/Desktop/gradius/CMakeFiles/edit_cache.dir
+/home/uauser/Desktop/gradius/CMakeFiles/Gradius.dir
+/home/uauser/Desktop/gradius/CMakeFiles/rebuild_cache.dir

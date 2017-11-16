@@ -14,7 +14,7 @@ namespace controller {
     }
 
 
-    void Controller::move_player_down(float time) {
-        Controller::model->get_player()->move_down(time);
+    void Controller::move_player_down() {
+        Controller::model->get_player()->move_down();
     }
 }

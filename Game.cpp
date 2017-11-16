@@ -18,7 +18,7 @@ void Game::run() {
 Game::Game(view::View &view) : view(view) {
     model::Model::Shared model = std::make_shared<model::Model>();
 
-    std::shared_ptr<PlayerShip> player = std::make_shared<PlayerShip>(0.1,0.2,-3.0,3.0,1.0);
+    std::shared_ptr<PlayerShip> player = std::make_shared<PlayerShip>(0.1,0.2,-3.0,3.0,0.05);
 
     sf::Texture texture;
     texture.loadFromFile("ship.png");
@@ -45,7 +45,7 @@ Game::Game(view::View &view) : view(view) {
                 view.window->close();
             }
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-                controller.move_player_down(clock.getElapsedTime().asSeconds());
+                controller.move_player_down();
             }
             clock.restart();
             view.window->clear();

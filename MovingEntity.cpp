@@ -12,20 +12,20 @@ MovingEntity::MovingEntity(double length, double height, double x_position, doub
 
 }
 
-void MovingEntity::move_down(float time) {
-    if((y_position - (time * height)) < (min_y_position + height)){
-
+void MovingEntity::move_down() {
+    if((y_position - speed < (min_y_position + height))){
+        // reached floor
         y_position = min_y_position + height;
     }
     else{
 
-        y_position -= (time * height);}
+        y_position -= speed;}
 
 }
 
 void MovingEntity::move_up() {
-    if(y_position + height <= max_y_position){
-        y_position += height;
+    if(y_position- speed <= max_y_position){
+        y_position += speed;
     }
     else{
         y_position = max_y_position;

@@ -17,7 +17,7 @@ namespace controller {
 
         void set_Model(std::shared_ptr<model::Model> model);
 
-        void move_player_down(float time);
+        void move_player_down();
     };
 
 }
