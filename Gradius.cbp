@@ -1,206 +1,206 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_project_file>
-	<FileVersion major="1" minor="6"/>
-	<Project>
-		<Option title="Gradius"/>
-		<Option makefile_is_custom="1"/>
-		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\cmake_modules\;"/>
-		<Build>
-			<Target title="all">
-				<Option working_dir="/home/uauser/Desktop/gradius"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/uauser/Desktop/gradius"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/home/uauser/Desktop/gradius"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="list_install_components">
-				<Option working_dir="/home/uauser/Desktop/gradius"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 list_install_components"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="install">
-				<Option working_dir="/home/uauser/Desktop/gradius"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 install"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="install/local">
-				<Option working_dir="/home/uauser/Desktop/gradius"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 install/local"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="install/strip">
-				<Option working_dir="/home/uauser/Desktop/gradius"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 install/strip"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Gradius">
-				<Option output="/home/uauser/Desktop/gradius/src/Gradius" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/uauser/Desktop/gradius/src"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 Gradius"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Gradius/fast">
-				<Option output="/home/uauser/Desktop/gradius/src/Gradius" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/uauser/Desktop/gradius/src"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/7"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
-					<Add directory="/usr/include/c++/7/backward"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 Gradius/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-		</Build>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Controller.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Controller.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Entity.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Entity.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/EntityRepresentation.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/EntityRepresentation.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Game.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Game.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Model.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Model.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/MovingEntity.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/MovingEntity.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/PlayerShip.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/PlayerShip.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/StationaryEntity.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/StationaryEntity.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Stopwatch.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Stopwatch.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Transformation.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/Transformation.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/View.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/View.h">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/main.cpp">
-			<Option target="Gradius"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/src/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\src\"/>
-		</Unit>
-		<Unit filename="/home/uauser/Desktop/gradius/cmake_modules/FindSFML.cmake">
-			<Option virtualFolder="CMake Files\cmake_modules\"/>
-		</Unit>
-	</Project>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="Gradius" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\cmake_modules\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/uauser/Desktop/gradius" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/uauser/Desktop/gradius" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/uauser/Desktop/gradius" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="list_install_components">
+         <Option working_dir="/home/uauser/Desktop/gradius" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 list_install_components" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="install/local">
+         <Option working_dir="/home/uauser/Desktop/gradius" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 install/local" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="install/strip">
+         <Option working_dir="/home/uauser/Desktop/gradius" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 install/strip" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="install">
+         <Option working_dir="/home/uauser/Desktop/gradius" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 install" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="Gradius">
+         <Option output="/home/uauser/Desktop/gradius/src/Gradius" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/uauser/Desktop/gradius/src" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/7" />
+            <Add directory="/usr/include/c++/7/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/7" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 Gradius" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="Gradius/fast">
+         <Option output="/home/uauser/Desktop/gradius/src/Gradius" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/uauser/Desktop/gradius/src" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/7" />
+            <Add directory="/usr/include/c++/7/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/7" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 Gradius/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/uauser/Desktop/gradius/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Controller.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Controller.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Entity.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Entity.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/EntityRepresentation.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/EntityRepresentation.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Game.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Game.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Model.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Model.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/MovingEntity.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/MovingEntity.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/PlayerShip.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/PlayerShip.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/StationaryEntity.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/StationaryEntity.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Stopwatch.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Stopwatch.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Transformation.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/Transformation.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/View.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/View.h">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/main.cpp">
+         <Option target="Gradius"/>
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/src/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\src\" />
+      </Unit>
+      <Unit filename="/home/uauser/Desktop/gradius/cmake_modules/FindSFML.cmake">
+          <Option virtualFolder="CMake Files\cmake_modules\" />
+      </Unit>
+   </Project>
 </CodeBlocks_project_file>
