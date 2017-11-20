@@ -6,10 +6,7 @@
 #include <iostream>
 
 Stopwatch::Stopwatch() {
-    clock_t t = clock();
-    t = t - clock();
-
-    Stopwatch::tick = t;
+    clock = sf::Clock();
 }
 
 Stopwatch& Stopwatch::get_instance() {
@@ -17,7 +14,11 @@ Stopwatch& Stopwatch::get_instance() {
     return s;
 }
 
-clock_t Stopwatch::get_tick() const {
-    return tick;
+float Stopwatch::get_time() const {
+    return clock.getElapsedTime().asSeconds();
+}
+
+void Stopwatch::reset() {
+    clock.restart();
 }
 

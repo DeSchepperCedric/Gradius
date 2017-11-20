@@ -5,14 +5,13 @@
 #ifndef GRADIUS_STOPWATCH_H
 #define GRADIUS_STOPWATCH_H
 
-
-#include <time.h>
+#include <SFML/System/Clock.hpp>
 
 class Stopwatch {
 private:
     Stopwatch();
 
-    clock_t tick;
+    sf::Clock clock;
 
 
 public:
@@ -23,7 +22,9 @@ public:
 
     Stopwatch& operator=(const Stopwatch& other) = delete;
 
-    clock_t get_tick() const;
+    float get_time() const;
+
+    void reset();
 
 };
 
