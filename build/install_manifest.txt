@@ -1,2 +1,2 @@
-/Users/Cedric/Documents/CloudStation/School/GP/Gradius/bin/Gradius
-/Users/Cedric/Documents/CloudStation/School/GP/Gradius/bin/Gradius
+/home/uauser/Desktop/gradius/bin/Gradius
+/home/uauser/Desktop/gradius/bin/Gradius
