@@ -4,50 +4,88 @@
 
 #include "MovingEntity.h"
 #include <iostream>
+#include <math.h>
 using std::cout;
 using std::endl;
 
 namespace model {
-    MovingEntity::MovingEntity(double length, double height, double x_position, double y_position, double speed)
-            : Entity(
-            length, height, x_position, y_position), speed(speed) {
 
-    }
+
 
     void MovingEntity::move_down() {
-        if ((y_position - speed < (min_y_position + height))) {
-            // reached floor
-            y_position = min_y_position + height;
-        } else {
-
-            y_position -= speed;
-        }
-
+        vertical_speed -= acceleration;
     }
 
     void MovingEntity::move_up() {
-        if (y_position - speed <= max_y_position) {
-            y_position += speed;
-        } else {
-            y_position = max_y_position;
-        }
+        vertical_speed += acceleration;
     }
 
     void MovingEntity::move_right() {
-        if (x_position + 2 * length <= max_x_position) {
-            x_position += length;
-        } else {
-            x_position = max_x_position - length;
-        }
-
+        horizontal_speed += acceleration;
     }
 
     void MovingEntity::move_left() {
-        if (x_position - length >= min_x_position) {
-            x_position -= length;
-        } else {
-            x_position = min_x_position;
+        horizontal_speed -= acceleration;
+    }
+
+    MovingEntity::MovingEntity(float length, float height, float x_position, float y_position, float max_speed,
+                               float acceleration) : Entity(length, height, x_position, y_position),
+                                                     max_speed(max_speed), acceleration(acceleration) {}
+
+    void MovingEntity::check_speed() {
+        if(horizontal_speed >= max_speed){
+            horizontal_speed = max_speed;
+        }
+        if(-horizontal_speed >= max_speed){
+            horizontal_speed = -max_speed;
+        }
+
+        if(vertical_speed >= max_speed){
+            vertical_speed = max_speed;
+        }
+        if(-vertical_speed >= max_speed){
+            vertical_speed = -max_speed;
         }
     }
+
+
+    void MovingEntity::stop_horizontal_movement() {
+        if(horizontal_speed > 0){
+
+            horizontal_speed = 0.00;
+        }
+        if(horizontal_speed < 0){
+
+            horizontal_speed = 0.00;
+        }
+
+        if(fabsf(horizontal_speed) <= 0.005 and fabsf(horizontal_speed) > 0){
+            horizontal_speed = 0;
+        }
+    }
+
+    void MovingEntity::stop_vertical_movement() {
+        if(vertical_speed > 0){
+
+            vertical_speed = 0.00;
+        }
+        if(vertical_speed < 0){
+
+            vertical_speed = 0.00;
+        }
+
+        if(fabsf(vertical_speed) <= 0.005 and fabsf(vertical_speed) > 0){
+            vertical_speed = 0;
+        }
+    }
+
+
+    void MovingEntity::update() {
+        check_speed();
+
+        x_position += horizontal_speed;
+        y_position += vertical_speed;
+    }
+
 
 }

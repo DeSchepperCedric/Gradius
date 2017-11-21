@@ -6,8 +6,8 @@
 
 namespace model {
 
-    PlayerShip::PlayerShip(double length, double height, double x_position, double y_position, double speed)
-            : MovingEntity(
-            length, height, x_position, y_position, speed) {}
 
+    PlayerShip::PlayerShip(float length, float height, float x_position, float y_position, float max_speed,
+                           float acceleration) : MovingEntity(length, height, x_position, y_position, max_speed,
+                                                              acceleration) {}
 }

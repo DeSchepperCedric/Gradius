@@ -11,7 +11,8 @@ namespace model {
 
     class PlayerShip : public MovingEntity {
     public:
-        PlayerShip(double length, double height, double x_position, double y_position, double speed);
+
+        PlayerShip(float length, float height, float x_position, float y_position, float max_speed, float acceleration);
 
     };
 

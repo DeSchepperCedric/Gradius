@@ -17,7 +17,11 @@ namespace controller {
 
         void set_Model(std::shared_ptr<model::Model> model);
 
-        void move_player_down();
+        void move_player(bool up, bool down, bool left, bool right);
+
+        void update();
+
+        void execute_key_presses();
     };
 
 }

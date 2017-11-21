@@ -9,38 +9,38 @@ namespace model{
 
 class Entity{
 protected:
-    double length;
-    double height;
+    float length;
+    float height;
 
     // coordinates of most upper left corner
-    double x_position;
-    double y_position;
+    float x_position;
+    float y_position;
 
-    double max_x_position = 4;
-    double min_x_position = -4;
+    float max_x_position = 4;
+    float min_x_position = -4;
 
-    double max_y_position = 3;
-    double min_y_position = -3;
+    float max_y_position = 3;
+    float min_y_position = -3;
 
     bool changed = false;
 public:
-    Entity(double length, double height, double x_position, double y_position);
+    Entity(float length, float height, float x_position, float y_position);
 
-    const double get_length() const;
+    const float get_length() const;
 
-    const double get_height() const;
+    const float get_height() const;
 
-    double get_x_position() const;
+    float get_x_position() const;
 
-    double get_y_position() const;
+    float get_y_position() const;
 
-    double get_max_x_position() const;
+    float get_max_x_position() const;
 
-    double get_min_x_position() const;
+    float get_min_x_position() const;
 
-    double get_max_y_position() const;
+    float get_max_y_position() const;
 
-    double get_min_y_position() const;
+    float get_min_y_position() const;
 
     bool is_changed() const;
 

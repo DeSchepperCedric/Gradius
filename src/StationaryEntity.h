@@ -12,7 +12,7 @@ namespace model {
 
     public:
 
-        StationaryEntity(double length, double height, double x_position, double y_position);
+        StationaryEntity(float length, float height, float x_position, float y_position);
     };
 
 }

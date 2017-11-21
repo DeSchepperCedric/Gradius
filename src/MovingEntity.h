@@ -11,11 +11,22 @@ namespace model {
 
     class MovingEntity : public Entity {
     protected:
-        double speed;
+        float horizontal_speed = 0.0f;
+        float vertical_speed = 0.0f;
+        float max_speed;
+        float acceleration;
+
+        bool horizontal_change = false;
+        bool vertical_change =false;
+
+        void check_speed();
+
+
 
     public:
 
-        MovingEntity(double length, double height, double x_position, double y_position, double speed);
+        MovingEntity(float length, float height, float x_position, float y_position, float max_speed,
+                     float acceleration);
 
         void move_right();
 
@@ -24,6 +35,12 @@ namespace model {
         void move_up();
 
         void move_down();
+
+        void stop_vertical_movement();
+
+        void stop_horizontal_movement();
+
+        void update();
     };
 
 }
