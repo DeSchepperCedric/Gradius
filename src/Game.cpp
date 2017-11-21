@@ -18,7 +18,7 @@ void Game::run() {
 Game::Game(view::View &view) : view(view) {
     model::Model::Shared model = std::make_shared<model::Model>();
 
-    std::shared_ptr<PlayerShip> player = std::make_shared<PlayerShip>(0.1,0.2,-3.0,3.0,0.05);
+    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.1,0.2,-3.0,3.0,0.05);
 
     sf::Texture texture;
     texture.loadFromFile("../ship.png");

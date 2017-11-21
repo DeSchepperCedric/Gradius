@@ -4,6 +4,10 @@
 
 #include "StationaryEntity.h"
 
-StationaryEntity::StationaryEntity(double length, double height, double x_position, double y_position) :
-        Entity(length, height, x_position, y_position) {}
+
+namespace model {
+    StationaryEntity::StationaryEntity(double length, double height, double x_position, double y_position) :
+            Entity(length, height, x_position, y_position) {}
+
+}
 

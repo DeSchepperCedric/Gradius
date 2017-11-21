@@ -13,7 +13,7 @@ Transformation& Transformation::get_instance() {
     return t;
 }
 
-sf::Vector2f Transformation::co_to_pixels(std::shared_ptr<const Entity> entity, std::shared_ptr<const sf::RenderWindow> window) {
+sf::Vector2f Transformation::co_to_pixels(std::shared_ptr<const model::Entity> entity, std::shared_ptr<const sf::RenderWindow> window) {
     /// make float for pixels??
     double co_x_max = entity->get_max_x_position();
     double co_y_max = entity->get_max_y_position();

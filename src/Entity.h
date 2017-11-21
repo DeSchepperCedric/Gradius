@@ -5,6 +5,7 @@
 #ifndef GRADIUS_ENTITY_H
 #define GRADIUS_ENTITY_H
 
+namespace model{
 
 class Entity{
 protected:
@@ -47,6 +48,8 @@ public:
 
 
 };
+
+}
 
 
 #endif //GRADIUS_ENTITY_H

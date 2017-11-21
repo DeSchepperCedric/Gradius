@@ -15,11 +15,11 @@ namespace view {
         friend class View;
 
     private:
-        std::shared_ptr<const Entity> entity;
+        std::shared_ptr<const model::Entity> entity;
     public:
         typedef std::shared_ptr<EntityRepresentation> Shared;
 
-        EntityRepresentation(const sf::Texture &texture, const std::shared_ptr<const Entity> &entity);
+        EntityRepresentation(const sf::Texture &texture, const std::shared_ptr<const model::Entity> &entity);
 
         void draw(std::shared_ptr<sf::RenderWindow> window);
 

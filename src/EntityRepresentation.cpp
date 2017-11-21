@@ -17,6 +17,6 @@ namespace view{
         window->draw(*this);
     }
 
-    EntityRepresentation::EntityRepresentation(const sf::Texture &texture, const std::shared_ptr<const Entity> &entity)
+    EntityRepresentation::EntityRepresentation(const sf::Texture &texture, const std::shared_ptr<const model::Entity> &entity)
             : Sprite(texture), entity(entity) {}
 }

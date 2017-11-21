@@ -7,11 +7,14 @@
 
 #include "MovingEntity.h"
 
-class PlayerShip: public MovingEntity {
-public:
-    PlayerShip(double length, double height, double x_position, double y_position, double speed);
+namespace model {
 
-};
+    class PlayerShip : public MovingEntity {
+    public:
+        PlayerShip(double length, double height, double x_position, double y_position, double speed);
 
+    };
+
+}
 
 #endif //GRADIUS_PLAYERSHIP_H

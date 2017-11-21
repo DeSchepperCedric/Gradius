@@ -7,22 +7,26 @@
 
 #include "Entity.h"
 
-class MovingEntity: public Entity  {
-protected:
-    double speed;
+namespace model {
 
-public:
+    class MovingEntity : public Entity {
+    protected:
+        double speed;
 
-    MovingEntity(double length, double height, double x_position, double y_position, double speed);
+    public:
 
-    void move_right();
+        MovingEntity(double length, double height, double x_position, double y_position, double speed);
 
-    void move_left();
+        void move_right();
 
-    void move_up();
+        void move_left();
 
-    void move_down();
-};
+        void move_up();
+
+        void move_down();
+    };
+
+}
 
 
 #endif //GRADIUS_MOVINGENTITY_H

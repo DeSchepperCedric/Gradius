@@ -7,12 +7,15 @@
 
 #include "Entity.h"
 
-class StationaryEntity : public Entity{
+namespace model {
+    class StationaryEntity : public Entity {
 
-public:
+    public:
 
-    StationaryEntity(double length, double height, double x_position, double y_position);
-};
+        StationaryEntity(double length, double height, double x_position, double y_position);
+    };
+
+}
 
 
 #endif //GRADIUS_STATIONARYENTITY_H

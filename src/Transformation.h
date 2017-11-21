@@ -20,7 +20,7 @@ public:
 
     Transformation& operator=(const Transformation& other) = delete;
 
-    sf::Vector2f co_to_pixels(std::shared_ptr<const Entity> entity, std::shared_ptr<const sf::RenderWindow> window);
+    sf::Vector2f co_to_pixels(std::shared_ptr<const model::Entity> entity, std::shared_ptr<const sf::RenderWindow> window);
 
 
 };
