@@ -7,6 +7,19 @@
 
 namespace model{
 
+    struct Co {
+        float x;
+        float y;
+    };
+
+    struct Hitbox {
+        Co upper_left;
+        Co lower_left;
+
+        Co upper_right;
+        Co lower_right;
+    };
+
 class Entity{
 protected:
     float length;
@@ -45,6 +58,8 @@ public:
     bool is_changed() const;
 
     void set_changed(bool changed);
+
+    Hitbox get_hitbox();
 
 
 };

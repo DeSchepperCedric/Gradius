@@ -48,6 +48,22 @@ namespace model {
         }
     }
 
+    void MovingEntity::check_borders() {
+        if(x_position  < min_x_position){
+            x_position = min_x_position;
+        }
+        else if(x_position +length > max_x_position){
+            x_position = max_x_position - length;
+        }
+
+        if(y_position > max_y_position){
+            y_position = max_y_position;
+        }
+        else if(y_position - height < min_y_position){
+            y_position = min_y_position + height;
+        }
+    }
+
 
     void MovingEntity::stop_horizontal_movement() {
         if(horizontal_speed > 0){
@@ -85,7 +101,11 @@ namespace model {
 
         x_position += horizontal_speed;
         y_position += vertical_speed;
+
+        check_borders();
     }
+
+
 
 
 }

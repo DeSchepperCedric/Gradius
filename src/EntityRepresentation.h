@@ -23,7 +23,7 @@ namespace view {
 
         void draw(std::shared_ptr<sf::RenderWindow> window);
 
-
+        void scale_representation_to_entity(const sf::Vector2u& window_size);
     };
 
 }

@@ -52,4 +52,16 @@ namespace model {
         Entity::changed = changed;
     }
 
+    Hitbox Entity::get_hitbox() {
+        Hitbox hitbox;
+
+        hitbox.upper_left = {x_position, y_position};
+        hitbox.lower_left = {x_position, y_position - height};
+
+        hitbox.upper_right = {x_position + length, y_position};
+        hitbox.lower_right = {x_position + length, y_position - height};
+
+        return hitbox;
+    }
+
 }

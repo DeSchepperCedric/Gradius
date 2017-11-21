@@ -19,7 +19,7 @@ void Game::run() {
 Game::Game(view::View &view) : view(view) {
     model::Model::Shared model = std::make_shared<model::Model>();
 
-    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.1,0.2,-3.0,3.0,0.075,0.015);
+    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.20,-3.0,3.0,0.075,0.015);
 
     sf::Texture texture;
     texture.loadFromFile("../ship.png");
@@ -28,11 +28,6 @@ Game::Game(view::View &view) : view(view) {
     model->set_player(player);
     controller.set_Model(model);
 
-    float x_scale = (float)((0.50*720.0) / (8.0 * 343.0));
-    float y_scale = (float)((0.25*540.0) / (6.0 * 198.0));
-
-
-    player_rep->setScale(x_scale, y_scale);
     view.add_entity_representation(player_rep);
     float fps = 30.0f;
     Stopwatch::get_instance();

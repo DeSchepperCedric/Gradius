@@ -21,7 +21,7 @@ namespace model {
 
         void check_speed();
 
-
+        void check_borders();
 
     public:
 

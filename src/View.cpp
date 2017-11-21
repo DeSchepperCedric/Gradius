@@ -19,6 +19,7 @@ namespace view {
     View::View(std::shared_ptr<sf::RenderWindow> window) : window(window) {}
 
     void View::add_entity_representation(EntityRepresentation::Shared entity_rep) {
+        entity_rep->scale_representation_to_entity(window->getSize());
         entity_representations.push_back(entity_rep);
     }
 };
