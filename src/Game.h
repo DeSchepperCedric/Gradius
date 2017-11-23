@@ -16,7 +16,7 @@ private:
     view::View view;
 
 public:
-    Game(view::View &view);
+    Game();
 
 
     void run();

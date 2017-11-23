@@ -7,12 +7,14 @@
 
 #include <memory>
 #include <vector>
+
 #include "Entity.h"
 #include "PlayerShip.h"
+#include "Subject.h"
 
 namespace model {
 
-    class Model {
+    class Model: public observer::Subject {
     private:
         std::vector<std::shared_ptr<Entity>> entities;
 

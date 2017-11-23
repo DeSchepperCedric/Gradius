@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/Cedric/Documents/CloudStation/School/GP/gradius
+CMAKE_SOURCE_DIR = /Users/Cedric/Documents/gradius
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/Cedric/Documents/CloudStation/School/GP/gradius
+CMAKE_BINARY_DIR = /Users/Cedric/Documents/gradius
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,9 +126,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Cedric/Documents/CloudStation/School/GP/gradius/CMakeFiles /Users/Cedric/Documents/CloudStation/School/GP/gradius/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Cedric/Documents/gradius/CMakeFiles /Users/Cedric/Documents/gradius/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Cedric/Documents/CloudStation/School/GP/gradius/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Cedric/Documents/gradius/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -331,6 +331,33 @@ src/MovingEntity.cpp.s:
 	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/src/MovingEntity.cpp.s
 .PHONY : src/MovingEntity.cpp.s
 
+src/Observer.o: src/Observer.cpp.o
+
+.PHONY : src/Observer.o
+
+# target to build an object file
+src/Observer.cpp.o:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/src/Observer.cpp.o
+.PHONY : src/Observer.cpp.o
+
+src/Observer.i: src/Observer.cpp.i
+
+.PHONY : src/Observer.i
+
+# target to preprocess a source file
+src/Observer.cpp.i:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/src/Observer.cpp.i
+.PHONY : src/Observer.cpp.i
+
+src/Observer.s: src/Observer.cpp.s
+
+.PHONY : src/Observer.s
+
+# target to generate assembly for a file
+src/Observer.cpp.s:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/src/Observer.cpp.s
+.PHONY : src/Observer.cpp.s
+
 src/PlayerShip.o: src/PlayerShip.cpp.o
 
 .PHONY : src/PlayerShip.o
@@ -411,6 +438,33 @@ src/Stopwatch.s: src/Stopwatch.cpp.s
 src/Stopwatch.cpp.s:
 	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/src/Stopwatch.cpp.s
 .PHONY : src/Stopwatch.cpp.s
+
+src/Subject.o: src/Subject.cpp.o
+
+.PHONY : src/Subject.o
+
+# target to build an object file
+src/Subject.cpp.o:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/src/Subject.cpp.o
+.PHONY : src/Subject.cpp.o
+
+src/Subject.i: src/Subject.cpp.i
+
+.PHONY : src/Subject.i
+
+# target to preprocess a source file
+src/Subject.cpp.i:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/src/Subject.cpp.i
+.PHONY : src/Subject.cpp.i
+
+src/Subject.s: src/Subject.cpp.s
+
+.PHONY : src/Subject.s
+
+# target to generate assembly for a file
+src/Subject.cpp.s:
+	$(MAKE) -f CMakeFiles/Gradius.dir/build.make CMakeFiles/Gradius.dir/src/Subject.cpp.s
+.PHONY : src/Subject.cpp.s
 
 src/Transformation.o: src/Transformation.cpp.o
 
@@ -524,6 +578,9 @@ help:
 	@echo "... src/MovingEntity.o"
 	@echo "... src/MovingEntity.i"
 	@echo "... src/MovingEntity.s"
+	@echo "... src/Observer.o"
+	@echo "... src/Observer.i"
+	@echo "... src/Observer.s"
 	@echo "... src/PlayerShip.o"
 	@echo "... src/PlayerShip.i"
 	@echo "... src/PlayerShip.s"
@@ -533,6 +590,9 @@ help:
 	@echo "... src/Stopwatch.o"
 	@echo "... src/Stopwatch.i"
 	@echo "... src/Stopwatch.s"
+	@echo "... src/Subject.o"
+	@echo "... src/Subject.i"
+	@echo "... src/Subject.s"
 	@echo "... src/Transformation.o"
 	@echo "... src/Transformation.i"
 	@echo "... src/Transformation.s"

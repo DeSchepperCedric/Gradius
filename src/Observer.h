@@ -5,10 +5,16 @@
 #ifndef GRADIUS_OBSERVER_H
 #define GRADIUS_OBSERVER_H
 
+#include <memory>
 
-class Observer {
+namespace observer {
 
-};
+    class Observer {
+    public:
+        typedef std::shared_ptr<observer::Observer> Shared;
+
+    };
+}
 
 
 #endif //GRADIUS_OBSERVER_H

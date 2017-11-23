@@ -15,16 +15,18 @@
 namespace view {
     class View {
     private:
-        std::list<std::shared_ptr<EntityRepresentation>> entity_representations;
+        std::list<view::EntityRepresentation::Shared> entity_representations;
     public:
         std::shared_ptr<sf::RenderWindow> window;
 
     public:
+        View() = default;
+
         View(std::shared_ptr<sf::RenderWindow> window);
 
         void update();
 
-        void add_entity_representation(EntityRepresentation::Shared entity_rep);
+        void add_entity_representation(EntityRepresentation::Unique entity_rep);
 
     };
 

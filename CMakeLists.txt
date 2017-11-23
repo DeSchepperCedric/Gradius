@@ -4,11 +4,11 @@
 cmake_minimum_required(VERSION 3.5)
 project(Gradius)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
  
 file(GLOB_RECURSE SOURCE_FILES "src/*.cpp")
-ADD_EXECUTABLE(Gradius ${SOURCE_FILES})
+ADD_EXECUTABLE(Gradius ${SOURCE_FILES} src/Observer.cpp src/Observer.h src/Subject.cpp src/Subject.h)
 
 
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake_modules/")

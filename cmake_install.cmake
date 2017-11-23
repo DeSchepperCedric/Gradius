@@ -1,4 +1,4 @@
-# Install script for directory: /Users/Cedric/Documents/CloudStation/School/GP/gradius
+# Install script for directory: /Users/Cedric/Documents/gradius
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,18 +29,18 @@ endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/Users/Cedric/Documents/CloudStation/School/GP/gradius/bin/Gradius")
+   "/Users/Cedric/Documents/gradius/bin/Gradius")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/Users/Cedric/Documents/CloudStation/School/GP/gradius/bin" TYPE EXECUTABLE FILES "/Users/Cedric/Documents/CloudStation/School/GP/gradius/Gradius")
-  if(EXISTS "$ENV{DESTDIR}/Users/Cedric/Documents/CloudStation/School/GP/gradius/bin/Gradius" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/Cedric/Documents/CloudStation/School/GP/gradius/bin/Gradius")
+file(INSTALL DESTINATION "/Users/Cedric/Documents/gradius/bin" TYPE EXECUTABLE FILES "/Users/Cedric/Documents/gradius/Gradius")
+  if(EXISTS "$ENV{DESTDIR}/Users/Cedric/Documents/gradius/bin/Gradius" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/Cedric/Documents/gradius/bin/Gradius")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/Library/Developer/CommandLineTools/usr/bin/strip" "$ENV{DESTDIR}/Users/Cedric/Documents/CloudStation/School/GP/gradius/bin/Gradius")
+      execute_process(COMMAND "/Library/Developer/CommandLineTools/usr/bin/strip" "$ENV{DESTDIR}/Users/Cedric/Documents/gradius/bin/Gradius")
     endif()
   endif()
 endif()
@@ -53,5 +53,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/Cedric/Documents/CloudStation/School/GP/gradius/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/Cedric/Documents/gradius/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

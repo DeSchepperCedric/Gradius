@@ -5,6 +5,8 @@
 #ifndef GRADIUS_ENTITY_H
 #define GRADIUS_ENTITY_H
 
+#include <memory>
+
 namespace model{
 
     struct Co {
@@ -37,6 +39,7 @@ protected:
 
     bool changed = false;
 public:
+
     Entity(float length, float height, float x_position, float y_position);
 
     const float get_length() const;
