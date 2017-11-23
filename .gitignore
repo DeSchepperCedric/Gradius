@@ -1,4 +1,9 @@
 build/*
 build/CMakeFiles/*
 CMakeFiles/*
+cmake_install.cmake
 CMakeCache.txt
+Gradius.cbp
+.DS_Store
+Makefile
+bin/*
