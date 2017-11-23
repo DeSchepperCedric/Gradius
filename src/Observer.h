@@ -6,6 +6,7 @@
 #define GRADIUS_OBSERVER_H
 
 #include <memory>
+#include "Notification.h"
 
 namespace observer {
 
@@ -13,7 +14,9 @@ namespace observer {
     public:
         typedef std::shared_ptr<observer::Observer> Shared;
 
+        virtual void on_notification(const Notification& notification) =0;
     };
+
 }
 
 

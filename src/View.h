@@ -9,15 +9,21 @@
 
 #include <memory>
 #include <list>
-
 #include <SFML/Graphics.hpp>
+#include <typeindex>
+#include <typeinfo>
+#include <unordered_map>
 
 namespace view {
-    class View {
+    class View : public observer::Observer {
     private:
-        std::list<view::EntityRepresentation::Shared> entity_representations;
+        std::vector<view::EntityRepresentation::Unique> entity_representations;
+
+        std::unordered_map<std::type_index,const sf::Texture> textures;
     public:
         std::shared_ptr<sf::RenderWindow> window;
+
+
 
     public:
         View() = default;
@@ -27,6 +33,12 @@ namespace view {
         void update();
 
         void add_entity_representation(EntityRepresentation::Unique entity_rep);
+
+        void add_entity_representation_of_entity(std::weak_ptr<const model::Entity> weak_entity);
+
+        void remove_entity_representation_of_entity(std::weak_ptr<const model::Entity> weak_entity);
+
+        virtual void on_notification(const observer::Notification& notification);
 
     };
 

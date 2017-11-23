@@ -20,6 +20,7 @@ namespace observer {
         void register_observer(Observer::Shared observer);
 
         void unregister_observer(Observer::Shared observer);
+
     };
 }
 

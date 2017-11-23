@@ -12,14 +12,19 @@ namespace view{
     void EntityRepresentation::draw(std::shared_ptr<sf::RenderWindow> window) {
         //if (!entity->is_changed()) return;
 
-        sf::Vector2f position = Transformation::get_instance().co_to_pixels(weak_entity.lock(), window);
-        this->setPosition(position);
+        if(to_be_moved){
+            sf::Vector2f position = Transformation::get_instance().co_to_pixels(weak_entity.lock(), window);
+            EntityRepresentation::setPosition(position);
+
+            // to_be_moved = false;  when observer is implementend
+        }
         window->draw(*this);
     }
 
-    EntityRepresentation::EntityRepresentation(const sf::Texture &texture, const std::weak_ptr<const model::Entity> &weak_entity)
-            : Sprite(texture), weak_entity(weak_entity) {
-    }
+    EntityRepresentation::EntityRepresentation(const sf::Texture &texture,
+                                               const std::weak_ptr<const model::Entity> &weak_entity) :
+            Sprite(texture),
+            weak_entity(weak_entity) {}
 
 
     void EntityRepresentation::scale_representation_to_entity(const sf::Vector2u& window_size) {
@@ -29,4 +34,17 @@ namespace view{
 
         this->scale(x_scale, y_scale);
     }
+
+    void EntityRepresentation::on_notification(const observer::Notification& notification) {
+        if(auto movement = dynamic_cast<const observer::MovementNotification*>(&notification)){
+            EntityRepresentation::to_be_moved = true;
+        }
+
+    }
+
+    const std::weak_ptr<const model::Entity> &EntityRepresentation::get_weak_entity() const {
+        return weak_entity;
+    }
+
+
 }
