@@ -20,7 +20,7 @@ Game::Game() {
     auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(800, 600), "Gradius");
     Game::view = view::View(pointer);
     model::Model::Shared model = std::make_shared<model::Model>();
-
+    // speed
     std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.20,-3.0,3.0,0.075,0.015);
 
     sf::Texture texture;
