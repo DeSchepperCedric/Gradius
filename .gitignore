@@ -7,3 +7,4 @@ Gradius.cbp
 .DS_Store
 Makefile
 bin/*
+.idea/*
