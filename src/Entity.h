@@ -6,6 +6,7 @@
 #define GRADIUS_ENTITY_H
 
 #include <memory>
+#include "Subject.h"
 
 namespace model{
 
@@ -22,7 +23,7 @@ namespace model{
         Co lower_right;
     };
 
-class Entity{
+class Entity : public observer::Subject {
 protected:
     float length;
     float height;

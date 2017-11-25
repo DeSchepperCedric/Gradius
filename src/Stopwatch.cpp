@@ -7,6 +7,7 @@
 
 Stopwatch::Stopwatch() {
     clock = sf::Clock();
+    //start = std::chrono::high_resolution_clock::now();
 }
 
 Stopwatch& Stopwatch::get_instance() {

@@ -26,11 +26,18 @@ Game::Game() {
     sf::Texture texture;
     texture.loadFromFile("../ship.png");
 
-    view::EntityRepresentation::Unique player_rep= std::make_unique<view::EntityRepresentation>(texture, player);
+    // shared cause observer pattern uses weak pointers to link an observer with its subject
+    view::EntityRepresentation::Shared player_rep= std::make_shared<view::EntityRepresentation>(texture, player);
+
+
+    player->register_observer(player_rep);
+
     model->set_player(player);
+    
+
     controller.set_Model(model);
 
-    view.add_entity_representation(std::move(player_rep));
+    view.add_entity_representation(player_rep);
     float fps = 30.0f;
     Stopwatch::get_instance();
 

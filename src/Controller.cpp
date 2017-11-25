@@ -14,30 +14,6 @@ namespace controller {
         Controller::model = model;
     }
 
-
-    void Controller::move_player(bool up, bool down, bool left, bool right){
-        if(!up and !down){
-            model->get_player()->stop_vertical_movement();
-        }
-        else if(up and !down){
-            model->get_player()->move_up();
-        }
-        else if(down and !up){
-            model->get_player()->move_down();
-        }
-
-        if(!left and !right){
-            model->get_player()->stop_horizontal_movement();
-        }
-        else if(left and !right){
-            model->get_player()->move_left();
-        }
-        else if(right and !left){
-            model->get_player()->move_right();
-        }
-
-    }
-
     void Controller::update() {
         Controller::model->get_player()->update();
     }
@@ -48,6 +24,6 @@ namespace controller {
         bool left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
         bool right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
 
-        move_player(up, down, left, right);
+        model->get_player()->move(up, down, left, right);
     }
 }

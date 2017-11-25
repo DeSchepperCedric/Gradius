@@ -17,7 +17,9 @@
 namespace view {
     class View : public observer::Observer {
     private:
-        std::vector<view::EntityRepresentation::Unique> entity_representations;
+        // Shared pointers to Entity_representations
+        // reason : Entity_rep an observer to a subject (entity) so the subject needs a weak pointer to its observer
+        std::vector<view::EntityRepresentation::Shared> entity_representations;
 
         std::unordered_map<std::type_index,const sf::Texture> textures;
     public:
@@ -32,7 +34,7 @@ namespace view {
 
         void update();
 
-        void add_entity_representation(EntityRepresentation::Unique entity_rep);
+        void add_entity_representation(EntityRepresentation::Shared entity_rep);
 
         void add_entity_representation_of_entity(std::weak_ptr<const model::Entity> weak_entity);
 

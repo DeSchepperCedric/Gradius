@@ -3,6 +3,8 @@
 //
 
 #include "MovingEntity.h"
+#include "Notification.h"
+
 #include <iostream>
 #include <math.h>
 using std::cout;
@@ -66,43 +68,58 @@ namespace model {
 
 
     void MovingEntity::stop_horizontal_movement() {
-        if(horizontal_speed > 0){
-
-            horizontal_speed = 0.00;
-        }
-        if(horizontal_speed < 0){
-
-            horizontal_speed = 0.00;
-        }
-
-        if(fabsf(horizontal_speed) <= 0.005 and fabsf(horizontal_speed) > 0){
-            horizontal_speed = 0;
-        }
+        horizontal_speed = 0.0;
     }
 
     void MovingEntity::stop_vertical_movement() {
-        if(vertical_speed > 0){
-
-            vertical_speed = 0.00;
-        }
-        if(vertical_speed < 0){
-
-            vertical_speed = 0.00;
-        }
-
-        if(fabsf(vertical_speed) <= 0.005 and fabsf(vertical_speed) > 0){
-            vertical_speed = 0;
-        }
+        vertical_speed = 0.0;
     }
 
+    void MovingEntity::move(bool up, bool down, bool left, bool right) {
+        bool change = false;
+        // vertical movement
+        if(!up and !down){
+            stop_vertical_movement();
+        }
+        else if(up and !down){
+            move_up();
+            change = true;
+        }
+        else if(down and !up){
+            move_down();
+            change = true;
+        }
 
-    void MovingEntity::update() {
+        // horizontal movement
+        if(!left and !right){
+            stop_horizontal_movement();
+        }
+        else if(left and !right){
+            move_left();
+            change = true;
+        }
+        else if(right and !left){
+            move_right();
+            change = true;
+        }
+
+        // keeps speed below maximum speed
         check_speed();
 
         x_position += horizontal_speed;
         y_position += vertical_speed;
 
+        // keeps entity between window borders
         check_borders();
+
+        // notify observers of movement change
+        if(change){
+            notify(observer::MovementNotification());
+        }
+    }
+
+
+    void MovingEntity::update() {
     }
 
 

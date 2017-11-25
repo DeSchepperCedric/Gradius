@@ -12,7 +12,7 @@
 #include "PlayerShip.h"
 #include "Subject.h"
 
-namespace model {
+namespace model  {
 
     class Model: public observer::Subject {
     private:

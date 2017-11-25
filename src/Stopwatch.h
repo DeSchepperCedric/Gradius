@@ -6,13 +6,15 @@
 #define GRADIUS_STOPWATCH_H
 
 #include <SFML/System/Clock.hpp>
+#include <chrono>
 
 class Stopwatch {
+
 private:
     Stopwatch();
 
     sf::Clock clock;
-
+    //std::chrono::time_point start;
 
 public:
     static Stopwatch& get_instance();

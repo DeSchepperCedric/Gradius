@@ -3,6 +3,7 @@
 //
 
 #include "Notification.h"
+#include "Entity.h"
 
 namespace observer{
 

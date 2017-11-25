@@ -8,14 +8,25 @@
 
 namespace observer{
 
-    void Subject::register_observer(Observer::Shared observer) {
+    void Subject::register_observer(Observer::Weak observer) {
         observers.push_back(observer);
     }
 
     void Subject::unregister_observer(Observer::Shared observer) {
-        // using erase-remove idiom to find and erase all occurences of the observer
-        auto it = std::find(observers.begin(), observers.end(), observer);
+
+        auto it = observers.begin();
+
+        do {
+            if((*it).lock() == observer) break;
+            it++;
+        } while (it != observers.end());
         observers.erase(it);
+    }
+
+    void Subject::notify(const Notification &notification) {
+        for(auto & observer : observers){
+            observer.lock()->on_notification(notification);
+        }
     }
 
 }

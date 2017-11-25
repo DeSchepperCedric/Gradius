@@ -7,7 +7,10 @@
 
 #include <memory>
 #include <string>
-#include "Entity.h"
+
+namespace model{
+    class Entity;
+}
 
 namespace observer {
     class Notification {

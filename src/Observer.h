@@ -13,6 +13,7 @@ namespace observer {
     class Observer {
     public:
         typedef std::shared_ptr<observer::Observer> Shared;
+        typedef std::weak_ptr<observer::Observer> Weak;
 
         virtual void on_notification(const Notification& notification) =0;
     };
