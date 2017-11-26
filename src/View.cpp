@@ -25,8 +25,9 @@ namespace view {
     }
 
     void View::add_entity_representation_of_entity(std::weak_ptr<const model::Entity> weak_entity) {
-        const sf::Texture texture = textures.at(std::type_index(typeid(weak_entity.lock().get())));
-        EntityRepresentation::Shared entity_rep = std::make_shared<EntityRepresentation>(texture, weak_entity);
+
+        sf::Texture* texture = textures.at(weak_entity.lock()->get_name());
+        EntityRepresentation::Shared entity_rep = std::make_shared<EntityRepresentation>(*texture, weak_entity);
 
         entity_rep->scale_representation_to_entity(window->getSize());
         entity_representations.push_back(entity_rep);
@@ -46,9 +47,13 @@ namespace view {
             remove_entity_representation_of_entity(destruction->get_weak_entity());
         }
         else if(auto creation = dynamic_cast<const observer::CreationNotification*>(&notification)){
-            std::cout << "check"<<std::endl;
             add_entity_representation_of_entity(creation->get_weak_entity());
         }
+    }
+
+    void View::add_texture(sf::Texture* texture, const std::string &type) {
+        textures[type] = texture;
+
     }
 
 

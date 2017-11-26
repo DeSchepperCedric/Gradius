@@ -18,45 +18,41 @@ void Game::run() {
 
 Game::Game() {
     auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(800, 600), "Gradius");
-    Game::view = view::View(pointer);
+    view::View::Shared view = std::make_shared<view::View>(view::View(pointer));
+    Game::view = view;
     model::Model::Shared model = std::make_shared<model::Model>();
     // speed
-    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.20,-3.0,3.0,0.1,0.05);
+    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.20,-3.0,3.0,10,1.0);
+    sf::Texture temp;
+    temp.loadFromFile("../ship.png");
+    sf::Texture* texture = &temp;
 
-    sf::Texture texture;
-    texture.loadFromFile("../ship.png");
-
-    // shared cause observer pattern uses weak pointers to link an observer with its subject
-    view::EntityRepresentation::Shared player_rep= std::make_shared<view::EntityRepresentation>(texture, player);
-
-
-    player->register_observer(player_rep);
-
+    view->add_texture(texture, "PlayerShip");
+    std::weak_ptr<view::View> weak_view(view);
+    model->register_observer(weak_view);
+    //player->register_observer(player_rep);
     model->set_player(player);
-    
 
     controller.set_Model(model);
 
-    view.add_entity_representation(player_rep);
-    float fps = 30.0f;
+    //view.add_entity_representation(player_rep);
     Stopwatch::get_instance();
 
     bool up;
     bool down;
     bool right;
     bool left;
-    std::cout << "TEST/ "<< Stopwatch::get_instance().getFrame_time()<<std::endl;
-    while (view.window->isOpen())
+    while (view->window->isOpen())
     {
 
 
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
-        while (view.window->pollEvent(event))
+        while (view->window->pollEvent(event))
         {
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed or (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))) {
-                view.window->close();
+                view->window->close();
             }
 
 
@@ -64,10 +60,9 @@ Game::Game() {
         }
 
         controller.execute_key_presses(Stopwatch::get_instance().getFrame_time());
-        controller.update();
-        view.window->clear();
-        view.update();
-        view.window->display();
+        view->window->clear();
+        view->update();
+        view->window->display();
 
         Stopwatch::get_instance().reset();
 

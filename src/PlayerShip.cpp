@@ -7,7 +7,10 @@
 namespace model {
 
 
-    PlayerShip::PlayerShip(float length, float height, float x_position, float y_position, float max_speed,
-                           float acceleration) : MovingEntity(length, height, x_position, y_position, max_speed,
-                                                              acceleration) {}
+
+    PlayerShip::PlayerShip(float length, float height, float x_position, float y_position, float speed,
+                           double time_before_shot) : Ship(length, height, x_position, y_position, speed,
+                                                           time_before_shot) {
+        name = "PlayerShip";
+    }
 }

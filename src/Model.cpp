@@ -7,10 +7,6 @@
 
 namespace model{
 
-    const std::shared_ptr<PlayerShip>& Model::get_player() const {
-        return player;
-    }
-
     void Model::set_player(std::shared_ptr<PlayerShip> player) {
         Model::player = player;
 
@@ -24,6 +20,10 @@ namespace model{
         // notify observers of entity creation
         std::weak_ptr<const Entity> weak_entity(entity);
         notify(observer::CreationNotification(entity));
+    }
+
+    void Model::update_player(bool up, bool down, bool left, bool right, double time) {
+        player->move(up, down, left, right, time);
     }
 }
 

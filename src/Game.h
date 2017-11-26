@@ -13,7 +13,7 @@ class Game {
 private:
     controller::Controller controller;
 
-    view::View view;
+    view::View::Shared view;
 
 public:
     Game();

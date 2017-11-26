@@ -20,14 +20,16 @@ namespace model  {
 
         std::shared_ptr<PlayerShip> player;
 
+
+
     public:
         typedef std::shared_ptr<Model> Shared;
-
-        const std::shared_ptr<PlayerShip> &get_player() const;
 
         void add_entity(std::shared_ptr<Entity> entity);
 
         void set_player(std::shared_ptr<PlayerShip> player);
+
+        void update_player(bool up, bool down, bool left, bool right, double time);
     };
 
 }

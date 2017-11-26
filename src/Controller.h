@@ -17,7 +17,6 @@ namespace controller {
 
         void set_Model(std::shared_ptr<model::Model> model);
 
-        void update();
 
         void execute_key_presses(const double time);
     };

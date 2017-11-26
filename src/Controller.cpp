@@ -14,9 +14,7 @@ namespace controller {
         Controller::model = model;
     }
 
-    void Controller::update() {
-        Controller::model->get_player()->update();
-    }
+
 
     void Controller::execute_key_presses(const double time) {
         bool up = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
@@ -24,6 +22,6 @@ namespace controller {
         bool left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
         bool right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
 
-        model->get_player()->move(up, down, left, right, time);
+        model->update_player(up,down,left,right,time);
     }
 }

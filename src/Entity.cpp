@@ -5,11 +5,14 @@
 #include "Entity.h"
 
 namespace model {
-    Entity::Entity(float length, float height, float x_position, float y_position) : length(length), height(height),
-                                                                                         x_position(x_position),
-                                                                                         y_position(y_position) {
-        /// exceptions to be added!!
-    }
+
+    Entity::Entity(float length, float height, float x_position, float y_position, float speed) :
+            length(length),
+            height(height),
+            x_position(x_position),
+            y_position(y_position),
+            speed(speed) {}
+
 
 
     const float Entity::get_length() const {
@@ -44,12 +47,77 @@ namespace model {
         return min_y_position;
     }
 
-    bool Entity::is_changed() const {
-        return changed;
+    void Entity::move_down(const double time) {
+        y_position -= (speed * time);
     }
 
-    void Entity::set_changed(bool changed) {
-        Entity::changed = changed;
+    void Entity::move_up(const double time) {
+        y_position += (speed * time);
+    }
+
+    void Entity::move_right(const double time) {
+        x_position += (speed * time);
+
+    }
+
+    void Entity::move_left(const double time) {
+        x_position -= (speed * time);
+    }
+
+    void Entity::check_borders() {
+        if(x_position  < min_x_position){
+            x_position = min_x_position;
+        }
+        else if(x_position +length > max_x_position){
+            x_position = max_x_position - length;
+        }
+
+        if(y_position > max_y_position){
+            y_position = max_y_position;
+        }
+        else if(y_position - height < min_y_position){
+            y_position = min_y_position + height;
+        }
+
+    }
+
+    void Entity::move(bool up, bool down, bool left, bool right, const double time) {
+        bool change = false;
+        // vertical movement
+        if(!up and !down){
+
+        }
+        else if(up and !down){
+            move_up(time);
+            change = true;
+        }
+        else if(down and !up){
+            move_down(time);
+            change = true;
+        }
+
+        // horizontal movement
+        if(!left and !right){
+
+        }
+        else if(left and !right){
+            move_left(time);
+            change = true;
+        }
+        else if(right and !left){
+            move_right(time);
+            change = true;
+        }
+
+
+
+        // keeps entity between window borders
+        check_borders();
+
+        // notify observers of movement change
+        if(change){
+            notify(observer::MovementNotification());
+        }
     }
 
     Hitbox Entity::get_hitbox() {
@@ -63,5 +131,11 @@ namespace model {
 
         return hitbox;
     }
+
+    const std::string &Entity::get_name() const {
+        return name;
+    }
+
+
 
 }

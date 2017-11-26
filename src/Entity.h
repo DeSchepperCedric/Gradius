@@ -1,4 +1,4 @@
-//
+    //
 // Created by Cedric De Schepper on 13/11/17.
 //
 
@@ -7,6 +7,8 @@
 
 #include <memory>
 #include "Subject.h"
+
+#include <typeindex>
 
 namespace model{
 
@@ -25,6 +27,8 @@ namespace model{
 
 class Entity : public observer::Subject {
 protected:
+    std::string name = "Entity";
+
     float length;
     float height;
 
@@ -38,10 +42,21 @@ protected:
     float max_y_position = 3;
     float min_y_position = -3;
 
-    bool changed = false;
+    float speed;
+
+    void move_right(const double time);
+
+    void move_left(const double time);
+
+    void move_up(const double time);
+
+    void move_down(const double time);
+
+    void check_borders();
+
 public:
 
-    Entity(float length, float height, float x_position, float y_position);
+    Entity(float length, float height, float x_position, float y_position, float speed);
 
     const float get_length() const;
 
@@ -59,13 +74,11 @@ public:
 
     float get_min_y_position() const;
 
-    bool is_changed() const;
-
-    void set_changed(bool changed);
-
     Hitbox get_hitbox();
 
+    const std::string &get_name() const;
 
+    void move(bool up, bool down, bool left, bool right, double time);
 };
 
 }
