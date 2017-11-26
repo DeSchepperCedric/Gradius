@@ -28,15 +28,15 @@ namespace model {
         MovingEntity(float length, float height, float x_position, float y_position, float max_speed,
                      float acceleration);
 
-        void move(bool up, bool down, bool left, bool right);
+        void move(bool up, bool down, bool left, bool right, const double time);
 
-        void move_right();
+        void move_right(const double time);
 
-        void move_left();
+        void move_left(const double time);
 
-        void move_up();
+        void move_up(const double time);
 
-        void move_down();
+        void move_down(const double time);
 
         void stop_vertical_movement();
 

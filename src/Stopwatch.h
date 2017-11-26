@@ -13,18 +13,18 @@ class Stopwatch {
 private:
     Stopwatch();
 
-    sf::Clock clock;
-    //std::chrono::time_point start;
+    std::chrono::high_resolution_clock::time_point start;
+
+    double frame_time = 0.0;
 
 public:
     static Stopwatch& get_instance();
-
 
     Stopwatch(const Stopwatch& other) = delete;
 
     Stopwatch& operator=(const Stopwatch& other) = delete;
 
-    float get_time() const;
+    double getFrame_time() const;
 
     void reset();
 

@@ -21,7 +21,7 @@ Game::Game() {
     Game::view = view::View(pointer);
     model::Model::Shared model = std::make_shared<model::Model>();
     // speed
-    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.20,-3.0,3.0,0.075,0.015);
+    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.20,-3.0,3.0,0.1,0.05);
 
     sf::Texture texture;
     texture.loadFromFile("../ship.png");
@@ -45,11 +45,11 @@ Game::Game() {
     bool down;
     bool right;
     bool left;
-
+    std::cout << "TEST/ "<< Stopwatch::get_instance().getFrame_time()<<std::endl;
     while (view.window->isOpen())
     {
 
-        if(Stopwatch::get_instance().get_time() < (1.0 / fps)) continue;
+
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
         while (view.window->pollEvent(event))
@@ -63,7 +63,7 @@ Game::Game() {
 
         }
 
-        controller.execute_key_presses();
+        controller.execute_key_presses(Stopwatch::get_instance().getFrame_time());
         controller.update();
         view.window->clear();
         view.update();

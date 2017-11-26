@@ -14,20 +14,20 @@ namespace model {
 
 
 
-    void MovingEntity::move_down() {
-        vertical_speed -= acceleration;
+    void MovingEntity::move_down(const double time) {
+        vertical_speed -= (acceleration * time);
     }
 
-    void MovingEntity::move_up() {
-        vertical_speed += acceleration;
+    void MovingEntity::move_up(const double time) {
+        vertical_speed += (acceleration * time);
     }
 
-    void MovingEntity::move_right() {
-        horizontal_speed += acceleration;
+    void MovingEntity::move_right(const double time) {
+        horizontal_speed += (acceleration * time);
     }
 
-    void MovingEntity::move_left() {
-        horizontal_speed -= acceleration;
+    void MovingEntity::move_left(const double time) {
+        horizontal_speed -= (acceleration * time);
     }
 
     MovingEntity::MovingEntity(float length, float height, float x_position, float y_position, float max_speed,
@@ -75,18 +75,18 @@ namespace model {
         vertical_speed = 0.0;
     }
 
-    void MovingEntity::move(bool up, bool down, bool left, bool right) {
+    void MovingEntity::move(bool up, bool down, bool left, bool right, const double time) {
         bool change = false;
         // vertical movement
         if(!up and !down){
             stop_vertical_movement();
         }
         else if(up and !down){
-            move_up();
+            move_up(time);
             change = true;
         }
         else if(down and !up){
-            move_down();
+            move_down(time);
             change = true;
         }
 
@@ -95,11 +95,11 @@ namespace model {
             stop_horizontal_movement();
         }
         else if(left and !right){
-            move_left();
+            move_left(time);
             change = true;
         }
         else if(right and !left){
-            move_right();
+            move_right(time);
             change = true;
         }
 

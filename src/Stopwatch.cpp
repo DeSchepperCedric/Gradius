@@ -6,8 +6,7 @@
 #include <iostream>
 
 Stopwatch::Stopwatch() {
-    clock = sf::Clock();
-    //start = std::chrono::high_resolution_clock::now();
+    start = std::chrono::high_resolution_clock::now();
 }
 
 Stopwatch& Stopwatch::get_instance() {
@@ -15,11 +14,16 @@ Stopwatch& Stopwatch::get_instance() {
     return s;
 }
 
-float Stopwatch::get_time() const {
-    return clock.getElapsedTime().asSeconds();
-}
 
 void Stopwatch::reset() {
-    clock.restart();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> time = end - start;
+
+    frame_time = time.count();
+    start = end;
+}
+
+double Stopwatch::getFrame_time() const {
+    return frame_time;
 }
 

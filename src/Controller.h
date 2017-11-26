@@ -19,7 +19,7 @@ namespace controller {
 
         void update();
 
-        void execute_key_presses();
+        void execute_key_presses(const double time);
     };
 
 }
