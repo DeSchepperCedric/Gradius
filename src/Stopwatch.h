@@ -8,27 +8,29 @@
 #include <SFML/System/Clock.hpp>
 #include <chrono>
 
-class Stopwatch {
+#include "Singleton.h"
 
-private:
-    Stopwatch();
+namespace utils {
 
-    std::chrono::high_resolution_clock::time_point start;
+    class Stopwatch : public Singleton<Stopwatch> {
+        friend class Singleton<Stopwatch>;
+    private:
 
-    double frame_time = 0.0;
+        std::chrono::high_resolution_clock::time_point start;
 
-public:
-    static Stopwatch& get_instance();
+        double frame_time = 0.0;
 
-    Stopwatch(const Stopwatch& other) = delete;
+        Stopwatch();
 
-    Stopwatch& operator=(const Stopwatch& other) = delete;
+    public:
 
-    double getFrame_time() const;
+        double getFrame_time() const;
 
-    void reset();
+        void reset();
 
-};
+    };
+
+}
 
 
 #endif //GRADIUS_STOPWATCH_H

@@ -10,20 +10,19 @@
 #include "Entity.h"
 #include <SFML/Graphics.hpp>
 
-class Transformation {
-private:
-    Transformation();
-public:
-    static Transformation& get_instance();
+#include "Singleton.h"
 
-    Transformation(const Transformation& other) = delete;
+namespace utils{
+    class Transformation : public Singleton<Transformation> {
+        friend class Singleton<Transformation>;
+    private:
+        Transformation() = default;
 
-    Transformation& operator=(const Transformation& other) = delete;
+    public:
 
-    sf::Vector2f co_to_pixels(std::shared_ptr<const model::Entity> entity, std::shared_ptr<const sf::RenderWindow> window);
-
-
-};
+        sf::Vector2f co_to_pixels(std::shared_ptr<const model::Entity> entity, std::shared_ptr<const sf::RenderWindow> window);
+    };
+}
 
 
 #endif //GRADIUS_TRANSFORMATION_H

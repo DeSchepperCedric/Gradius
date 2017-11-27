@@ -36,7 +36,7 @@ Game::Game() {
     controller.set_Model(model);
 
     //view.add_entity_representation(player_rep);
-    Stopwatch::get_instance();
+    utils::Stopwatch::get_instance();
 
     bool up;
     bool down;
@@ -59,12 +59,12 @@ Game::Game() {
 
         }
 
-        controller.execute_key_presses(Stopwatch::get_instance().getFrame_time());
+        controller.execute_key_presses(utils::Stopwatch::get_instance().getFrame_time());
         view->window->clear();
         view->update();
         view->window->display();
 
-        Stopwatch::get_instance().reset();
+        utils::Stopwatch::get_instance().reset();
 
 
     }
