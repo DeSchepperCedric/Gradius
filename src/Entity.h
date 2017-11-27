@@ -18,11 +18,11 @@ namespace model{
     };
 
     struct Hitbox {
-        Co upper_left;
-        Co lower_left;
+        float max_x;
+        float max_y;
 
-        Co upper_right;
-        Co lower_right;
+        float min_x;
+        float min_y;
     };
 
 class Entity : public observer::Subject {
@@ -56,6 +56,7 @@ protected:
 
     std::weak_ptr<Entity> weak_entity;
 
+    void destroy();
 
 public:
 
@@ -87,9 +88,7 @@ public:
 
     Co get_center() const;
 
-    virtual void update(double time);
-
-    void destroy();
+    virtual void update(const double time);
 
     void set_weak_entity(const std::weak_ptr<Entity> &weak_entity);
 };

@@ -20,6 +20,8 @@ namespace model  {
 
         std::shared_ptr<PlayerShip> player;
 
+        float world_speed = 10.0f;
+
     public:
         typedef std::shared_ptr<Model> Shared;
 

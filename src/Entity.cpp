@@ -66,11 +66,24 @@ namespace model {
     }
 
     void Entity::check_borders() {
-        if(x_position > max_x_position){
-            destroy();
-            return;
-        }
+        Hitbox hitbox = get_hitbox();
 
+        if(hitbox.min_x > max_x_position){
+            std::cout <<"DAM1"<<std::endl;
+            destroy();
+        }
+        else if(hitbox.max_x < min_x_position){
+            std::cout <<"DAM2"<<std::endl;
+            destroy();
+        }
+        else if(hitbox.min_y > max_y_position){
+            destroy();
+            std::cout <<"DAM3"<<std::endl;
+        }
+        else if(hitbox.max_y < min_x_position){
+            destroy();
+            std::cout <<"DAM4"<<std::endl;
+        }
     }
 
     void Entity::move(bool up, bool down, bool left, bool right, const double time) {
@@ -115,11 +128,11 @@ namespace model {
     Hitbox Entity::get_hitbox() {
         Hitbox hitbox;
 
-        hitbox.upper_left = {x_position, y_position};
-        hitbox.lower_left = {x_position, y_position - height};
+        hitbox.min_x = x_position;
+        hitbox.max_x = x_position + length;
 
-        hitbox.upper_right = {x_position + length, y_position};
-        hitbox.lower_right = {x_position + length, y_position - height};
+        hitbox.min_y = y_position - height;
+        hitbox.max_y = y_position;
 
         return hitbox;
     }
@@ -135,7 +148,7 @@ namespace model {
         return co;
     }
 
-    void Entity::update(double time) {}
+    void Entity::update(const double time) {}
 
     float Entity::get_speed() const {
         return speed;

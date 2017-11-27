@@ -7,6 +7,7 @@
 #include "Entity.h"
 #include <SFML/Graphics.hpp>
 #include "Stopwatch.h"
+#include "Obstacle.h"
 
 #include <iostream>
 using std::cout;
@@ -54,7 +55,7 @@ void Game::run() {
 }
 
 Game::Game() {
-    auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(1600, 1200), "Gradius");
+    auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(1200, 900), "Gradius");
     view::View::Shared view = std::make_shared<view::View>(view::View(pointer));
     Game::view = view;
 
@@ -80,6 +81,13 @@ Game::Game() {
     model->register_observer(weak_view);
     //player->register_observer(player_rep);
     model->set_player(player);
+
+    std::shared_ptr<model::Obstacle> ob = std::make_shared<model::Obstacle>(0.40,0.80,4.0,0.0,5);
+    sf::Texture ob_text;
+    ob_text.loadFromFile("../images/astroid.jpg");
+    view->add_texture(ob_text, "Obstacle");
+
+    model->add_entity(ob);
 
     controller.set_Model(model);
 

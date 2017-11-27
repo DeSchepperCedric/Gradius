@@ -26,12 +26,10 @@ namespace model{
         entity->set_weak_entity(weak_entity);
 
 
-
-
         entities.push_back(std::move(entity));
+        std::cout << entities.size()<<endl;
 
         // notify observers of entity creation
-
         notify(observer::CreationNotification(weak_entity));
     }
 
@@ -72,6 +70,7 @@ namespace model{
     }
 
     void Model::update_entities(double time) {
+        std::cout << entities.size();
         for(auto &entity : entities){
             entity->update(time);
         }
