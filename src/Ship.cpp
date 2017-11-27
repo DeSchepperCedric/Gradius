@@ -7,11 +7,6 @@
 
 namespace model {
 
-    Ship::Ship(float length, float height, float x_position, float y_position, float speed,
-                      double time_before_shot)
-            : Entity(length, height, x_position, y_position, speed), time_before_shot(time_before_shot) {
-        name = "Ship";
-    }
 
     Co Ship::get_gun_position() {
         Co gun;
@@ -33,6 +28,12 @@ namespace model {
     void Ship::update(const double time) {
         remaining_time_before_shot -= time;
         if(remaining_time_before_shot < 0) remaining_time_before_shot = 0.0;
+    }
+
+    Ship::Ship(float length, float height, float x_position, float y_position, float speed, int health, int damage,
+               double time_before_shot) : Entity(length, height, x_position, y_position, speed, health, damage),
+                                          time_before_shot(time_before_shot) {
+        name = "ship";
     }
 
 

@@ -44,6 +44,9 @@ protected:
 
     float speed;
 
+    int health;
+    int damage;
+
     void move_right(const double time);
 
     void move_left(const double time);
@@ -59,8 +62,9 @@ protected:
     void destroy();
 
 public:
+    typedef std::shared_ptr<Entity> Shared;
 
-    Entity(float length, float height, float x_position, float y_position, float speed);
+    Entity(float length, float height, float x_position, float y_position, float speed, int health, int damage);
 
     const float get_length() const;
 
@@ -91,6 +95,17 @@ public:
     virtual void update(const double time);
 
     void set_weak_entity(const std::weak_ptr<Entity> &weak_entity);
+
+    // used for colision handling
+    float get_radius();
+
+    int get_health() const;
+
+    int get_damage() const;
+
+    void lose_lives(int lives);
+
+    void check_lives();
 };
 
 }

@@ -10,7 +10,7 @@
 namespace model {
     class Obstacle : public Entity{
     public:
-        Obstacle(float length, float height, float x_position, float y_position, float speed);
+        Obstacle(float length, float height, float x_position, float y_position, float speed, int health, int damage);
 
         void update(const double time);
     };

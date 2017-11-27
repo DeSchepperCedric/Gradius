@@ -22,10 +22,18 @@ namespace model  {
 
         float world_speed = 10.0f;
 
+        void check_for_collisions(const Entity::Shared& entity);
+
+        void collision(const Entity::Shared& ent1, const Entity::Shared& ent2);
+
+        void player_shoots();
+
+        virtual void on_notification(const observer::Notification& notification);
+
     public:
         typedef std::shared_ptr<Model> Shared;
 
-        void add_entity(std::shared_ptr<Entity> entity);
+        void add_entity(Entity::Shared entity);
 
         void remove_entity(std::weak_ptr<const Entity> entity);
 
@@ -33,11 +41,11 @@ namespace model  {
 
         void update_player(bool up, bool down, bool left, bool right,bool shoot, double time);
 
-        void player_shoots();
-
         void update_entities(double time);
 
-        virtual void on_notification(const observer::Notification& notification);
+
+
+
 
     };
 

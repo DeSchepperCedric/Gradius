@@ -14,7 +14,8 @@ namespace model {
         double time_before_shot;
     public:
 
-        Ship(float length, float height, float x_position, float y_position, float speed, double time_before_shot);
+        Ship(float length, float height, float x_position, float y_position, float speed, int health, int damage,
+             double time_before_shot);
 
         Co get_gun_position();
 

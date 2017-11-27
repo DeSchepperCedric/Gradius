@@ -5,14 +5,12 @@
 #include "Entity.h"
 
 #include <iostream>
+#include <math.h>
+
 namespace model {
 
-    Entity::Entity(float length, float height, float x_position, float y_position, float speed) :
-            length(length),
-            height(height),
-            x_position(x_position),
-            y_position(y_position),
-            speed(speed) {}
+    Entity::Entity(float length, float height, float x_position, float y_position, float speed, int health, int damage) : length(
+            length), height(height), x_position(x_position), y_position(y_position), speed(speed), health(health), damage(damage) {}
 
 
 
@@ -161,6 +159,32 @@ namespace model {
 
     void Entity::set_weak_entity(const std::weak_ptr<Entity> &weak_entity) {
         Entity::weak_entity = weak_entity;
+    }
+
+    float Entity::get_radius() {
+       return powf((powf((length / 2.0f), 2.0f) + powf((height / 2.0f), 2.0f)), (0.5f));
+
+
+    }
+
+    int Entity::get_health() const {
+        return health;
+    }
+
+    int Entity::get_damage() const {
+        return damage;
+    }
+
+    void Entity::lose_lives(int lives) {
+        health -= lives;
+    }
+
+    void Entity::check_lives() {
+
+        if(health <= 0){
+
+            destroy();
+        }
     }
 
 }

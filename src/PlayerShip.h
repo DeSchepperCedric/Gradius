@@ -12,7 +12,7 @@ namespace model {
     class PlayerShip : public Ship {
     public:
 
-        PlayerShip(float length, float height, float x_position, float y_position, float speed,
+        PlayerShip(float length, float height, float x_position, float y_position, float speed, int health, int damage,
                    double time_before_shot);
 
         virtual void check_borders();

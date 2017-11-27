@@ -6,17 +6,13 @@
 
 namespace model{
 
-
-    Obstacle::Obstacle(float length, float height, float x_position, float y_position, float speed) : Entity(length,
-                                                                                                             height,
-                                                                                                             x_position,
-                                                                                                             y_position,
-                                                                                                             speed) {
-        name = "Obstacle";
-    }
-
     void Obstacle::update(const double time) {
         move(false, false, true, false, time);
 
+    }
+
+    Obstacle::Obstacle(float length, float height, float x_position, float y_position, float speed, int health,
+                       int damage) : Entity(length, height, x_position, y_position, speed, health, damage) {
+        name = "Obstacle";
     }
 }

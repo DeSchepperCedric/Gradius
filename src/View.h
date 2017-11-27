@@ -36,9 +36,9 @@ namespace view {
 
         void update();
 
-        void add_entity_representation(EntityRepresentation::Shared entity_rep);
+        void add_entity_representation(EntityRepresentation::Shared& entity_rep);
 
-        void add_entity_representation_of_entity(std::weak_ptr<const model::Entity> weak_entity);
+        void add_entity_representation_of_entity(const std::weak_ptr<const model::Entity>& weak_entity);
 
         void remove_entity_representation_of_entity(std::weak_ptr<const model::Entity> weak_entity);
 

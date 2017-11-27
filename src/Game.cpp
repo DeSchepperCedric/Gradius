@@ -55,13 +55,13 @@ void Game::run() {
 }
 
 Game::Game() {
-    auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(1200, 900), "Gradius");
+    auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(900, 600), "Gradius");
     view::View::Shared view = std::make_shared<view::View>(view::View(pointer));
     Game::view = view;
 
     model::Model::Shared model = std::make_shared<model::Model>();
     // speed
-    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.40,-3.0,3.0,10,0.5);
+    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.40,-3.0,3.0,10,3,1,0.5);
     //sf::Texture temp;
    // temp.loadFromFile("../ship.png");
    // sf::Texture* texture = &temp;
@@ -82,12 +82,11 @@ Game::Game() {
     //player->register_observer(player_rep);
     model->set_player(player);
 
-    std::shared_ptr<model::Obstacle> ob = std::make_shared<model::Obstacle>(0.40,0.80,4.0,0.0,5);
+    std::shared_ptr<model::Obstacle> ob = std::make_shared<model::Obstacle>(0.40,0.80,4.0,0.0,1,1,5);
     sf::Texture ob_text;
     ob_text.loadFromFile("../images/astroid.jpg");
     view->add_texture(ob_text, "Obstacle");
-
-    model->add_entity(ob);
+    model->add_entity(std::move(ob));
 
     controller.set_Model(model);
 

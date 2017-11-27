@@ -4,7 +4,9 @@
 
 #include "Model.h"
 #include "Bullet.h"
+
 #include <iostream>
+#include <math.h>
 
 using std::endl;
 using std::cout;
@@ -18,16 +20,15 @@ namespace model{
         notify(observer::CreationNotification(player));
     }
 
-    void Model::add_entity(std::shared_ptr<Entity> entity) {
+    void Model::add_entity(Entity::Shared entity) {
         std::weak_ptr<Model> temp(this->shared_from_this());
 
         entity->register_observer(temp);
+
         std::weak_ptr<Entity> weak_entity(entity);
         entity->set_weak_entity(weak_entity);
 
-
         entities.push_back(std::move(entity));
-        std::cout << entities.size()<<endl;
 
         // notify observers of entity creation
         notify(observer::CreationNotification(weak_entity));
@@ -37,12 +38,12 @@ namespace model{
 
         for(auto it = entities.begin(); it != entities.end(); it++){
             if((*it) == entity.lock()){
-
                 // remove the entity from enties ==> lower reference count to 0
                 entities.erase(it);
 
                 std::weak_ptr<const Entity> weak(*it);
                 const observer::DestructionNotification notification(weak);
+
                 notify(notification);
 
                 return;
@@ -70,12 +71,18 @@ namespace model{
     }
 
     void Model::update_entities(double time) {
-        std::cout << entities.size();
         for(auto &entity : entities){
             entity->update(time);
+            if(entity.use_count() != 0){
+                check_for_collisions(entity);
+            }
+
         }
 
         player->update(time);
+        check_for_collisions(player);
+
+
     }
 
 
@@ -84,6 +91,57 @@ namespace model{
         if(auto destruction = dynamic_cast<const observer::DestructionNotification*>(&notification)){
             remove_entity(destruction->get_weak_entity());
         }
+    }
+
+    void Model::collision(const Entity::Shared& ent1, const Entity::Shared& ent2) {
+        // reduce lives
+
+        ent1->lose_lives(ent2->get_damage());
+
+        ent2->lose_lives(ent1->get_damage());
+
+        ent1->check_lives();
+
+        ent2->check_lives();
+
+    }
+
+    void Model::check_for_collisions(const Entity::Shared &entity) {
+        if(entity.use_count() == 0) return;
+
+        Co c1 = entity->get_center();
+        Co c2;
+        float distance;
+
+        // check colission with player
+        if(entity != player){
+
+            c2 = player->get_center();
+
+
+
+            distance = powf((powf((c2.x - c1.x), 2.0f) +  powf((c2.y - c1.y), 2.0f)), (0.5f));
+
+            if(distance < (player->get_radius() + entity -> get_radius())){
+                collision(player, entity);
+            };
+        }
+
+        // check colission with other entities
+        for(const Entity::Shared& other: entities){
+            if(entity == other) continue;
+            if(other.use_count() == 0) continue;
+            c2 = other->get_center();
+
+            distance = powf((powf((c2.x - c1.x), 2.0f) +  powf((c2.y - c1.y), 2.0f)), (0.5f));
+
+            if(distance < (other->get_radius() + entity->get_radius())){
+
+                collision(entity, other);
+            };
+
+        }
+
     }
 
 
