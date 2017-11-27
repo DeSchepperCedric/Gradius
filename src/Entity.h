@@ -52,7 +52,10 @@ protected:
 
     void move_down(const double time);
 
-    void check_borders();
+    virtual void check_borders();
+
+    std::weak_ptr<Entity> weak_entity;
+
 
 public:
 
@@ -74,11 +77,21 @@ public:
 
     float get_min_y_position() const;
 
+    float get_speed() const;
+
     Hitbox get_hitbox();
 
     const std::string &get_name() const;
 
     void move(bool up, bool down, bool left, bool right, double time);
+
+    Co get_center() const;
+
+    virtual void update(double time);
+
+    void destroy();
+
+    void set_weak_entity(const std::weak_ptr<Entity> &weak_entity);
 };
 
 }

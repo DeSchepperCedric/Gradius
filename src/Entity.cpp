@@ -4,6 +4,7 @@
 
 #include "Entity.h"
 
+#include <iostream>
 namespace model {
 
     Entity::Entity(float length, float height, float x_position, float y_position, float speed) :
@@ -65,18 +66,9 @@ namespace model {
     }
 
     void Entity::check_borders() {
-        if(x_position  < min_x_position){
-            x_position = min_x_position;
-        }
-        else if(x_position +length > max_x_position){
-            x_position = max_x_position - length;
-        }
-
-        if(y_position > max_y_position){
-            y_position = max_y_position;
-        }
-        else if(y_position - height < min_y_position){
-            y_position = min_y_position + height;
+        if(x_position > max_x_position){
+            destroy();
+            return;
         }
 
     }
@@ -110,7 +102,6 @@ namespace model {
         }
 
 
-
         // keeps entity between window borders
         check_borders();
 
@@ -118,6 +109,7 @@ namespace model {
         if(change){
             notify(observer::MovementNotification());
         }
+
     }
 
     Hitbox Entity::get_hitbox() {
@@ -136,6 +128,26 @@ namespace model {
         return name;
     }
 
+    Co Entity::get_center() const {
+        Co co;
+        co.x = x_position + (length / 2);
+        co.y = y_position - (height / 2);
+        return co;
+    }
 
+    void Entity::update(double time) {}
+
+    float Entity::get_speed() const {
+        return speed;
+    }
+
+    void Entity::destroy() {
+        observer::DestructionNotification notification(weak_entity);
+        notify(notification);
+    }
+
+    void Entity::set_weak_entity(const std::weak_ptr<Entity> &weak_entity) {
+        Entity::weak_entity = weak_entity;
+    }
 
 }

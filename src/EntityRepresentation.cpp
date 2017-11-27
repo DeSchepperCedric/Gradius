@@ -21,9 +21,9 @@ namespace view{
         window->draw(*this);
     }
 
-    EntityRepresentation::EntityRepresentation(const sf::Texture &texture,
+    EntityRepresentation::EntityRepresentation(const sf::Texture* texture,
                                                const std::weak_ptr<const model::Entity> &weak_entity) :
-            Sprite(texture),
+            Sprite(*texture),
             weak_entity(weak_entity) {}
 
 

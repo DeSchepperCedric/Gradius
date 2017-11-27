@@ -27,7 +27,7 @@ namespace view {
         typedef std::shared_ptr<EntityRepresentation> Shared;
         typedef std::unique_ptr<EntityRepresentation> Unique;
 
-        EntityRepresentation(const sf::Texture &texture, const std::weak_ptr<const model::Entity> &weak_entity);
+        EntityRepresentation(const sf::Texture* texture, const std::weak_ptr<const model::Entity> &weak_entity);
 
         void draw(std::shared_ptr<sf::RenderWindow> window);
 

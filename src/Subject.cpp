@@ -6,9 +6,12 @@
 
 #include <algorithm>
 
+#include <iostream>
+
 namespace observer{
 
     void Subject::register_observer(Observer::Weak observer) {
+
         observers.push_back(observer);
     }
 
@@ -24,9 +27,14 @@ namespace observer{
     }
 
     void Subject::notify(const Notification &notification) {
+
         for(auto & observer : observers){
+
+            if(observer.expired()) continue;
             observer.lock()->on_notification(notification);
+
         }
+
     }
 
 }

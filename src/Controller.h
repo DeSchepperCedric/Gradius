@@ -19,6 +19,8 @@ namespace controller {
 
 
         void execute_key_presses(const double time);
+
+        void update_model(const double time);
     };
 
 }

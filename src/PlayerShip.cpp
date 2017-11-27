@@ -13,4 +13,23 @@ namespace model {
                                                            time_before_shot) {
         name = "PlayerShip";
     }
+
+    void PlayerShip::check_borders() {
+
+
+
+        if(x_position  < min_x_position){
+            x_position = min_x_position;
+        }
+        else if(x_position +length > max_x_position){
+            x_position = max_x_position - length;
+        }
+
+        if(y_position > max_y_position){
+            y_position = max_y_position;
+        }
+        else if(y_position - height < min_y_position){
+            y_position = min_y_position + height;
+        }
+    }
 }

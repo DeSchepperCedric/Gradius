@@ -12,6 +12,7 @@ namespace controller {
 
     void Controller::set_Model(std::shared_ptr<model::Model> model) {
         Controller::model = model;
+
     }
 
 
@@ -21,7 +22,12 @@ namespace controller {
         bool down = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
         bool left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
         bool right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
+        bool shoot = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
 
-        model->update_player(up,down,left,right,time);
+        model->update_player(up,down,left,right,shoot, time);
+    }
+
+    void Controller::update_model(const double time) {
+        model->update_entities(time);
     }
 }

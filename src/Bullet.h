@@ -5,11 +5,24 @@
 #ifndef GRADIUS_BULLET_H
 #define GRADIUS_BULLET_H
 
+#include "Entity.h"
 
-class Bullet {
+namespace model {
 
+    enum Direction {LEFT, RIGHT, UP, DOWN, NONE};
 
-};
+    class Bullet : public Entity {
+    private:
+        Direction direction;
+
+    public:
+
+        Bullet(float x_position, float y_position, float speed, Direction direction);
+
+        virtual void update(double time);
+
+    };
+}
 
 
 #endif //GRADIUS_BULLET_H

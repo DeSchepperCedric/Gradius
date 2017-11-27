@@ -13,29 +13,6 @@ using std::cout;
 using std::endl;
 
 void Game::run() {
-
-}
-
-Game::Game() {
-    auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(800, 600), "Gradius");
-    view::View::Shared view = std::make_shared<view::View>(view::View(pointer));
-    Game::view = view;
-    model::Model::Shared model = std::make_shared<model::Model>();
-    // speed
-    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.20,-3.0,3.0,10,1.0);
-    sf::Texture temp;
-    temp.loadFromFile("../ship.png");
-    sf::Texture* texture = &temp;
-
-    view->add_texture(texture, "PlayerShip");
-    std::weak_ptr<view::View> weak_view(view);
-    model->register_observer(weak_view);
-    //player->register_observer(player_rep);
-    model->set_player(player);
-
-    controller.set_Model(model);
-
-    //view.add_entity_representation(player_rep);
     utils::Stopwatch::get_instance();
 
     bool up;
@@ -60,14 +37,54 @@ Game::Game() {
         }
 
         controller.execute_key_presses(utils::Stopwatch::get_instance().getFrame_time());
+        controller.update_model(utils::Stopwatch::get_instance().getFrame_time());
+
         view->window->clear();
+
         view->update();
+
         view->window->display();
+
 
         utils::Stopwatch::get_instance().reset();
 
 
     }
+
+}
+
+Game::Game() {
+    auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(1600, 1200), "Gradius");
+    view::View::Shared view = std::make_shared<view::View>(view::View(pointer));
+    Game::view = view;
+
+    model::Model::Shared model = std::make_shared<model::Model>();
+    // speed
+    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.40,-3.0,3.0,10,0.5);
+    //sf::Texture temp;
+   // temp.loadFromFile("../ship.png");
+   // sf::Texture* texture = &temp;
+    sf::Texture texture;
+    texture.loadFromFile("../images/x_wing.jpg");
+    view->add_texture(texture, "PlayerShip");
+
+    sf::Texture temp_bullet;
+    temp_bullet.loadFromFile("../images/red_laser.png");
+    view->add_texture(temp_bullet, "Bullet");
+
+
+
+    std::weak_ptr<view::View> weak_view(view);
+    std::weak_ptr<model::Model> weak_model(model);
+
+    model->register_observer(weak_view);
+    //player->register_observer(player_rep);
+    model->set_player(player);
+
+    controller.set_Model(model);
+
+    //view.add_entity_representation(player_rep);
+
 
 }
 

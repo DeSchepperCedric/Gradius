@@ -15,6 +15,8 @@ namespace model {
         PlayerShip(float length, float height, float x_position, float y_position, float speed,
                    double time_before_shot);
 
+        virtual void check_borders();
+
 
     };
 

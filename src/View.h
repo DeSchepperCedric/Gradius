@@ -21,7 +21,7 @@ namespace view {
         // reason : Entity_rep an observer to a subject (entity) so the subject needs a weak pointer to its observer
         std::vector<view::EntityRepresentation::Shared> entity_representations;
 
-        std::unordered_map<std::string,sf::Texture*> textures;
+        std::unordered_map<std::string,sf::Texture> textures;
     public:
         std::shared_ptr<sf::RenderWindow> window;
 
@@ -44,7 +44,7 @@ namespace view {
 
         virtual void on_notification(const observer::Notification& notification);
 
-        void add_texture(sf::Texture* texture, const std::string& type);
+        void add_texture(const sf::Texture texture, const std::string& type);
 
     };
 

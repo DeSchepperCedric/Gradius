@@ -10,10 +10,17 @@
 namespace model {
     class Ship : public Entity {
     protected:
-        double time_before_shot = 0.0;
+        double remaining_time_before_shot = 0.0;
+        double time_before_shot;
     public:
 
         Ship(float length, float height, float x_position, float y_position, float speed, double time_before_shot);
+
+        Co get_gun_position();
+
+        bool shoot();
+
+        virtual void update(const double time);
 
     };
 
