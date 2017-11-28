@@ -21,13 +21,7 @@ namespace model{
     }
 
     void Model::add_entity(Entity::Shared entity) {
-        std::weak_ptr<Model> temp(this->shared_from_this());
-
-        entity->register_observer(temp);
-
         std::weak_ptr<Entity> weak_entity(entity);
-        entity->set_weak_entity(weak_entity);
-
         entities.push_back(std::move(entity));
 
         // notify observers of entity creation
@@ -45,7 +39,6 @@ namespace model{
                 const observer::DestructionNotification notification(weak);
 
                 notify(notification);
-
                 return;
             }
         }
@@ -71,32 +64,24 @@ namespace model{
     }
 
     void Model::update_entities(double time) {
-        for(int i = 0; i < entities.size();){
-            entities[i]->update(time);
+        for(const Entity::Shared& entity: entities){
 
-            if(!entities[i]->is_to_be_destroyed()){
-                check_for_collisions(entities[i]);
-                i++;
-            }
-            else{
-                std::weak_ptr<Entity> weak(entities[i]);
-                remove_entity(weak);
-            }
+            if(entity->is_destroyed()) continue;
+
+            entity->update(time);
+            check_for_collisions(entity);
         }
+
+
 
 
         player->update(time);
         check_for_collisions(player);
+
+        remove_destroyed_entities();
     }
 
 
-
-    void Model::on_notification(const observer::Notification &notification) {
-        if(auto destruction = dynamic_cast<const observer::DestructionNotification*>(&notification)){
-            remove_entity(destruction->get_weak_entity());
-            cout << "destroy"<<endl;
-        }
-    }
 
     void Model::collision(const Entity::Shared& ent1, const Entity::Shared& ent2) {
         // reduce lives
@@ -134,8 +119,9 @@ namespace model{
 
         // check colission with other entities
         for(const Entity::Shared& other: entities){
-            if(entity == other) continue;
-            if((other.use_count() == 0) or other->is_to_be_destroyed()) continue;
+            if((entity == other) or other->is_destroyed()) continue;
+
+
             c2 = other->get_center();
 
             distance = powf((powf((c2.x - c1.x), 2.0f) +  powf((c2.y - c1.y), 2.0f)), (0.5f));
@@ -147,6 +133,22 @@ namespace model{
 
         }
 
+    }
+
+    void Model::remove_destroyed_entities() {
+        for(auto it = entities.begin(); it != entities.end();){
+            if((*it)->is_destroyed()){
+                entities.erase(it);
+
+                std::weak_ptr<const Entity> weak(*it);
+                const observer::DestructionNotification notification(weak);
+
+                notify(notification);
+            }
+            else{
+                it++;
+            }
+        }
     }
 
 

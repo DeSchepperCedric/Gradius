@@ -46,7 +46,6 @@ namespace view {
     }
 
     void View::on_notification(const observer::Notification& notification) {
-
         if(auto destruction = dynamic_cast<const observer::DestructionNotification*>(&notification)){
             remove_entity_representation_of_entity(destruction->get_weak_entity());
         }

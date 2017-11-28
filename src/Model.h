@@ -14,11 +14,13 @@
 
 namespace model  {
 
-    class Model: public observer::Subject, public observer::Observer, public std::enable_shared_from_this<Model>{
+    class Model: public observer::Subject{
     private:
         std::vector<std::shared_ptr<Entity>> entities;
 
         std::shared_ptr<PlayerShip> player;
+
+        bool deletion_happened = false;
 
         float world_speed = 10.0f;
 
@@ -28,7 +30,7 @@ namespace model  {
 
         void player_shoots();
 
-        virtual void on_notification(const observer::Notification& notification);
+        void remove_destroyed_entities();
 
     public:
         typedef std::shared_ptr<Model> Shared;

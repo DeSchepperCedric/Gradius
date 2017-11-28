@@ -47,7 +47,7 @@ protected:
     int health;
     int damage;
 
-    bool to_be_destroyed = false;
+    bool destroyed = false;
 
     void move_right(const double time);
 
@@ -59,7 +59,7 @@ protected:
 
     virtual void check_borders();
 
-    std::weak_ptr<Entity> weak_entity;
+
 
 
 
@@ -96,8 +96,6 @@ public:
 
     virtual void update(const double time);
 
-    void set_weak_entity(const std::weak_ptr<Entity> &weak_entity);
-
     // used for colision handling
     float get_radius();
 
@@ -109,9 +107,7 @@ public:
 
     void check_lives();
 
-    bool is_to_be_destroyed() const;
-
-    void destroy();
+    bool is_destroyed() const;
 
 
 };

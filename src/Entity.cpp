@@ -68,19 +68,17 @@ namespace model {
 
         if(hitbox.min_x > max_x_position){
             std::cout <<"DAM1"<<std::endl;
-            to_be_destroyed = true;
+            destroyed = true;
         }
         else if(hitbox.max_x < min_x_position){
             std::cout <<"DAM2"<<std::endl;
-            to_be_destroyed = true;
+            destroyed = true;
         }
         else if(hitbox.min_y > max_y_position){
-            destroy();
-            to_be_destroyed = true;
+            destroyed = true;
         }
         else if(hitbox.max_y < min_x_position){
-            destroy();
-            to_be_destroyed = true;
+            destroyed = true;
         }
     }
 
@@ -119,7 +117,7 @@ namespace model {
         // keeps entity between window borders
         check_borders();
 
-        if(change and !to_be_destroyed){
+        if(change and !destroyed){
             notify(observer::MovementNotification());
         }
     }
@@ -153,14 +151,6 @@ namespace model {
         return speed;
     }
 
-    void Entity::destroy() {
-        observer::DestructionNotification notification(weak_entity);
-        notify(notification);
-    }
-
-    void Entity::set_weak_entity(const std::weak_ptr<Entity> &weak_entity) {
-        Entity::weak_entity = weak_entity;
-    }
 
     float Entity::get_radius() {
        return powf((powf((length / 2.0f), 2.0f) + powf((height / 2.0f), 2.0f)), (0.5f));
@@ -184,12 +174,13 @@ namespace model {
 
         if(health <= 0){
 
-            destroy();
+            destroyed = true;
         }
     }
 
-    bool Entity::is_to_be_destroyed() const {
-        return to_be_destroyed;
+
+    bool Entity::is_destroyed() const {
+        return destroyed;
     }
 
 
