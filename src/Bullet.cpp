@@ -9,7 +9,7 @@
 namespace model {
     Bullet::Bullet(float x_position, float y_position, float speed,
                           model::Direction direction) :
-            Entity(0.40f, 0.20f, x_position + 0.05f, (y_position + 0.10f), speed, 1,1),
+            Entity(0.40f, 0.20f, x_position + 0.08f, (y_position + 0.10f), speed, 1,1),
                                                         direction(direction) {
         name = "Bullet";
 

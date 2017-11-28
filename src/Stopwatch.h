@@ -18,13 +18,13 @@ namespace utils {
 
         std::chrono::high_resolution_clock::time_point start;
 
-        double frame_time = 0.0;
+        float frame_time = 0.0;
 
         Stopwatch();
 
     public:
 
-        double getFrame_time() const;
+        float getFrame_time() const;
 
         void reset();
 

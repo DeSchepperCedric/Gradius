@@ -82,11 +82,14 @@ Game::Game() {
     //player->register_observer(player_rep);
     model->set_player(player);
 
-    std::shared_ptr<model::Obstacle> ob = std::make_shared<model::Obstacle>(0.40,0.80,4.0,0.0,1,1,5);
+    std::shared_ptr<model::Obstacle> ob = std::make_shared<model::Obstacle>(0.40,0.80,4.0,0.0,5,1,5);
+    std::shared_ptr<model::Obstacle> ob2 = std::make_shared<model::Obstacle>(0.40,0.80,4.0,2.0,5,1,5);
     sf::Texture ob_text;
     ob_text.loadFromFile("../images/astroid.jpg");
     view->add_texture(ob_text, "Obstacle");
     model->add_entity(std::move(ob));
+    model->add_entity(std::move(ob2));
+
 
     controller.set_Model(model);
 

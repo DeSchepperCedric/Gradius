@@ -68,19 +68,19 @@ namespace model {
 
         if(hitbox.min_x > max_x_position){
             std::cout <<"DAM1"<<std::endl;
-            destroy();
+            to_be_destroyed = true;
         }
         else if(hitbox.max_x < min_x_position){
             std::cout <<"DAM2"<<std::endl;
-            destroy();
+            to_be_destroyed = true;
         }
         else if(hitbox.min_y > max_y_position){
             destroy();
-            std::cout <<"DAM3"<<std::endl;
+            to_be_destroyed = true;
         }
         else if(hitbox.max_y < min_x_position){
             destroy();
-            std::cout <<"DAM4"<<std::endl;
+            to_be_destroyed = true;
         }
     }
 
@@ -112,15 +112,16 @@ namespace model {
             change = true;
         }
 
+        // notify observers of movement change
+
+
 
         // keeps entity between window borders
         check_borders();
 
-        // notify observers of movement change
-        if(change){
+        if(change and !to_be_destroyed){
             notify(observer::MovementNotification());
         }
-
     }
 
     Hitbox Entity::get_hitbox() {
@@ -186,5 +187,10 @@ namespace model {
             destroy();
         }
     }
+
+    bool Entity::is_to_be_destroyed() const {
+        return to_be_destroyed;
+    }
+
 
 }

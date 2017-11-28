@@ -71,18 +71,22 @@ namespace model{
     }
 
     void Model::update_entities(double time) {
-        for(auto &entity : entities){
-            entity->update(time);
-            if(entity.use_count() != 0){
-                check_for_collisions(entity);
-            }
+        for(int i = 0; i < entities.size();){
+            entities[i]->update(time);
 
+            if(!entities[i]->is_to_be_destroyed()){
+                check_for_collisions(entities[i]);
+                i++;
+            }
+            else{
+                std::weak_ptr<Entity> weak(entities[i]);
+                remove_entity(weak);
+            }
         }
+
 
         player->update(time);
         check_for_collisions(player);
-
-
     }
 
 
@@ -90,6 +94,7 @@ namespace model{
     void Model::on_notification(const observer::Notification &notification) {
         if(auto destruction = dynamic_cast<const observer::DestructionNotification*>(&notification)){
             remove_entity(destruction->get_weak_entity());
+            cout << "destroy"<<endl;
         }
     }
 
@@ -130,7 +135,7 @@ namespace model{
         // check colission with other entities
         for(const Entity::Shared& other: entities){
             if(entity == other) continue;
-            if(other.use_count() == 0) continue;
+            if((other.use_count() == 0) or other->is_to_be_destroyed()) continue;
             c2 = other->get_center();
 
             distance = powf((powf((c2.x - c1.x), 2.0f) +  powf((c2.y - c1.y), 2.0f)), (0.5f));

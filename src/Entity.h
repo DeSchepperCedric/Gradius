@@ -47,6 +47,8 @@ protected:
     int health;
     int damage;
 
+    bool to_be_destroyed = false;
+
     void move_right(const double time);
 
     void move_left(const double time);
@@ -59,7 +61,7 @@ protected:
 
     std::weak_ptr<Entity> weak_entity;
 
-    void destroy();
+
 
 public:
     typedef std::shared_ptr<Entity> Shared;
@@ -106,6 +108,12 @@ public:
     void lose_lives(int lives);
 
     void check_lives();
+
+    bool is_to_be_destroyed() const;
+
+    void destroy();
+
+
 };
 
 }
