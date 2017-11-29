@@ -12,7 +12,9 @@ namespace model {
     public:
         Obstacle(float length, float height, float x_position, float y_position, float speed, int health, int damage);
 
-        void update(const double time);
+        void update(const double time) override;
+
+        const std::string get_name() const override;
     };
 
 }

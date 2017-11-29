@@ -13,6 +13,9 @@ namespace model{
 
     Obstacle::Obstacle(float length, float height, float x_position, float y_position, float speed, int health,
                        int damage) : Entity(length, height, x_position, y_position, speed, health, damage) {
-        name = "Obstacle";
+    }
+
+    const std::string Obstacle::get_name() const {
+        return ((health < 0) ? "IndestructableObstacle" : "DestructableObstacle");
     }
 }

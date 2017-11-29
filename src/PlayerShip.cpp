@@ -28,7 +28,9 @@ namespace model {
 
     PlayerShip::PlayerShip(float length, float height, float x_position, float y_position, float speed, int health,
                            int damage, double time_before_shot) : Ship(length, height, x_position, y_position, speed,
-                                                                       health, damage, time_before_shot) {
-        name = "PlayerShip";
+                                                                       health, damage, time_before_shot) {}
+
+    const std::string PlayerShip::get_name() const {
+        return "PlayerShip";
     }
 }

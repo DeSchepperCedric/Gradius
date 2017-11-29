@@ -11,8 +11,6 @@ namespace model {
                           model::Direction direction) :
             Entity(0.40f, 0.20f, x_position + 0.08f, (y_position + 0.10f), speed, 1,1),
                                                         direction(direction) {
-        name = "Bullet";
-
     }
 
     void Bullet::update(double time) {
@@ -39,6 +37,10 @@ namespace model {
                 break;
         }
 
+    }
+
+    const std::string Bullet::get_name() const {
+        return "Bullet";
     }
 
 }

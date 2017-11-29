@@ -19,7 +19,9 @@ namespace model {
 
         Bullet(float x_position, float y_position, float speed, Direction direction);
 
-        virtual void update(double time);
+        void update(double time) override;
+
+        const std::string get_name() const override;
 
     };
 }

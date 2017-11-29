@@ -94,6 +94,13 @@ namespace model{
 
         ent2->check_lives();
 
+        // only ent1 can be the Playership
+        // Player gets passed in check_for_collisions as first argument
+        // Player destroys every entity on impact except world entities
+        if((ent1->get_name() == "PlayerShip") and (ent2->get_name() != "World")){
+            ent2->set_destroyed(true);
+        }
+
     }
 
     void Model::check_for_collisions(const Entity::Shared &entity) {

@@ -23,6 +23,8 @@ namespace model {
 
         virtual void update(const double time);
 
+        const std::string get_name() const = 0;
+
     };
 
 }

@@ -83,10 +83,15 @@ Game::Game() {
     model->set_player(player);
 
     std::shared_ptr<model::Obstacle> ob = std::make_shared<model::Obstacle>(0.40,0.80,4.0,0.0,2,1,1);
-    std::shared_ptr<model::Obstacle> ob2 = std::make_shared<model::Obstacle>(0.40,0.80,4.0,2.0,2,1,1);
+    std::shared_ptr<model::Obstacle> ob2 = std::make_shared<model::Obstacle>(0.80,0.80,4.0,2.0,2,-1,1);
+
     sf::Texture ob_text;
     ob_text.loadFromFile("../images/astroid.jpg");
-    view->add_texture(ob_text, "Obstacle");
+
+    sf::Texture ob_text2;
+    ob_text2.loadFromFile("../images/planet.png");
+    view->add_texture(ob_text, "DestructableObstacle");
+    view->add_texture(ob_text2, "IndestructableObstacle");
     model->add_entity(std::move(ob));
     model->add_entity(std::move(ob2));
 

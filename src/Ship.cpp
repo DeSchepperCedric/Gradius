@@ -32,9 +32,7 @@ namespace model {
 
     Ship::Ship(float length, float height, float x_position, float y_position, float speed, int health, int damage,
                double time_before_shot) : Entity(length, height, x_position, y_position, speed, health, damage),
-                                          time_before_shot(time_before_shot) {
-        name = "ship";
-    }
+                                          time_before_shot(time_before_shot) {}
 
 
 }

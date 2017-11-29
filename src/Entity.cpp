@@ -10,7 +10,9 @@
 namespace model {
 
     Entity::Entity(float length, float height, float x_position, float y_position, float speed, int health, int damage) : length(
-            length), height(height), x_position(x_position), y_position(y_position), speed(speed), health(health), damage(damage) {}
+            length), height(height), x_position(x_position), y_position(y_position), speed(speed), health(health), damage(damage) {
+
+    }
 
 
 
@@ -85,10 +87,7 @@ namespace model {
     void Entity::move(bool up, bool down, bool left, bool right, const double time) {
         bool change = false;
         // vertical movement
-        if(!up and !down){
-
-        }
-        else if(up and !down){
+        if(up and !down){
             move_up(time);
             change = true;
         }
@@ -98,10 +97,7 @@ namespace model {
         }
 
         // horizontal movement
-        if(!left and !right){
-
-        }
-        else if(left and !right){
+        if(left and !right){
             move_left(time);
             change = true;
         }
@@ -110,13 +106,11 @@ namespace model {
             change = true;
         }
 
-        // notify observers of movement change
-
-
-
-        // keeps entity between window borders
+        // for Player : keeps ship between window borders
+        // for other entities: destroy when completely out of bounds
         check_borders();
 
+        // notify observers of movement change
         if(change and !destroyed){
             notify(observer::MovementNotification());
         }
@@ -134,10 +128,6 @@ namespace model {
         return hitbox;
     }
 
-    const std::string &Entity::get_name() const {
-        return name;
-    }
-
     Co Entity::get_center() const {
         Co co;
         co.x = x_position + (length / 2);
@@ -150,7 +140,6 @@ namespace model {
     float Entity::get_speed() const {
         return speed;
     }
-
 
     float Entity::get_radius() {
        return powf((powf((length / 2.0f), 2.0f) + powf((height / 2.0f), 2.0f)), (0.5f));
@@ -166,14 +155,16 @@ namespace model {
         return damage;
     }
 
-    void Entity::lose_lives(int lives) {
-        health -= lives;
+    void Entity::lose_lives(int damage) {
+        if(health < 0){
+            return;
+        }
+
+        health = std::max(0, health - damage);
     }
 
     void Entity::check_lives() {
-
-        if(health <= 0){
-
+        if(health == 0){
             destroyed = true;
         }
     }
@@ -183,5 +174,8 @@ namespace model {
         return destroyed;
     }
 
+    void Entity::set_destroyed(bool destroyed) {
+        Entity::destroyed = destroyed;
+    }
 
 }

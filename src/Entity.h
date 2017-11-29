@@ -27,8 +27,6 @@ namespace model{
 
 class Entity : public observer::Subject {
 protected:
-    std::string name = "Entity";
-
     float length;
     float height;
 
@@ -88,8 +86,6 @@ public:
 
     Hitbox get_hitbox();
 
-    const std::string &get_name() const;
-
     void move(bool up, bool down, bool left, bool right, double time);
 
     Co get_center() const;
@@ -103,13 +99,15 @@ public:
 
     int get_damage() const;
 
-    void lose_lives(int lives);
+    void lose_lives(int damage);
 
     void check_lives();
 
     bool is_destroyed() const;
 
+    void set_destroyed(bool destroyed);
 
+    virtual const std::string get_name() const = 0;
 };
 
 }

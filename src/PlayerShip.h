@@ -15,9 +15,9 @@ namespace model {
         PlayerShip(float length, float height, float x_position, float y_position, float speed, int health, int damage,
                    double time_before_shot);
 
-        virtual void check_borders();
+        virtual void check_borders() override;
 
-
+        const std::string get_name() const override;
     };
 
 }
