@@ -3,6 +3,7 @@
 //
 
 #include "Entity.h"
+#include "PlayerShip.h"
 
 #include <iostream>
 #include <math.h>
@@ -69,11 +70,9 @@ namespace model {
         Hitbox hitbox = get_hitbox();
 
         if(hitbox.min_x > max_x_position){
-            std::cout <<"DAM1"<<std::endl;
             destroyed = true;
         }
         else if(hitbox.max_x < min_x_position){
-            std::cout <<"DAM2"<<std::endl;
             destroyed = true;
         }
         else if(hitbox.min_y > max_y_position){
@@ -135,7 +134,8 @@ namespace model {
         return co;
     }
 
-    void Entity::update(const double time) {}
+    void Entity::update(const double time) {
+    }
 
     float Entity::get_speed() const {
         return speed;
@@ -161,12 +161,14 @@ namespace model {
         }
 
         health = std::max(0, health - damage);
+
     }
 
     void Entity::check_lives() {
         if(health == 0){
             destroyed = true;
         }
+
     }
 
 

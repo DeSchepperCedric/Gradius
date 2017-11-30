@@ -33,4 +33,19 @@ namespace model {
     const std::string PlayerShip::get_name() const {
         return "PlayerShip";
     }
+
+    void PlayerShip::update(const double time) {
+        remaining_time_before_shot -= time;
+        if(remaining_time_before_shot < 0) remaining_time_before_shot = 0.0;
+
+        remaining_invicibility_after_colission = std::max(0.0, remaining_invicibility_after_colission - time);
+    }
+
+    double PlayerShip::get_remaining_invicibility_after_colission() const {
+        return remaining_invicibility_after_colission;
+    }
+
+    void PlayerShip::reset_remaining_invicibility() {
+        remaining_invicibility_after_colission = invicibility_after_colission;
+    }
 }

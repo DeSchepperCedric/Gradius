@@ -8,6 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include "Stopwatch.h"
 #include "Obstacle.h"
+#include "World.h"
 
 #include <iostream>
 using std::cout;
@@ -61,7 +62,7 @@ Game::Game() {
 
     model::Model::Shared model = std::make_shared<model::Model>();
     // speed
-    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.40,-3.0,3.0,10,3,1,0.5);
+    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.40,-3.0,0.0,8,3,1,0.5);
     //sf::Texture temp;
    // temp.loadFromFile("../ship.png");
    // sf::Texture* texture = &temp;
@@ -90,8 +91,16 @@ Game::Game() {
 
     sf::Texture ob_text2;
     ob_text2.loadFromFile("../images/planet.png");
+
+    sf::Texture world_text;
+    world_text.loadFromFile("../images/sun.jpg");
+
     view->add_texture(ob_text, "DestructableObstacle");
     view->add_texture(ob_text2, "IndestructableObstacle");
+    view->add_texture(world_text, "World");
+
+    model->create_all_world_entities();
+    //model->add_entity(std::move(world));
     model->add_entity(std::move(ob));
     model->add_entity(std::move(ob2));
 

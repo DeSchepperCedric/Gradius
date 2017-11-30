@@ -11,6 +11,7 @@
 #include "Entity.h"
 #include "PlayerShip.h"
 #include "Subject.h"
+#include "World.h"
 
 namespace model  {
 
@@ -20,7 +21,6 @@ namespace model  {
 
         std::shared_ptr<PlayerShip> player;
 
-        bool deletion_happened = false;
 
         float world_speed = 10.0f;
 
@@ -32,12 +32,16 @@ namespace model  {
 
         void remove_destroyed_entities();
 
+        void check_colission_with_world(const Entity::Shared& world, const Entity::Shared& other);
+
+        void check_colission_with_non_world_entities(const Entity::Shared& entity, const Entity::Shared& other);
+
     public:
         typedef std::shared_ptr<Model> Shared;
 
         void add_entity(Entity::Shared entity);
 
-        void remove_entity(std::weak_ptr<const Entity> entity);
+        //void remove_entity(std::weak_ptr<const Entity> entity);
 
         void set_player(std::shared_ptr<PlayerShip> player);
 
@@ -45,9 +49,7 @@ namespace model  {
 
         void update_entities(double time);
 
-
-
-
+        void create_all_world_entities();
 
     };
 
