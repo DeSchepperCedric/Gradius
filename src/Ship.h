@@ -21,7 +21,7 @@ namespace model {
 
         bool shoot();
 
-        void update(const double time) override;
+        void update(const double& time) override;
 
         const std::string get_name() const override  = 0;
 

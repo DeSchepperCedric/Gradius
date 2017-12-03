@@ -13,7 +13,7 @@ namespace model {
                                                         direction(direction) {
     }
 
-    void Bullet::update(double time) {
+    void Bullet::update(const double& time) {
 
         switch(direction){
             case DOWN:

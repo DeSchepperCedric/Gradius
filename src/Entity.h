@@ -26,6 +26,7 @@ namespace model{
     };
 
 class Entity : public observer::Subject {
+
 protected:
     float length;
     float height;
@@ -47,6 +48,12 @@ protected:
 
     bool destroyed = false;
 
+
+
+    virtual void check_borders();
+
+
+private:
     void move_right(const double time);
 
     void move_left(const double time);
@@ -54,11 +61,6 @@ protected:
     void move_up(const double time);
 
     void move_down(const double time);
-
-    virtual void check_borders();
-
-
-
 
 
 public:
@@ -90,7 +92,7 @@ public:
 
     Co get_center() const;
 
-    virtual void update(const double time);
+    virtual void update(const double& time);
 
     // used for colision handling
     float get_radius();

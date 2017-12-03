@@ -14,7 +14,7 @@ namespace model {
         return "World";
     }
 
-    void World::update(const double time) {
+    void World::update(const double& time) {
         move(false, false, true, false, time);
 
     }

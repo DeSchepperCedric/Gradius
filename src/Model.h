@@ -24,7 +24,7 @@ namespace model  {
 
         float world_speed = 10.0f;
 
-        void check_for_collisions(const Entity::Shared& entity);
+        void check_for_collisions();
 
         void collision(const Entity::Shared& ent1, const Entity::Shared& ent2);
 

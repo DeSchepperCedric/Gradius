@@ -19,7 +19,7 @@ namespace model {
 
         Bullet(float x_position, float y_position, float speed, Direction direction);
 
-        void update(double time) override;
+        void update(const double& time) override;
 
         const std::string get_name() const override;
 

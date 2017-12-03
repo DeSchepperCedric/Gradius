@@ -6,7 +6,7 @@
 
 namespace model{
 
-    void Obstacle::update(const double time) {
+    void Obstacle::update(const double& time) {
         move(false, false, true, false, time);
 
     }

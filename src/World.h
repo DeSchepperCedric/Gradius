@@ -17,7 +17,7 @@ namespace model {
 
         const std::string get_name() const override;
 
-        void update(const double time) override;
+        void update(const double& time) override;
 
 
     };

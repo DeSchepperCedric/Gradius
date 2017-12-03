@@ -8,9 +8,6 @@ namespace model {
 
 
     void PlayerShip::check_borders() {
-
-
-
         if(x_position  < min_x_position){
             x_position = min_x_position;
         }
@@ -34,18 +31,18 @@ namespace model {
         return "PlayerShip";
     }
 
-    void PlayerShip::update(const double time) {
+    void PlayerShip::update(const double& time) {
         remaining_time_before_shot -= time;
         if(remaining_time_before_shot < 0) remaining_time_before_shot = 0.0;
 
-        remaining_invicibility_after_colission = std::max(0.0, remaining_invicibility_after_colission - time);
+        remaining_invicibility = std::max(0.0, remaining_invicibility - time);
     }
 
     double PlayerShip::get_remaining_invicibility_after_colission() const {
-        return remaining_invicibility_after_colission;
+        return remaining_invicibility;
     }
 
     void PlayerShip::reset_remaining_invicibility() {
-        remaining_invicibility_after_colission = invicibility_after_colission;
+        remaining_invicibility = max_invicibility;
     }
 }

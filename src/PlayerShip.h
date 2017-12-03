@@ -11,10 +11,10 @@ namespace model {
 
     class PlayerShip : public Ship {
         // invincibility so you don't instanly die after hitting your world
-        // doesn't apply to other colission with non-world entities
-        double invicibility_after_colission = 5.0;
+        // doesn't apply to other colissions with non-world entity
+        double max_invicibility = 5.0;
 
-        double remaining_invicibility_after_colission = 0.0;
+        double remaining_invicibility = 0.0;
     public:
 
         PlayerShip(float length, float height, float x_position, float y_position, float speed, int health, int damage,
@@ -24,7 +24,7 @@ namespace model {
 
         const std::string get_name() const override;
 
-        void update(const double time) override;
+        void update(const double& time) override;
 
         double get_remaining_invicibility_after_colission() const;
 

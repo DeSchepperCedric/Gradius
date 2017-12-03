@@ -25,7 +25,7 @@ namespace model {
         return false;
     }
 
-    void Ship::update(const double time) {
+    void Ship::update(const double& time) {
         remaining_time_before_shot -= time;
         if(remaining_time_before_shot < 0) remaining_time_before_shot = 0.0;
     }

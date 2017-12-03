@@ -134,7 +134,7 @@ namespace model {
         return co;
     }
 
-    void Entity::update(const double time) {
+    void Entity::update(const double& time) {
     }
 
     float Entity::get_speed() const {

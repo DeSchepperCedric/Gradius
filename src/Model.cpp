@@ -52,18 +52,17 @@ namespace model{
             if(entity->is_destroyed()) continue;
 
             entity->update(time);
-            check_for_collisions(entity);
         }
 
         player->update(time);
-        check_for_collisions(player);
+
+        check_for_collisions();
 
         remove_destroyed_entities();
     }
 
     void Model::collision(const Entity::Shared& ent1, const Entity::Shared& ent2) {
         // reduce lives
-
         if(ent1->get_name() == "PlayerShip" and ent2->get_name() == "World"){
             cout << "lives: "<<ent1->get_health()<<endl;
             std::shared_ptr<PlayerShip> player = std::dynamic_pointer_cast<PlayerShip>(ent1);
@@ -82,6 +81,7 @@ namespace model{
         ent1->check_lives();
 
         ent2->check_lives();
+
         // only ent1 can be the Playership
         // Player gets passed in check_for_collisions as first argument
         // Player destroys every entity on impact except world entities
@@ -89,53 +89,80 @@ namespace model{
             ent2->set_destroyed(true);
         }
         if(ent1->get_name() == "PlayerShip"){
-            cout << "okay lives : "<<ent1->get_health()<<endl;
+            cout << "remaining lives : "<<ent1->get_health()<<endl;
         }
         if(ent2->get_name() == "PlayerShip"){
-            cout << "okay lives : "<<ent2->get_health()<<endl;
+            cout << "remaining lives : "<<ent2->get_health()<<endl;
         }
 
     }
 
-    void Model::check_for_collisions(const Entity::Shared &entity) {
-        if(entity.use_count() == 0) return;
-        //  world entities dont 'change' position so only have to check colission with non-world entities
-        if(entity->get_name() == "World") return;
+    void Model::check_for_collisions() {
+        // check colissions between entities
+        for(auto it1 = entities.begin(); it1 != entities.end(); it1++){
 
-        if(entity->get_name() != "PlayerShip"){
-            check_colission_with_non_world_entities(entity, player);
-        }
+            for(auto it2 = (it1 + 1); it2 != entities.end(); it2++){
 
+                // two world entities don't collide
+                if(((*it1)->get_name() == "World") and ((*it2)->get_name() == "World")) continue;
 
-        // check colission with other entities
-        for(const Entity::Shared& other: entities){
-            if((entity == other) or other->is_destroyed()) continue;
+                else if((*it1)->get_name() == "World"){
+                    check_colission_with_world((*it1), (*it2));
+                }
+                else {
+                    check_colission_with_non_world_entities((*it2), (*it1));
+                }
 
-            // colission with world means moving out of its way
-            if(other->get_name() == "World"){
-                check_colission_with_world(other, entity);
             }
+
+            // check colissions between the player and entities
+
+            if((*it1)->get_name() == "World"){
+                check_colission_with_world((*it1), player);
+            }
+
             else{
-                check_colission_with_non_world_entities(entity, other);
+                // player as first argument to make functions shorter
+                check_colission_with_non_world_entities(player, (*it1));
             }
         }
+
+
+
+
+//        if(entity.use_count() == 0) return;
+//        //  world entities dont 'change' position so only have to check colission with non-world entities
+//        if(entity->get_name() == "World") return;
+//
+//        if(entity->get_name() != "PlayerShip"){
+//            check_colission_with_non_world_entities(entity, player);
+//        }
+//
+//
+//        // check colission with other entities
+//        for(const Entity::Shared& other: entities){
+//            if((entity == other) or other->is_destroyed()) continue;
+//
+//            // colission with world means moving out of its way
+//            if(other->get_name() == "World"){
+//                check_colission_with_world(other, entity);
+//            }
+//            else{
+//                check_colission_with_non_world_entities(entity, other);
+//            }
+//        }
     }
 
     void Model::remove_destroyed_entities() {
         for(auto it = entities.begin(); it != entities.end();){
             if((*it)->is_destroyed()){
                if((*it)->get_name() == "World" and (*it)->get_y_position() == (*it)->get_max_y_position()){
-                    //World::Shared world = std::dynamic_pointer_cast<World>((*it));
-                    //respawn_world_entity(world);
-                   std::shared_ptr<World> upper1 = std::make_shared<World>(8.0,0.25, 4.0, 3.0, 2.0, -1,2);
-                   add_entity(std::move(upper1));
-                   //std::shared_ptr<World> upper2 = std::make_shared<World>(8.0,0.25, 3.9, 3.0, 2.0, -1,2);
-                   //add_entity(std::move(upper2));
+                   std::shared_ptr<World> upper = std::make_shared<World>(8.0,0.25, 4.0, 3.0, 2.0, -1,2);
+                   add_entity(std::move(upper));
 
-
-                }
-                else if((*it)->get_name() == "World"){
-                   std::shared_ptr<World> lower = std::make_shared<World>(8.0,0.25, 4.0, -3.0 + 0.25, 2.0, -1,2);
+               }
+               else if((*it)->get_name() == "World") {
+                   std::shared_ptr<World> lower = std::make_shared<World>(8.0, 0.25, 4.0, -3.0 + 0.25, 2.0, -1, 2);
                    add_entity(std::move(lower));
                }
 
@@ -169,10 +196,6 @@ namespace model{
 
     void Model::check_colission_with_world(const Entity::Shared &world, const Entity::Shared &other) {
 
-        if(other->get_name() == "world") return;
-
-
-
         Hitbox world_hitbox = world->get_hitbox();
 
 
@@ -194,7 +217,6 @@ namespace model{
         }
         else if((other_hitbox.min_y < world_hitbox.max_y)and(world_hitbox.min_y == world->get_min_y_position())){
             collision(other, world);
-            cout << "or here"<<endl;
             // move entity down so it doesnt touch hitbox again
             bool colission = true;
             while(colission){
