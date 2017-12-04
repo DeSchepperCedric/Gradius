@@ -63,6 +63,9 @@ namespace model{
     }
 
     void Model::update_entities(double time) {
+        wave_timer += time;
+
+
         // temporarily store bullet to avoid pushing bullets while looping through entities
         std::vector<Bullet::Shared> bullets;
         for(const Entity::Shared& entity: entities){
@@ -90,6 +93,7 @@ namespace model{
 
 
         remove_destroyed_entities();
+        spawn_wave();
     }
 
     void Model::collision(const Entity::Shared& ent1, const Entity::Shared& ent2) {
@@ -161,30 +165,6 @@ namespace model{
             }
         }
 
-
-
-
-//        if(entity.use_count() == 0) return;
-//        //  world entities dont 'change' position so only have to check colission with non-world entities
-//        if(entity->get_name() == "World") return;
-//
-//        if(entity->get_name() != "PlayerShip"){
-//            check_colission_with_non_world_entities(entity, player);
-//        }
-//
-//
-//        // check colission with other entities
-//        for(const Entity::Shared& other: entities){
-//            if((entity == other) or other->is_destroyed()) continue;
-//
-//            // colission with world means moving out of its way
-//            if(other->get_name() == "World"){
-//                check_colission_with_world(other, entity);
-//            }
-//            else{
-//                check_colission_with_non_world_entities(entity, other);
-//            }
-//        }
     }
 
     void Model::remove_destroyed_entities() {
@@ -199,8 +179,6 @@ namespace model{
                    std::shared_ptr<World> lower = std::make_shared<World>(8.0, 0.25, 4.0, -3.0 + 0.25, 2.0, -1, 2);
                    add_entity(std::move(lower));
                }
-
-
                 entities.erase(it);
 
                 std::weak_ptr<const Entity> weak(*it);
@@ -285,7 +263,45 @@ namespace model{
 
     }
 
+    void Model::add_level(const Level::Shared &level) {
+        levels.push(std::move(level));
+    }
 
+    void Model::spawn_wave() {
+        // if no more levels, game is over
+        if(levels.empty()){
+            return;
+            // game done
+        }
+        // if no more waves, level is done
+        if(levels.front()->level_done()){
+            cout << "new level"<<endl;
+            levels.pop();
+
+            // if no more levels, game is over
+            if(levels.empty()){
+                return;
+            }
+        }
+        Wave::Shared wave = levels.front()->deploy_wave();
+        if(wave->get_time()> wave_timer) {
+
+            return;
+        }
+        cout << "new wave"<<endl;
+        std::vector<Entity::Shared> test = wave->get_entities();
+
+        for(const Entity::Shared& entity : wave->get_entities()){
+            add_entity(std::move(entity));
+        }
+        levels.front()->pop_wave();
+        reset_wave_timer();
+
+    }
+
+    void Model::reset_wave_timer() {
+        wave_timer = 0.0;
+    }
 
 
 }

@@ -9,16 +9,16 @@
 
 #include <memory>
 #include <vector>
+#include <queue>
 
 #include "Entity.h"
 #include "PlayerShip.h"
 #include "Subject.h"
 #include "World.h"
 #include "Bullet.h"
+#include "Level.h"
 
 namespace model  {
-
-
     class Model: public observer::Subject{
     private:
 
@@ -26,6 +26,14 @@ namespace model  {
 
         std::shared_ptr<PlayerShip> player;
 
+        std::queue<Level::Shared> levels;
+
+        double wave_timer = 0.0;
+    private:
+
+        /**
+         * @brief check if entities collide. If they do, handle colission
+         */
         void check_for_collisions();
 
         /**
@@ -61,6 +69,7 @@ namespace model  {
          */
         void check_colission_with_non_world_entities(const Entity::Shared& entity, const Entity::Shared& other);
 
+        void reset_wave_timer();
     public:
         typedef std::shared_ptr<Model> Shared;
 
@@ -92,6 +101,12 @@ namespace model  {
          * @brief create the world entities (upper and lower border)
          */
         void create_all_world_entities();
+
+        void add_level(const Level::Shared& level);
+
+        void spawn_wave();
+
+
 
     };
 

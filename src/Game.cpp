@@ -7,6 +7,7 @@
 #include "Obstacle.h"
 #include "World.h"
 #include "EnemyShip.h"
+#include "Level.h"
 
 #include <iostream>
 using std::cout;
@@ -19,6 +20,7 @@ void Game::run() {
     bool down;
     bool right;
     bool left;
+    cout << "4"<<endl;
     while (view->get_window()->isOpen())
     {
 
@@ -81,8 +83,7 @@ Game::Game() {
     //player->register_observer(player_rep);
     model->set_player(player);
 
-    std::shared_ptr<model::Obstacle> ob = std::make_shared<model::Obstacle>(0.40,0.80,4.0,0.0,2,1,1);
-    std::shared_ptr<model::Obstacle> ob2 = std::make_shared<model::Obstacle>(0.80,0.80,4.0,2.0,2,-1,1);
+
 
     sf::Texture ob_text;
     ob_text.loadFromFile("../images/astroid.jpg");
@@ -99,17 +100,39 @@ Game::Game() {
 
     model->create_all_world_entities();
     //model->add_entity(std::move(world));
-    model->add_entity(std::move(ob));
-    model->add_entity(std::move(ob2));
+   // model->add_entity(std::move(ob));
+   // model->add_entity(std::move(ob2));
 
 
-    std::shared_ptr<model::EnemyShip> enemy = std::make_shared<model::EnemyShip>(0.40,0.40,3.0,0.0,2,1,1,1.0f);
+
     sf::Texture enemy_text;
     enemy_text.loadFromFile("../images/x_wing.jpg");
     view->add_texture(enemy_text, "EnemyShip");
-    model->add_entity(std::move(enemy));
+   // model->add_entity(std::move(enemy));
+    cout << "1"<<endl;
+
+    for(int j = 0; j <2; j++) {
+        model::Level::Shared level = std::make_shared<model::Level>();
+        for (int i = 0; i < 2; i++) {
+            std::shared_ptr<model::EnemyShip> enemy = std::make_shared<model::EnemyShip>(0.40, 0.40, 3.0, 0.0, 2, 1, 1,
+                                                                                         1.0f);
+            std::shared_ptr<model::Obstacle> ob = std::make_shared<model::Obstacle>(0.40, 0.80, 4.0, 0.0, 2, 1, 1);
+            std::shared_ptr<model::Obstacle> ob2 = std::make_shared<model::Obstacle>(0.80, 0.80, 4.0, 2.0, 2, -1, 1);
+            model::Wave::Shared wave = std::make_shared<model::Wave>();
+            wave->set_time(5.0);
+            wave->add_entity(std::move(enemy));
+            wave->add_entity(std::move(ob));
+            wave->add_entity(std::move(ob2));
+            cout << "2" << endl;
+
+            level->add_wave(std::move(wave));
 
 
+        }
+        model->add_level(std::move(level));
+    }
+
+    cout << "3"<<endl;
     controller.set_Model(model);
 
     //view.add_entity_representation(player_rep);
