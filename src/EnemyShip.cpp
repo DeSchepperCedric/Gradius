@@ -1,6 +1,3 @@
-//
-// Created by Cedric De Schepper on 3/12/17.
-//
 
 #include "EnemyShip.h"
 

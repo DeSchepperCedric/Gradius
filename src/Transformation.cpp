@@ -1,6 +1,3 @@
-//
-// Created by Cedric De Schepper on 15/11/17.
-//
 
 #include "Transformation.h"
 #include <cmath>

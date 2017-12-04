@@ -1,6 +1,11 @@
-//
-// Created by Cedric De Schepper on 22/11/17.
-//
+/**
+ * @class observer::Observer
+ *
+ * @brief Observer of the Observer Patern
+ *
+ * @author Cedric De Schepper
+ *
+ */
 
 #ifndef GRADIUS_OBSERVER_H
 #define GRADIUS_OBSERVER_H
@@ -15,6 +20,10 @@ namespace observer {
         typedef std::shared_ptr<observer::Observer> Shared;
         typedef std::weak_ptr<observer::Observer> Weak;
 
+        /**
+         * @brief processes notification sent by subject (Observer Pattern)
+         * @param notification
+         */
         virtual void on_notification(const Notification& notification) =0;
     };
 

@@ -1,6 +1,11 @@
-//
-// Created by Cedric De Schepper on 26/11/17.
-//
+/**
+ * @class model::Bullet
+ *
+ * @brief Bullet entity : fired by ships
+ *
+ * @author Cedric De Schepper
+ *
+ */
 
 #ifndef GRADIUS_BULLET_H
 #define GRADIUS_BULLET_H
@@ -19,8 +24,16 @@ namespace model {
 
         Bullet(float x_position, float y_position, float speed, Direction direction);
 
+        /**
+         * @brief move bullet in the right direction
+         * @param time determines movement distance
+         */
         void update(double time) override;
 
+        /**
+         * @brief get name
+         * @return "Bullet"
+         */
         const std::string get_name() const override;
 
     };

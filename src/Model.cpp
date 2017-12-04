@@ -1,6 +1,4 @@
-//
-// Created by Cedric De Schepper on 15/11/17.
-//
+
 
 #include "Model.h"
 #include "Bullet.h"
@@ -234,9 +232,7 @@ namespace model{
 
         Hitbox world_hitbox = world->get_hitbox();
 
-
         Hitbox other_hitbox = other->get_hitbox();
-
 
         if((other_hitbox.max_y > world_hitbox.min_y) and(world_hitbox.max_y == world->get_max_y_position())){
             collision(other, world);
@@ -255,7 +251,7 @@ namespace model{
                 }
             }
         }
-        else if((other_hitbox.min_y < world_hitbox.max_y)and(world_hitbox.min_y == world->get_min_y_position())){
+        else if((other_hitbox.min_y < world_hitbox.max_y)and (world_hitbox.min_y == world->get_min_y_position())){
             collision(other, world);
             // move entity up so it doesnt touch hitbox again
             bool colission = true;

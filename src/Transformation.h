@@ -1,6 +1,11 @@
-//
-// Created by Cedric De Schepper on 15/11/17.
-//
+/**
+ * @class utils::Transformation
+ *
+ * @brief Transformation Singleton class to convert coordinates to pixels
+ *
+ * @author Cedric De Schepper
+ *
+ */
 
 #ifndef GRADIUS_TRANSFORMATION_H
 #define GRADIUS_TRANSFORMATION_H
@@ -19,7 +24,12 @@ namespace utils{
         Transformation() = default;
 
     public:
-
+        /**
+         * @brief convert coordinates to pixels
+         * @param entity entity used to get coordinates
+         * @param window window used for window size
+         * @return
+         */
         sf::Vector2f co_to_pixels(std::shared_ptr<const model::Entity> entity, std::shared_ptr<const sf::RenderWindow> window);
     };
 }

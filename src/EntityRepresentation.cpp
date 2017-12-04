@@ -1,6 +1,4 @@
-//
-// Created by Cedric De Schepper on 15/11/17.
-//
+
 
 #include "EntityRepresentation.h"
 #include "Transformation.h"

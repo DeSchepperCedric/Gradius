@@ -1,7 +1,11 @@
-//
-// Created by Cedric De Schepper on 13/11/17.
-//
-
+/**
+ * @class Game
+ *
+ * @brief class that runs the Gradius game
+ *
+ * @author Cedric De Schepper
+ *
+ */
 #ifndef GRADIUS_GAME_H
 #define GRADIUS_GAME_H
 
@@ -18,7 +22,9 @@ private:
 public:
     Game();
 
-
+    /**
+     * @brief runs the game using a game loop
+     */
     void run();
 };
 

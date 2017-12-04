@@ -88,6 +88,9 @@ namespace model  {
 
         void update_entities(double time);
 
+        /**
+         * @brief create the world entities (upper and lower border)
+         */
         void create_all_world_entities();
 
     };

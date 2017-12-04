@@ -1,6 +1,4 @@
-//
-// Created by Cedric De Schepper on 27/11/17.
-//
+
 
 #include "Obstacle.h"
 

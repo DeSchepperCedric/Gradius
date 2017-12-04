@@ -1,6 +1,3 @@
-//
-// Created by Cedric De Schepper on 14/11/17.
-//
 
 #include "Stopwatch.h"
 #include <iostream>
@@ -19,7 +16,7 @@ namespace utils {
         start = end;
     }
 
-    float Stopwatch::getFrame_time() const {
+    float Stopwatch::get_frame_time() const {
         return frame_time;
     }
 }

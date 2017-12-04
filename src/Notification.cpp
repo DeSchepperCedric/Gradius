@@ -1,6 +1,4 @@
-//
-// Created by Cedric De Schepper on 23/11/17.
-//
+
 
 #include "Notification.h"
 #include "Entity.h"

@@ -1,6 +1,4 @@
-//
-// Created by Cedric De Schepper on 29/11/17.
-//
+
 
 #include "World.h"
 

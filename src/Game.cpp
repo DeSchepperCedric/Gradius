@@ -1,6 +1,3 @@
-//
-// Created by Cedric De Schepper on 13/11/17.
-//
 
 #include "Game.h"
 #include "Model.h"
@@ -22,31 +19,31 @@ void Game::run() {
     bool down;
     bool right;
     bool left;
-    while (view->window->isOpen())
+    while (view->get_window()->isOpen())
     {
 
 
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
-        while (view->window->pollEvent(event))
+        while (view->get_window()->pollEvent(event))
         {
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed or (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))) {
-                view->window->close();
+                view->get_window()->close();
             }
 
 
 
         }
 
-        controller.execute_key_presses(utils::Stopwatch::get_instance().getFrame_time());
-        controller.update_model(utils::Stopwatch::get_instance().getFrame_time());
+        controller.execute_key_presses(utils::Stopwatch::get_instance().get_frame_time());
+        controller.update_model(utils::Stopwatch::get_instance().get_frame_time());
 
-        view->window->clear();
+        view->get_window()->clear();
 
         view->update();
 
-        view->window->display();
+        view->get_window()->display();
 
 
         utils::Stopwatch::get_instance().reset();
