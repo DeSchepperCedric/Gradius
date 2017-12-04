@@ -1,6 +1,8 @@
-//
-// Created by Cedric De Schepper on 15/11/17.
-//
+/**
+ * @class model::Model
+ *
+ * @brief Model of MVC that contains all game data
+ */
 
 #ifndef GRADIUS_MODEL_H
 #define GRADIUS_MODEL_H
@@ -16,37 +18,73 @@
 
 namespace model  {
 
+
     class Model: public observer::Subject{
     private:
+
         std::vector<std::shared_ptr<Entity>> entities;
 
         std::shared_ptr<PlayerShip> player;
 
-
-        float world_speed = 10.0f;
-
         void check_for_collisions();
 
-        void collision(const Entity::Shared& ent1, const Entity::Shared& ent2);
-
+        /**
+         *
+         * @param ship
+         * @return Bullet when ship can fire, otherwise null_ptr
+         */
         Bullet::Shared ship_shoots(const Ship::Shared& ship);
 
+        /**
+         * @brief remove all destroyed entities from the model
+         */
         void remove_destroyed_entities();
 
+        /**
+         * @brief handle collision between two entities
+         * @param ent1 first entity
+         * @param ent2 second entity
+         */
+        void collision(const Entity::Shared& ent1, const Entity::Shared& ent2);
+
+        /**
+         * @brief check if an entity collides with a world entity. If so, handle the colission
+         * @param world world entity
+         * @param other other entity
+         */
         void check_colission_with_world(const Entity::Shared& world, const Entity::Shared& other);
 
+        /**
+         * @brief check if an entity collides with a non-world entity. If so, handle the colission
+         * @param entity first entity
+         * @param other  second entity
+         */
         void check_colission_with_non_world_entities(const Entity::Shared& entity, const Entity::Shared& other);
 
     public:
         typedef std::shared_ptr<Model> Shared;
 
+        /**
+         * @brief add an entity to the model
+         * @param entity entity to be addd
+         */
         void add_entity(const Entity::Shared& entity);
 
-        //void remove_entity(std::weak_ptr<const Entity> entity);
-
+        /**
+         * @ brief set the PlayerShip
+         */
         void set_player(std::shared_ptr<PlayerShip> player);
 
-        void update_player(bool up, bool down, bool left, bool right,bool shoot, double time);
+        /**
+         * @brief process user input. Shoot/Move when needed
+         * @param up
+         * @param down
+         * @param left
+         * @param right
+         * @param shoot
+         * @param time
+         */
+        void update_player(const Actions& actions, double time);
 
         void update_entities(double time);
 

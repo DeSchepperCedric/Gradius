@@ -30,6 +30,14 @@ namespace model{
         float min_y;
     };
 
+    struct Actions{
+        bool move_up = false;
+        bool move_down = false;
+        bool move_left = false;
+        bool move_right = false;
+        bool shoot = false;
+    };
+
 class Entity : public observer::Subject {
 
 protected:
@@ -93,7 +101,7 @@ public:
 
     Hitbox get_hitbox();
 
-    void move(bool up, bool down, bool left, bool right, double time);
+    void move(const Actions& actions, double time);
 
     Co get_center() const;
 

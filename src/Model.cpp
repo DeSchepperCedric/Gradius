@@ -31,10 +31,10 @@ namespace model{
         notify(observer::CreationNotification(weak_entity));
     }
 
-    void Model::update_player(bool up, bool down, bool left, bool right,bool shoot, double time) {
+    void Model::update_player(const Actions& actions, double time) {
 
-        player->move(up, down, left, right, time);
-        if(shoot){
+        player->move(actions, time);
+        if(actions.shoot){
             Bullet::Shared bullet = ship_shoots(player);
             if(bullet != nullptr){
                 add_entity(bullet);
@@ -244,7 +244,11 @@ namespace model{
             bool colission = true;
             while(colission){
                 double time = 0.01;
-                other->move(false, true,false,false,time);
+
+                Actions actions;
+                actions.move_down = true;
+
+                other->move(actions,time);
                 other_hitbox = other->get_hitbox();
                 if(other_hitbox.max_y < world_hitbox.min_y){
                     colission = false;
@@ -253,12 +257,15 @@ namespace model{
         }
         else if((other_hitbox.min_y < world_hitbox.max_y)and(world_hitbox.min_y == world->get_min_y_position())){
             collision(other, world);
-            // move entity down so it doesnt touch hitbox again
+            // move entity up so it doesnt touch hitbox again
             bool colission = true;
             while(colission){
-
                 double time = 0.01;
-                other->move(true,false,false,false,time);
+                Actions actions;
+                actions.move_up = true;
+
+                other->move(actions,time);
+
                 other_hitbox = other->get_hitbox();
                 if(other_hitbox.min_y > world_hitbox.max_y){
                     colission = false;

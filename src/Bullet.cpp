@@ -3,7 +3,7 @@
 //
 
 #include "Bullet.h"
-
+#include "Entity.h"
 #include <iostream>
 
 namespace model {
@@ -13,28 +13,28 @@ namespace model {
                                                         direction(direction) {}
 
     void Bullet::update(double time) {
-
+        Actions actions;
         switch(direction){
             case DOWN:
-                move(false, true, false, false, time);
+                actions.move_down = true;
                 break;
 
             case UP:
-                move(true, false, false, false, time);
+                actions.move_up = true;
                 break;
 
             case LEFT:
-                move(false, false, true, false, time);
+                actions.move_left = true;
                 break;
 
             case RIGHT:
-                move(false, false, false, true, time);
-
+                actions.move_right = true;
                 break;
 
             case NONE:
                 break;
         }
+        move(actions, time);
 
     }
 

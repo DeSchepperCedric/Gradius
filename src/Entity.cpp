@@ -81,24 +81,24 @@ namespace model {
         }
     }
 
-    void Entity::move(bool up, bool down, bool left, bool right, const double time) {
+    void Entity::move(const Actions& actions, double time) {
         bool change = false;
         // vertical movement
-        if(up and !down){
+        if(actions.move_up and !actions.move_down){
             move_up(time);
             change = true;
         }
-        else if(down and !up){
+        else if(actions.move_down and !actions.move_up){
             move_down(time);
             change = true;
         }
 
         // horizontal movement
-        if(left and !right){
+        if(actions.move_left and !actions.move_right){
             move_left(time);
             change = true;
         }
-        else if(right and !left){
+        else if(actions.move_right and !actions.move_left){
             move_right(time);
             change = true;
         }

@@ -15,7 +15,10 @@ namespace model {
     }
 
     void World::update(double time) {
-        move(false, false, true, false, time);
+        Actions actions;
+        actions.move_left = true;
+
+        move(actions, time);
 
     }
 
