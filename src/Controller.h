@@ -18,9 +18,9 @@ namespace controller {
         void set_Model(std::shared_ptr<model::Model> model);
 
 
-        void execute_key_presses(const double time);
+        void execute_key_presses(double time);
 
-        void update_model(const double time);
+        void update_model(double time);
     };
 
 }

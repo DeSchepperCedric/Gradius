@@ -31,9 +31,8 @@ namespace model {
         return "PlayerShip";
     }
 
-    void PlayerShip::update(const double& time) {
-        remaining_time_before_shot -= time;
-        if(remaining_time_before_shot < 0) remaining_time_before_shot = 0.0;
+    void PlayerShip::update(double time) {
+        update_gun_timer(time);
 
         remaining_invicibility = std::max(0.0, remaining_invicibility - time);
     }
@@ -45,4 +44,14 @@ namespace model {
     void PlayerShip::reset_remaining_invicibility() {
         remaining_invicibility = max_invicibility;
     }
+
+    Co PlayerShip::get_gun_position() {
+        Co gun;
+        gun.x = x_position + length + 0.12f;
+        gun.y = y_position - (height / 2) + 0.10f;
+        return gun;
+    }
+
+
+
 }

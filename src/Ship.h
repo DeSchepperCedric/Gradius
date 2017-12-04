@@ -13,17 +13,20 @@ namespace model {
         double remaining_time_before_shot = 0.0;
         double time_before_shot;
     public:
+        typedef std::shared_ptr<Ship> Shared;
 
         Ship(float length, float height, float x_position, float y_position, float speed, int health, int damage,
              double time_before_shot);
 
-        Co get_gun_position();
+        virtual Co get_gun_position() = 0;
 
         bool shoot();
 
-        void update(const double& time) override;
+        void update(double time) override;
 
         const std::string get_name() const override  = 0;
+
+        void update_gun_timer(double time);
 
     };
 

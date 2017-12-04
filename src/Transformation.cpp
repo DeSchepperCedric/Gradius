@@ -25,18 +25,18 @@ namespace utils {
         float pixel_y;
 
         float entity_pixel_length = (entity->get_length() / co_x_max) * (pixel_x_max / 2);
-        float entity_pixel_height = round((entity->get_height() / co_y_max) * (pixel_y_max / 2));
+        float entity_pixel_height = roundf((entity->get_height() / co_y_max) * (pixel_y_max / 2));
 
         if (co_x >= 0) {
-            pixel_x = (int) (round((co_x / co_x_max) * (pixel_x_max / 2) + (pixel_x_max / 2)));
+            pixel_x = (int) (roundf((co_x / co_x_max) * (pixel_x_max / 2) + (pixel_x_max / 2)));
         } else {
-            pixel_x = (int) round(((co_x + co_x_max) / co_x_max) * (pixel_x_max / 2));
+            pixel_x = (int) roundf(((co_x + co_x_max) / co_x_max) * (pixel_x_max / 2));
         }
 
         if (co_y >= 0) {
-            pixel_y = (int) round((pixel_y_max / 2) - (co_y / co_y_max) * (pixel_y_max / 2));
+            pixel_y = (int) roundf((pixel_y_max / 2) - (co_y / co_y_max) * (pixel_y_max / 2));
         } else {
-            pixel_y = (int) round((pixel_y_max / 2) + (-co_y / co_y_max) * (pixel_y_max / 2));
+            pixel_y = (int) roundf((pixel_y_max / 2) + (-co_y / co_y_max) * (pixel_y_max / 2));
         }
         return {pixel_x, pixel_y};
     }

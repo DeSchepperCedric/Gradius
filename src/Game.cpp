@@ -9,6 +9,7 @@
 #include "Stopwatch.h"
 #include "Obstacle.h"
 #include "World.h"
+#include "EnemyShip.h"
 
 #include <iostream>
 using std::cout;
@@ -103,6 +104,13 @@ Game::Game() {
     //model->add_entity(std::move(world));
     model->add_entity(std::move(ob));
     model->add_entity(std::move(ob2));
+
+
+    std::shared_ptr<model::EnemyShip> enemy = std::make_shared<model::EnemyShip>(0.40,0.40,3.0,0.0,2,1,1,1.0f);
+    sf::Texture enemy_text;
+    enemy_text.loadFromFile("../images/x_wing.jpg");
+    view->add_texture(enemy_text, "EnemyShip");
+    model->add_entity(std::move(enemy));
 
 
     controller.set_Model(model);

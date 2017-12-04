@@ -24,11 +24,13 @@ namespace model {
 
         const std::string get_name() const override;
 
-        void update(const double& time) override;
+        void update(double time) override;
 
         double get_remaining_invicibility_after_colission() const;
 
         void reset_remaining_invicibility();
+
+        Co get_gun_position() override;
     };
 
 }

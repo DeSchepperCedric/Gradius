@@ -1,6 +1,11 @@
-    //
-// Created by Cedric De Schepper on 13/11/17.
-//
+/**
+ * @class model::Entity
+ *
+ * @brief Base class for all interacting entities
+ *
+ * @author Cedric De Schepper
+ *
+ */
 
 #ifndef GRADIUS_ENTITY_H
 #define GRADIUS_ENTITY_H
@@ -54,13 +59,13 @@ protected:
 
 
 private:
-    void move_right(const double time);
+    void move_right(double time);
 
-    void move_left(const double time);
+    void move_left(double time);
 
-    void move_up(const double time);
+    void move_up(double time);
 
-    void move_down(const double time);
+    void move_down(double time);
 
 
 public:
@@ -92,7 +97,7 @@ public:
 
     Co get_center() const;
 
-    virtual void update(const double& time);
+    virtual void update(double time) = 0;
 
     // used for colision handling
     float get_radius();

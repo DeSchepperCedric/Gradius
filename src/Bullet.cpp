@@ -9,11 +9,10 @@
 namespace model {
     Bullet::Bullet(float x_position, float y_position, float speed,
                           model::Direction direction) :
-            Entity(0.40f, 0.20f, x_position + 0.08f, (y_position + 0.10f), speed, 1,1),
-                                                        direction(direction) {
-    }
+            Entity(0.40f, 0.20f, x_position, y_position, speed, 1,1),
+                                                        direction(direction) {}
 
-    void Bullet::update(const double& time) {
+    void Bullet::update(double time) {
 
         switch(direction){
             case DOWN:

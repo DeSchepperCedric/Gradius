@@ -15,8 +15,6 @@ namespace model {
 
     }
 
-
-
     const float Entity::get_length() const {
         return length;
     }
@@ -49,20 +47,20 @@ namespace model {
         return min_y_position;
     }
 
-    void Entity::move_down(const double time) {
+    void Entity::move_down(double time) {
         y_position -= (speed * time);
     }
 
-    void Entity::move_up(const double time) {
+    void Entity::move_up(double time) {
         y_position += (speed * time);
     }
 
-    void Entity::move_right(const double time) {
+    void Entity::move_right(double time) {
         x_position += (speed * time);
 
     }
 
-    void Entity::move_left(const double time) {
+    void Entity::move_left(double time) {
         x_position -= (speed * time);
     }
 
@@ -134,7 +132,7 @@ namespace model {
         return co;
     }
 
-    void Entity::update(const double& time) {
+    void Entity::update(double time) {
     }
 
     float Entity::get_speed() const {
@@ -171,7 +169,6 @@ namespace model {
 
     }
 
-
     bool Entity::is_destroyed() const {
         return destroyed;
     }
@@ -179,5 +176,4 @@ namespace model {
     void Entity::set_destroyed(bool destroyed) {
         Entity::destroyed = destroyed;
     }
-
 }

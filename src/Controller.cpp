@@ -17,7 +17,7 @@ namespace controller {
 
 
 
-    void Controller::execute_key_presses(const double time) {
+    void Controller::execute_key_presses(double time) {
         bool up = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
         bool down = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
         bool left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
@@ -27,7 +27,7 @@ namespace controller {
         model->update_player(up,down,left,right,shoot, time);
     }
 
-    void Controller::update_model(const double time) {
+    void Controller::update_model(double time) {
         model->update_entities(time);
     }
 }

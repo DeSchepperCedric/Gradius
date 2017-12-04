@@ -5,9 +5,11 @@
 #include "Model.h"
 #include "Bullet.h"
 #include "World.h"
+#include "EnemyShip.h"
 
 #include <iostream>
 #include <math.h>
+#include "vector"
 
 using std::endl;
 using std::cout;
@@ -21,10 +23,10 @@ namespace model{
         notify(observer::CreationNotification(player));
     }
 
-    void Model::add_entity(Entity::Shared entity) {
+    void Model::add_entity(const Entity::Shared& entity) {
         std::weak_ptr<Entity> weak_entity(entity);
-        entities.push_back(std::move(entity));
 
+        entities.push_back(std::move(entity));
         // notify observers of entity creation
         notify(observer::CreationNotification(weak_entity));
     }
@@ -33,30 +35,61 @@ namespace model{
 
         player->move(up, down, left, right, time);
         if(shoot){
-            player_shoots();
+            Bullet::Shared bullet = ship_shoots(player);
+            if(bullet != nullptr){
+                add_entity(bullet);
+            }
+
         }
     }
 
-    void Model::player_shoots() {
-        if(player->shoot()){
-            Co pos = player->get_gun_position();
+    Bullet::Shared Model::ship_shoots(const Ship::Shared& ship) {
+        if(ship->shoot()){
+            Co pos = ship->get_gun_position();
 
-            std::shared_ptr<Bullet> bullet = std::make_shared<Bullet>(pos.x, pos.y, (player->get_speed() * 2), RIGHT);
-            add_entity(std::move(bullet));
+            if(ship->get_name() == "PlayerShip"){
+                Bullet::Shared bullet = std::make_shared<Bullet>(pos.x, pos.y, (ship->get_speed() * 2), RIGHT);
+                return std::move(bullet);
+               // add_entity(std::move(bullet));
+            }
+            else{
+                Bullet::Shared bullet = std::make_shared<Bullet>(pos.x, pos.y, (ship->get_speed() * 2), LEFT);
+                return std::move(bullet);
+                //add_entity(std::move(bullet));
+            }
+
+
         }
+        return nullptr;
 
     }
 
     void Model::update_entities(double time) {
+        // temporarily store bullet to avoid pushing bullets while looping through entities
+        std::vector<Bullet::Shared> bullets;
         for(const Entity::Shared& entity: entities){
             if(entity->is_destroyed()) continue;
 
             entity->update(time);
+
+            if(entity->get_name() == "EnemyShip"){
+                auto enemy = std::static_pointer_cast<Ship>(entity);
+                bullets.push_back(ship_shoots(enemy));
+            }
         }
+        // process bullets
+        for(const Bullet::Shared& bullet : bullets) {
+            if (bullet != nullptr) {
+                add_entity(bullet);
+            }
+        }
+
 
         player->update(time);
 
+
         check_for_collisions();
+
 
         remove_destroyed_entities();
     }
@@ -101,7 +134,10 @@ namespace model{
         // check colissions between entities
         for(auto it1 = entities.begin(); it1 != entities.end(); it1++){
 
+            if((*it1)->is_destroyed()) continue;
+
             for(auto it2 = (it1 + 1); it2 != entities.end(); it2++){
+                if((*it2)->is_destroyed()) continue;
 
                 // two world entities don't collide
                 if(((*it1)->get_name() == "World") and ((*it2)->get_name() == "World")) continue;

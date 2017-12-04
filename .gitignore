@@ -9,3 +9,4 @@ Makefile
 bin/*
 .idea/*
 cmake-build-debug/*
+Doxy/*

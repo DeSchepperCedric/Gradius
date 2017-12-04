@@ -12,6 +12,7 @@
 #include "PlayerShip.h"
 #include "Subject.h"
 #include "World.h"
+#include "Bullet.h"
 
 namespace model  {
 
@@ -28,7 +29,7 @@ namespace model  {
 
         void collision(const Entity::Shared& ent1, const Entity::Shared& ent2);
 
-        void player_shoots();
+        Bullet::Shared ship_shoots(const Ship::Shared& ship);
 
         void remove_destroyed_entities();
 
@@ -39,7 +40,7 @@ namespace model  {
     public:
         typedef std::shared_ptr<Model> Shared;
 
-        void add_entity(Entity::Shared entity);
+        void add_entity(const Entity::Shared& entity);
 
         //void remove_entity(std::weak_ptr<const Entity> entity);
 
