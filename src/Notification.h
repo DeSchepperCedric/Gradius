@@ -45,9 +45,11 @@ namespace observer {
      * @class DestructionNotification
      * @brief notification after the destruction of an entity
      */
-    class DestructionNotification : public EntityNotification {
+    class DestructionNotification : public Notification{
     public:
-        explicit DestructionNotification(const std::weak_ptr<const model::Entity> &weak_entity);
+
+        DestructionNotification() = default;
+
 
     };
 

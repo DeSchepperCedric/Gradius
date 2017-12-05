@@ -108,8 +108,8 @@ Game::Game() {
     sf::Texture enemy_text;
     enemy_text.loadFromFile("../images/x_wing.jpg");
     view->add_texture(enemy_text, "EnemyShip");
-   // model->add_entity(std::move(enemy));
-    cout << "1"<<endl;
+
+
 
     for(int j = 0; j <2; j++) {
         model::Level::Shared level = std::make_shared<model::Level>();
@@ -123,7 +123,6 @@ Game::Game() {
             wave->add_entity(std::move(enemy));
             wave->add_entity(std::move(ob));
             wave->add_entity(std::move(ob2));
-            cout << "2" << endl;
 
             level->add_wave(std::move(wave));
 

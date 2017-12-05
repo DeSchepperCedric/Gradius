@@ -48,7 +48,7 @@ namespace view {
          * @brief remove the entityRepresentation of an entity that is gonna be destroyed
          * @param weak_entity weak_ptr to the entity that's gonna be removed
          */
-        void remove_entity_representation_of_entity(std::weak_ptr<const model::Entity> weak_entity);
+        void remove_entity_representation_of_entity();
 
         /**
          * @brief processes notification sent by subject (Observer Pattern)

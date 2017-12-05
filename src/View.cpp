@@ -25,7 +25,7 @@ namespace view {
         entity_representations.push_back(entity_rep);
     }
 
-    void View::remove_entity_representation_of_entity(std::weak_ptr<const model::Entity> weak_entity) {
+    void View::remove_entity_representation_of_entity() {
         for(auto it = entity_representations.begin(); it != entity_representations.end();it++){
 
             if((*it)->get_weak_entity().expired()){
@@ -39,7 +39,7 @@ namespace view {
 
     void View::on_notification(const observer::Notification& notification) {
         if(auto destruction = dynamic_cast<const observer::DestructionNotification*>(&notification)){
-            remove_entity_representation_of_entity(destruction->get_weak_entity());
+            remove_entity_representation_of_entity();
         }
         else if(auto creation = dynamic_cast<const observer::CreationNotification*>(&notification)){
             add_entity_representation_of_entity(creation->get_weak_entity());

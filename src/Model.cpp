@@ -35,7 +35,7 @@ namespace model{
         if(actions.shoot){
             Bullet::Shared bullet = ship_shoots(player);
             if(bullet != nullptr){
-                add_entity(bullet);
+                add_entity(std::move(bullet));
             }
 
         }
@@ -164,31 +164,31 @@ namespace model{
     }
 
     void Model::remove_destroyed_entities() {
-
+        cout<<"gonna print"<<endl;
+        for(auto e : entities){
+            cout<< e->get_name()<<endl;
+        }
         for(auto it = entities.begin(); it != entities.end();){
-
             if((*it)->is_destroyed()){
                if((*it)->get_name() == "World" and (*it)->get_y_position() == (*it)->get_max_y_position()){
-                    std::shared_ptr<World> upper = std::make_shared<World>(8.0,0.25, 4.0, 3.0, 2.0, -1,2);
+                    std::shared_ptr<World> upper = std::make_shared<World>(8.0,0.25, 3.9, 3.0, 2.0, -1,2);
                     add_entity(std::move(upper));
 
                }
                else if((*it)->get_name() == "World") {
-                    std::shared_ptr<World> lower = std::make_shared<World>(8.0, 0.25, 4.0, -3.0 + 0.25, 2.0, -1, 2);
+                    std::shared_ptr<World> lower = std::make_shared<World>(8.0, 0.25, 3.9, -3.0 + 0.25, 2.0, -1, 2);
                     add_entity(std::move(lower));
                }
 
 
 
                 it = entities.erase(it);
-                std::weak_ptr<const Entity> weak(*it);
-                const observer::DestructionNotification notification(weak);
+                const observer::DestructionNotification notification;
 
                 notify(notification);
-
             }
             else{
-                ++it;
+                it++;
             }
         }
     }

@@ -23,7 +23,7 @@ namespace observer{
         observers.erase(it);
     }
 
-    void Subject::notify(const Notification &notification) {
+    void Subject::notify(const Notification& notification) {
 
         for(auto & observer : observers){
 
