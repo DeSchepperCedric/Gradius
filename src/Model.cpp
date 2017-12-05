@@ -88,18 +88,17 @@ namespace model{
 
         player->update(time);
 
-
         check_for_collisions();
 
-
         remove_destroyed_entities();
+
         spawn_wave();
     }
 
     void Model::collision(const Entity::Shared& ent1, const Entity::Shared& ent2) {
         // reduce lives
         if(ent1->get_name() == "PlayerShip" and ent2->get_name() == "World"){
-            cout << "lives: "<<ent1->get_health()<<endl;
+
             std::shared_ptr<PlayerShip> player = std::dynamic_pointer_cast<PlayerShip>(ent1);
             if(player->get_remaining_invicibility_after_colission() > 0.0) return;
             else{
@@ -107,8 +106,6 @@ namespace model{
             }
         }
 
-
-        cout << "collision with "<< ent1->get_name() << " and "<<ent2->get_name()<<endl;
         ent1->lose_lives(ent2->get_damage());
 
         ent2->lose_lives(ent1->get_damage());
@@ -154,7 +151,6 @@ namespace model{
             }
 
             // check colissions between the player and entities
-
             if((*it1)->get_name() == "World"){
                 check_colission_with_world((*it1), player);
             }
@@ -168,28 +164,31 @@ namespace model{
     }
 
     void Model::remove_destroyed_entities() {
+
         for(auto it = entities.begin(); it != entities.end();){
+
             if((*it)->is_destroyed()){
                if((*it)->get_name() == "World" and (*it)->get_y_position() == (*it)->get_max_y_position()){
-                   std::shared_ptr<World> upper = std::make_shared<World>(8.0,0.25, 4.0, 3.0, 2.0, -1,2);
-                   add_entity(std::move(upper));
+                    std::shared_ptr<World> upper = std::make_shared<World>(8.0,0.25, 4.0, 3.0, 2.0, -1,2);
+                    add_entity(std::move(upper));
 
                }
                else if((*it)->get_name() == "World") {
-                   std::shared_ptr<World> lower = std::make_shared<World>(8.0, 0.25, 4.0, -3.0 + 0.25, 2.0, -1, 2);
-                   add_entity(std::move(lower));
+                    std::shared_ptr<World> lower = std::make_shared<World>(8.0, 0.25, 4.0, -3.0 + 0.25, 2.0, -1, 2);
+                    add_entity(std::move(lower));
                }
-                entities.erase(it);
 
+
+
+                it = entities.erase(it);
                 std::weak_ptr<const Entity> weak(*it);
                 const observer::DestructionNotification notification(weak);
 
                 notify(notification);
 
-
             }
             else{
-                it++;
+                ++it;
             }
         }
     }

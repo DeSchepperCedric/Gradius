@@ -10,9 +10,9 @@ namespace model{
     }
 
     const Wave::Shared& Level::deploy_wave() {
-        Wave::Shared wave = waves.front();
+       // Wave::Shared wave = waves.front();
 
-        return wave;
+        return waves.front();
     }
 
     bool Level::level_done() const {
