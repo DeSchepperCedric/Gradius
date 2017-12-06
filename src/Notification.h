@@ -48,7 +48,7 @@ namespace observer {
     class DestructionNotification : public Notification{
     public:
 
-        DestructionNotification() = default;
+        DestructionNotification();
 
 
     };

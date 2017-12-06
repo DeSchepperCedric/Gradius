@@ -164,28 +164,26 @@ namespace model{
     }
 
     void Model::remove_destroyed_entities() {
-        cout<<"gonna print"<<endl;
-        for(auto e : entities){
-            cout<< e->get_name()<<endl;
-        }
+
         for(auto it = entities.begin(); it != entities.end();){
             if((*it)->is_destroyed()){
-               if((*it)->get_name() == "World" and (*it)->get_y_position() == (*it)->get_max_y_position()){
-                    std::shared_ptr<World> upper = std::make_shared<World>(8.0,0.25, 3.9, 3.0, 2.0, -1,2);
-                    add_entity(std::move(upper));
 
-               }
-               else if((*it)->get_name() == "World") {
-                    std::shared_ptr<World> lower = std::make_shared<World>(8.0, 0.25, 3.9, -3.0 + 0.25, 2.0, -1, 2);
-                    add_entity(std::move(lower));
-               }
+                if((*it)->get_name() == "World"){
+                   // std::shared_ptr<World> upper = std::make_shared<World>(8.0,0.25, 3.9, 3.0, 2.0, -1,2);
+                  //  add_entity(std::move(upper));
+                    (*it)->set_x_position(4.0f);
+                    (*it)->set_destroyed(false);
+                    it++;
+                }
+                else{
+                    it = entities.erase(it);
+                    const observer::DestructionNotification notification;
+
+                    notify(notification);
+                }
 
 
 
-                it = entities.erase(it);
-                const observer::DestructionNotification notification;
-
-                notify(notification);
             }
             else{
                 it++;

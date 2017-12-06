@@ -149,6 +149,12 @@ public:
     float get_min_y_position() const;
 
     /**
+     * @brief simple setter: set x position of the entity
+     * @param x_position new x position
+     */
+    void set_x_position(float x_position);
+
+    /**
      * @brief simple speed getter
      * @return
      */

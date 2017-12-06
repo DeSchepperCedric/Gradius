@@ -15,5 +15,6 @@ namespace observer{
     CreationNotification::CreationNotification(const std::weak_ptr<const model::Entity> &weak_entity)
             : EntityNotification(weak_entity) {}
 
+    DestructionNotification::DestructionNotification() {}
 }
 

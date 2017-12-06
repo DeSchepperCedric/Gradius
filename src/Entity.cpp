@@ -174,4 +174,8 @@ namespace model {
     void Entity::set_destroyed(bool destroyed) {
         Entity::destroyed = destroyed;
     }
+
+    void Entity::set_x_position(float x_position) {
+        Entity::x_position = x_position;
+    }
 }
