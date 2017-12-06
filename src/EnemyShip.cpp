@@ -21,7 +21,7 @@ namespace model {
     void EnemyShip::update(double time) {
         update_gun_timer(time);
 
-        Actions actions;
+        Moves actions;
         actions.move_left = true;
         move(actions, time);
     }

@@ -31,7 +31,7 @@ namespace view {
     public:
         typedef std::shared_ptr<View> Shared;
 
-        View(std::shared_ptr<sf::RenderWindow> window);
+        explicit View(std::shared_ptr<sf::RenderWindow>& window);
 
         /**
          * @brief update the view: update the view and update + draw all entityRepresentation
@@ -54,20 +54,22 @@ namespace view {
          * @brief processes notification sent by subject (Observer Pattern)
          * @param notification
          */
-        virtual void on_notification(const observer::Notification& notification);
+        virtual void on_notification(const observer::Notification& notification) override;
 
         /**
          * @brief add texture to be used on game sprites
          * @param texture texture to be added to sprite
          * @param type type of entity that the texture will be used on
          */
-        void add_texture(const sf::Texture texture, const std::string& type);
+        void add_texture(const sf::Texture& texture, const std::string& type);
 
         /**
          * @brief simple getter: get game window to be displayed
          * @return game window
          */
         const std::shared_ptr<sf::RenderWindow> &get_window() const;
+
+
 
     };
 

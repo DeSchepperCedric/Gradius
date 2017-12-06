@@ -1,5 +1,7 @@
 
 #include "Controller.h"
+#include "Utilities.h"
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 using std::cout;
@@ -15,16 +17,16 @@ namespace controller {
 
 
     void Controller::execute_key_presses(double time) {
-        model::Actions action;
-        action.move_up = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
-        action.move_down = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
-        action.move_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
-        action.move_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
-        action.shoot = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
+        model::Moves moves;
+        moves.move_up = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
+        moves.move_down = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
+        moves.move_left = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
+        moves.move_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
+        bool shoot = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
 
 
 
-        model->update_player(action, time);
+        model->update_player(moves, shoot, time);
     }
 
     void Controller::update_model(double time) {

@@ -79,7 +79,7 @@ namespace model {
         }
     }
 
-    void Entity::move(const Actions& actions, double time) {
+    void Entity::move(const Moves& actions, double time) {
         bool change = false;
         // vertical movement
         if(actions.move_up and !actions.move_down){

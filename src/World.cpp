@@ -13,7 +13,7 @@ namespace model {
     }
 
     void World::update(double time) {
-        Actions actions;
+        Moves actions;
         actions.move_left = true;
 
         move(actions, time);

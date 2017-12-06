@@ -23,16 +23,16 @@ namespace model{
 
     void Model::add_entity(const Entity::Shared& entity) {
         std::weak_ptr<Entity> weak_entity(entity);
+        entities.push_back(entity);
 
-        entities.push_back(std::move(entity));
         // notify observers of entity creation
         notify(observer::CreationNotification(weak_entity));
     }
 
-    void Model::update_player(const Actions& actions, double time) {
+    void Model::update_player(const Moves& actions, bool shoot, double time) {
 
         player->move(actions, time);
-        if(actions.shoot){
+        if(shoot){
             Bullet::Shared bullet = ship_shoots(player);
             if(bullet != nullptr){
                 add_entity(std::move(bullet));
@@ -139,7 +139,9 @@ namespace model{
                 if((*it2)->is_destroyed()) continue;
 
                 // two world entities don't collide
-                if(((*it1)->get_name() == "World") and ((*it2)->get_name() == "World")) continue;
+                if(((*it1)->get_name() == "World") and ((*it2)->get_name() == "World")){
+                    continue;
+                }
 
                 else if((*it1)->get_name() == "World"){
                     check_colission_with_world((*it1), (*it2));
@@ -216,7 +218,7 @@ namespace model{
             while(colission){
                 double time = 0.01;
 
-                Actions actions;
+                Moves actions;
                 actions.move_down = true;
 
                 other->move(actions,time);
@@ -232,7 +234,7 @@ namespace model{
             bool colission = true;
             while(colission){
                 double time = 0.01;
-                Actions actions;
+                Moves actions;
                 actions.move_up = true;
 
                 other->move(actions,time);

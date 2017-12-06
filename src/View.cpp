@@ -1,12 +1,13 @@
 
 #include "View.h"
 #include "Transformation.h"
+#include "PlayerRepresentation.h"
 
 #include <iostream>
 
 namespace view {
 
-    View::View(std::shared_ptr<sf::RenderWindow> window) : window(window) {}
+    View::View(std::shared_ptr<sf::RenderWindow>& window) : window(std::move(window)) {}
 
 
     void View::update() {
@@ -17,12 +18,36 @@ namespace view {
     }
 
     void View::add_entity_representation_of_entity(const std::weak_ptr<const model::Entity>& weak_entity) {
+        std::string name = weak_entity.lock()->get_name();
+        sf::Texture* texture = &textures.at(name);
+        if(name == "PlayerShip"){
+            std::vector<sf::Sprite> lives;
+            sf::Texture live_text = textures.at(name);
+            float x = 5.0f;
+            float y = 5.0f;
 
-        sf::Texture* texture = &textures.at(weak_entity.lock()->get_name());
+
+            for(int i =0 ; i < weak_entity.lock()->get_health(); i++){
+                sf::Sprite live;
+                live.setTexture(live_text);
+                live.setScale((20 / live.getGlobalBounds().width) , (20 / live.getGlobalBounds().height));
+                live.setPosition(x,y);
+
+                x += 20.0f;
+                lives.push_back(live);
+
+            }
+            PlayerRepresentation::Shared player =std::make_shared<PlayerRepresentation>(texture, weak_entity, lives);
+            player->scale_representation_to_entity(window->getSize());
+            entity_representations.push_back(std::move(player));
+
+            return;
+        }
+
         EntityRepresentation::Shared entity_rep = std::make_shared<EntityRepresentation>(texture, weak_entity);
 
         entity_rep->scale_representation_to_entity(window->getSize());
-        entity_representations.push_back(entity_rep);
+        entity_representations.push_back(std::move(entity_rep));
     }
 
     void View::remove_entity_representation_of_entity() {
@@ -46,7 +71,7 @@ namespace view {
         }
     }
 
-    void View::add_texture(const sf::Texture texture, const std::string &type) {
+    void View::add_texture(const sf::Texture& texture, const std::string &type) {
         textures[type] = texture;
 
     }

@@ -93,7 +93,7 @@ namespace model  {
          * @param shoot
          * @param time
          */
-        void update_player(const Actions& actions, double time);
+        void update_player(const Moves& actions, bool shoot, double time);
 
         void update_entities(double time);
 
@@ -102,8 +102,15 @@ namespace model  {
          */
         void create_all_world_entities();
 
+        /**
+         * @brief add a game level to the model
+         * @param level level to be added
+         */
         void add_level(const Level::Shared& level);
 
+        /**
+         * @brief spawn a wave of enemies when wave timer is ready
+         */
         void spawn_wave();
 
 

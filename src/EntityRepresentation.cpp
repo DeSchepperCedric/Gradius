@@ -7,14 +7,12 @@
 #include <iostream>
 
 namespace view{
-    void EntityRepresentation::draw(std::shared_ptr<sf::RenderWindow> window) {
+    void EntityRepresentation::draw(std::shared_ptr<sf::RenderWindow>& window) {
         //if (!entity->is_changed()) return;
 
         if(to_be_moved){
             sf::Vector2f position = utils::Transformation::get_instance().co_to_pixels(weak_entity.lock(), window);
             EntityRepresentation::setPosition(position);
-
-            // to_be_moved = false;  when observer is implementend
         }
         window->draw(*this);
     }

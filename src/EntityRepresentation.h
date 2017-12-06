@@ -23,7 +23,7 @@ namespace view {
     class EntityRepresentation : public sf::Sprite, public observer::Observer {
         friend class View;
 
-    private:
+    protected:
         std::weak_ptr<const model::Entity> weak_entity;
 
         bool to_be_moved = true;
@@ -38,7 +38,7 @@ namespace view {
          * @brief draws the entityRepresentation on the window
          * @param window
          */
-        void draw(std::shared_ptr<sf::RenderWindow> window);
+        virtual void draw(std::shared_ptr<sf::RenderWindow>& window);
 
         /**
          * @brief scales representation compared to window size and entity size

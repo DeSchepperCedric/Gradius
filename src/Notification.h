@@ -49,8 +49,6 @@ namespace observer {
     public:
 
         DestructionNotification();
-
-
     };
 
     /**
@@ -60,6 +58,11 @@ namespace observer {
     class CreationNotification : public EntityNotification {
     public:
         explicit CreationNotification(const std::weak_ptr<const model::Entity> &weak_entity);
+    };
+
+    class LoseLifeNotification : public Notification{
+    public:
+        LoseLifeNotification();
     };
 
 

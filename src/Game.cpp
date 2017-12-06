@@ -8,6 +8,7 @@
 #include "World.h"
 #include "EnemyShip.h"
 #include "Level.h"
+#include "Exceptions.h"
 
 #include <iostream>
 using std::cout;
@@ -16,11 +17,6 @@ using std::endl;
 void Game::run() {
     utils::Stopwatch::get_instance();
 
-    bool up;
-    bool down;
-    bool right;
-    bool left;
-    cout << "4"<<endl;
     while (view->get_window()->isOpen())
     {
 
@@ -61,13 +57,20 @@ Game::Game() {
     Game::view = view;
 
     model::Model::Shared model = std::make_shared<model::Model>();
-    // speed
-    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.40,-3.0,0.0,8,3,1,0.5);
-    //sf::Texture temp;
-   // temp.loadFromFile("../ship.png");
-   // sf::Texture* texture = &temp;
+
+    std::shared_ptr<model::PlayerShip> player = std::make_shared<model::PlayerShip>(0.40,0.40,-3.0,0.0,6,3,1,0.5);
     sf::Texture texture;
-    texture.loadFromFile("../images/x_wing.jpg");
+
+    try {
+        if (!texture.loadFromFile("../images/x_wing.jpg")) {
+            throw exceptions::TextureException();
+        }
+    }
+    catch(const std::exception& e){
+        std::cout << e.what() <<std::endl;
+    }
+
+
     view->add_texture(texture, "PlayerShip");
 
     sf::Texture temp_bullet;
@@ -80,7 +83,7 @@ Game::Game() {
     std::weak_ptr<model::Model> weak_model(model);
 
     model->register_observer(weak_view);
-    //player->register_observer(player_rep);
+
     model->set_player(player);
 
 
@@ -99,17 +102,16 @@ Game::Game() {
     view->add_texture(world_text, "World");
 
     model->create_all_world_entities();
-    //model->add_entity(std::move(world));
-   // model->add_entity(std::move(ob));
-   // model->add_entity(std::move(ob2));
 
 
 
     sf::Texture enemy_text;
-    enemy_text.loadFromFile("../images/x_wing.jpg");
+    enemy_text.loadFromFile("../images/EnemyShip.jpg");
     view->add_texture(enemy_text, "EnemyShip");
 
-
+    sf::Texture live_text;
+    live_text.loadFromFile("../images/hearth.png");
+    view->add_texture(live_text,"Live");
 
     for(int j = 0; j <2; j++) {
         model::Level::Shared level = std::make_shared<model::Level>();

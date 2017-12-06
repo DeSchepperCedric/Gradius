@@ -5,7 +5,7 @@
 namespace model{
 
     void Obstacle::update(double time) {
-        Actions actions;
+        Moves actions;
         actions.move_left = true;
         move(actions, time);
 
