@@ -17,6 +17,8 @@ namespace observer {
      */
     class Notification {
     public:
+        Notification() = default;
+
         virtual ~Notification() = default;
     };
     /**
@@ -38,6 +40,10 @@ namespace observer {
     public:
         explicit EntityNotification(const std::weak_ptr<const model::Entity> &weak_entity);
 
+        /**
+         * @brief simple getter: gets weak_ptr to entity
+         * @return
+         */
         const std::weak_ptr<const model::Entity> &get_weak_entity() const;
     };
 
@@ -60,9 +66,32 @@ namespace observer {
         explicit CreationNotification(const std::weak_ptr<const model::Entity> &weak_entity);
     };
 
+    /**
+     * @class LoseLifeNotification
+     * @brief notification after losing a life
+     */
     class LoseLifeNotification : public Notification{
     public:
         LoseLifeNotification();
+    };
+
+    /**
+     * @class GameOverNotification
+     * @brief notification when the game is over
+     *
+     */
+    class GameOverNotification : public Notification{
+    private:
+        bool win;
+
+    public:
+        explicit GameOverNotification(bool win);
+
+        /**
+         * @brief simple getter: gets win
+         * @return
+         */
+        bool is_win() const;
     };
 
 

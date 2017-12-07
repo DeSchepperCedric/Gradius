@@ -35,7 +35,7 @@ namespace model{
         if(shoot){
             Bullet::Shared bullet = ship_shoots(player);
             if(bullet != nullptr){
-                add_entity(std::move(bullet));
+                add_entity(bullet);
             }
 
         }
@@ -65,7 +65,7 @@ namespace model{
     void Model::update_entities(double time) {
         wave_timer += time;
 
-
+        int old_health = player->get_health();
         // temporarily store bullet to avoid pushing bullets while looping through entities
         std::vector<Bullet::Shared> bullets;
         for(const Entity::Shared& entity: entities){
@@ -89,6 +89,19 @@ namespace model{
         player->update(time);
 
         check_for_collisions();
+
+        if(player->get_health() == 0){
+            return game_over(false);
+        }
+        if(levels.empty() and entities.size() == 4){
+            return game_over(true);
+        }
+
+        while(player->get_health() < old_health){
+            const observer::LoseLifeNotification notification;
+            notify(notification);
+            old_health--;
+        }
 
         remove_destroyed_entities();
 
@@ -195,14 +208,14 @@ namespace model{
     }
 
     void Model::create_all_world_entities() {
-        std::shared_ptr<World> upper1 = std::make_shared<World>(8.0,0.25, -4.0, 3.0, 2.0, -1,2);
+        std::shared_ptr<World> upper1 = std::make_shared<World>(8.0f,0.25f, -4.0f, 3.0f, 2.0, -1,2);
         add_entity(std::move(upper1));
-        std::shared_ptr<World> upper2 = std::make_shared<World>(8.0,0.25, 4.0, 3.0, 2.0, -1,2);
+        std::shared_ptr<World> upper2 = std::make_shared<World>(8.0f,0.25f, 4.0f, 3.0f, 2.0, -1,2);
         add_entity(std::move(upper2));
 
-        std::shared_ptr<World> lower1 = std::make_shared<World>(8.0,0.25, -4.0, -3.0 + 0.25, 2.0, -1,2);
+        std::shared_ptr<World> lower1 = std::make_shared<World>(8.0f,0.25f, -4.0f, -3.0f + 0.25f, 2.0, -1,2);
         add_entity(std::move(lower1));
-        std::shared_ptr<World> lower2 = std::make_shared<World>(8.0,0.25, 4.0, -3.0 + 0.25, 2.0, -1,2);
+        std::shared_ptr<World> lower2 = std::make_shared<World>(8.0f,0.25f, 4.0f, -3.0f + 0.25f, 2.0, -1,2);
         add_entity(std::move(lower2));
     }
 
@@ -264,7 +277,7 @@ namespace model{
     }
 
     void Model::add_level(const Level::Shared &level) {
-        levels.push(std::move(level));
+        levels.push(level);
     }
 
     void Model::spawn_wave() {
@@ -292,7 +305,7 @@ namespace model{
         std::vector<Entity::Shared> test = wave->get_entities();
 
         for(const Entity::Shared& entity : wave->get_entities()){
-            add_entity(std::move(entity));
+            add_entity(entity);
         }
         levels.front()->pop_wave();
         reset_wave_timer();
@@ -301,6 +314,21 @@ namespace model{
 
     void Model::reset_wave_timer() {
         wave_timer = 0.0;
+    }
+
+    void Model::game_over(bool win) {
+        while(!entities.empty()){
+            entities.pop_back();
+
+        }
+
+        while(!entities.empty()){
+            levels.pop();
+        }
+        player.reset();
+
+        observer::GameOverNotification notification(win);
+        notify(notification);
     }
 
 

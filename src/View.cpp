@@ -15,28 +15,30 @@ namespace view {
         for(auto& representation : entity_representations){
             representation->draw(window);
         }
+        for(auto& live : lives){
+            window->draw(*live);
+        }
     }
 
     void View::add_entity_representation_of_entity(const std::weak_ptr<const model::Entity>& weak_entity) {
         std::string name = weak_entity.lock()->get_name();
         sf::Texture* texture = &textures.at(name);
-        std::cout << name<<std::endl;
         if(name == "PlayerShip"){
-            sf::Texture live_text = textures.at(name);
-            float x = 5.0f;
-            float y = 5.0f;
+            
+            sf::Texture* live_text = &textures.at("Life");
+            float x = 0.0f;
             PlayerRepresentation::Shared player =std::make_shared<PlayerRepresentation>(texture, weak_entity);
             player->scale_representation_to_entity(window->getSize());
 
-            /*for(int i =0 ; i < weak_entity.lock()->get_health(); i++){
-                std::unique_ptr<sf::Sprite> live = std::make_unique<sf::Sprite>();
-                live->setTexture(live_text);
-                live->setScale((20 / live->getGlobalBounds().width) , (20 / live->getGlobalBounds().height));
-                live->setPosition(x,y);
-                player->add_live(live);
-                x += 20.0f;
+            for(int i =0 ; i < weak_entity.lock()->get_health(); i++){
+                std::unique_ptr<sf::Sprite> live = std::make_unique<sf::Sprite>(*live_text);
 
-            }*/
+                live->setScale((25 / live->getGlobalBounds().width) , (25 / live->getGlobalBounds().height));
+                live->setPosition(x,0.0f);
+                lives.push_back(std::move(live));
+                x += 25.0f;
+
+            }
 
             entity_representations.push_back(std::move(player));
 
@@ -62,11 +64,17 @@ namespace view {
     }
 
     void View::on_notification(const observer::Notification& notification) {
-        if(auto destruction = dynamic_cast<const observer::DestructionNotification*>(&notification)){
+        if (auto destruction = dynamic_cast<const observer::DestructionNotification *>(&notification)) {
             remove_entity_representation_of_entity();
-        }
-        else if(auto creation = dynamic_cast<const observer::CreationNotification*>(&notification)){
+        } else if (auto creation = dynamic_cast<const observer::CreationNotification *>(&notification)) {
             add_entity_representation_of_entity(creation->get_weak_entity());
+        } else if (auto game_over = dynamic_cast<const observer::GameOverNotification *>(&notification)) {
+            while (!entity_representations.empty()) {
+                entity_representations.pop_back();
+            }
+            window->close();
+        } else if (auto lost_live = dynamic_cast<const observer::LoseLifeNotification *>(&notification)) {
+            lives.pop_back();
         }
     }
 

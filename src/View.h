@@ -29,6 +29,9 @@ namespace view {
         std::shared_ptr<sf::RenderWindow> window;
 
     public:
+        std::vector<std::unique_ptr<sf::Sprite>> lives;
+
+    public:
         typedef std::shared_ptr<View> Shared;
 
         explicit View(std::shared_ptr<sf::RenderWindow>& window);

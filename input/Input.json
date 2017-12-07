@@ -38,10 +38,14 @@
    		 {
    			"name":  "Bullet",
    			"texture": "Bullet.png"
-   		}
+   		},
+		{
+			"name": "Life",
+			"texture": "Life.png"
+		}
 
    	],
    "Levels":[
-      "Easy.json"
+      "Level1.json", "Level2.json"
    ]
 }

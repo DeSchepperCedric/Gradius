@@ -15,6 +15,11 @@ using json = nlohmann::json ;
 
 namespace parsers {
 
+    /**
+     * @brief
+     * @param j json used to get data
+     * @return model of MVC for the game
+     */
     model::PlayerShip::Shared parse_player(const json& j);
 
     model::Level::Shared parse_level(const std::string& file_name);

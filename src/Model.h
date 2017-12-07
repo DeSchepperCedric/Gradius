@@ -95,6 +95,10 @@ namespace model  {
          */
         void update_player(const Moves& actions, bool shoot, double time);
 
+        /**
+         * @brief update all entities
+         * @param time
+         */
         void update_entities(double time);
 
         /**
@@ -113,7 +117,11 @@ namespace model  {
          */
         void spawn_wave();
 
-
+        /**
+         * @brief game ends: remove all entities
+         * @param win whether the game has been won or not
+         */
+        void game_over(bool win);
 
     };
 
