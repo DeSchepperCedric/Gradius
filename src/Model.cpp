@@ -97,6 +97,7 @@ namespace model{
 
     void Model::collision(const Entity::Shared& ent1, const Entity::Shared& ent2) {
         // reduce lives
+        cout << "colission between " << ent1->get_name() <<" and "<< ent2->get_name()<<endl;
         if(ent1->get_name() == "PlayerShip" and ent2->get_name() == "World"){
 
             std::shared_ptr<PlayerShip> player = std::dynamic_pointer_cast<PlayerShip>(ent1);

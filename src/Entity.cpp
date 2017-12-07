@@ -134,6 +134,7 @@ namespace model {
     }
 
     float Entity::get_speed() const {
+        std::cout << "test: "<< this->get_name()<<std::endl;
         return speed;
     }
 

@@ -9,10 +9,17 @@
 #include "EnemyShip.h"
 #include "Level.h"
 #include "Exceptions.h"
+#include "Parsers.h"
+
+#include "json.hpp"
 
 #include <iostream>
+#include <fstream>
+#include <exception>
 using std::cout;
 using std::endl;
+
+using json = nlohmann::json;
 
 void Game::run() {
     utils::Stopwatch::get_instance();
@@ -51,6 +58,45 @@ void Game::run() {
 
 }
 
+Game::Game() {
+    try {
+        std::cout << "here 11"<<std::endl;
+        std::ifstream i ("../input/Input.json");
+
+        json j;
+
+        i >> j;
+        std::vector<int> window_size = j.at("Window").get<std::vector<int>>();
+
+        if(window_size.size() != 2){
+            std::cout <<"EXCEPTION"<<std::endl;
+        }
+
+
+        auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(window_size[0], window_size[1]), "Gradius");
+        Game::view = std::make_shared<view::View>(view::View(pointer));
+
+        parsers::parse_view(j, Game::view);
+
+
+        model::Model::Shared model = std::make_shared<model::Model>();
+        std::weak_ptr<view::View> weak_view(view);
+        std::weak_ptr<model::Model> weak_model(model);
+        model->register_observer(weak_view);
+
+        parsers::parse_model(j, model);
+
+
+        controller.set_Model(std::move(model));
+
+    }
+    catch(const std::exception& e){
+        std::cout << e.what() <<std::endl;
+    }
+
+}
+
+/*
 Game::Game() {
     auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(900, 600), "Gradius");
     view::View::Shared view = std::make_shared<view::View>(view::View(pointer));
@@ -139,5 +185,4 @@ Game::Game() {
     //view.add_entity_representation(player_rep);
 
 
-}
-
+}*/

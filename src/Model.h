@@ -21,7 +21,7 @@
 namespace model  {
     class Model: public observer::Subject{
     private:
-
+    public:
         std::vector<std::shared_ptr<Entity>> entities;
 
         std::shared_ptr<PlayerShip> player;

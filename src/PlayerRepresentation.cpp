@@ -9,10 +9,9 @@
 namespace view{
 
 
-    PlayerRepresentation::PlayerRepresentation(const sf::Texture *texture,
-                                               const std::weak_ptr<const model::Entity> &weak_entity,
-                                               const std::vector<sf::Sprite> &lives) : EntityRepresentation(
-            texture, weak_entity), lives(lives) {}
+    PlayerRepresentation::PlayerRepresentation(const sf::Texture* texture,
+                                               const std::weak_ptr<const model::Entity> &weak_entity) : EntityRepresentation(
+            texture, weak_entity){}
 
     void PlayerRepresentation::draw(std::shared_ptr<sf::RenderWindow> &window) {
         if(to_be_moved){
@@ -20,10 +19,12 @@ namespace view{
             EntityRepresentation::setPosition(position);
         }
         window->draw(*this);
-
         for(auto &sprite : lives){
-            sprite.setColor(sf::Color::White);
-            window->draw(sprite);
+            window->draw(*sprite);
         }
+    }
+
+    void PlayerRepresentation::add_live(std::unique_ptr<sf::Sprite> &live) {
+        lives.push_back(std::move(live));
     }
 }

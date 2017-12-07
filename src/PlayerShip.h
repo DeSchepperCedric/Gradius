@@ -22,6 +22,7 @@ namespace model {
         // if invincibility is at 0.0, player can take damage
         double remaining_invicibility = 0.0;
     public:
+        typedef std::shared_ptr<PlayerShip> Shared;
 
         PlayerShip(float length, float height, float x_position, float y_position, float speed, int health, int damage,
                    double time_before_shot);

@@ -20,25 +20,24 @@ namespace view {
     void View::add_entity_representation_of_entity(const std::weak_ptr<const model::Entity>& weak_entity) {
         std::string name = weak_entity.lock()->get_name();
         sf::Texture* texture = &textures.at(name);
+        std::cout << name<<std::endl;
         if(name == "PlayerShip"){
-            std::vector<sf::Sprite> lives;
             sf::Texture live_text = textures.at(name);
             float x = 5.0f;
             float y = 5.0f;
-
-
-            for(int i =0 ; i < weak_entity.lock()->get_health(); i++){
-                sf::Sprite live;
-                live.setTexture(live_text);
-                live.setScale((20 / live.getGlobalBounds().width) , (20 / live.getGlobalBounds().height));
-                live.setPosition(x,y);
-
-                x += 20.0f;
-                lives.push_back(live);
-
-            }
-            PlayerRepresentation::Shared player =std::make_shared<PlayerRepresentation>(texture, weak_entity, lives);
+            PlayerRepresentation::Shared player =std::make_shared<PlayerRepresentation>(texture, weak_entity);
             player->scale_representation_to_entity(window->getSize());
+
+            /*for(int i =0 ; i < weak_entity.lock()->get_health(); i++){
+                std::unique_ptr<sf::Sprite> live = std::make_unique<sf::Sprite>();
+                live->setTexture(live_text);
+                live->setScale((20 / live->getGlobalBounds().width) , (20 / live->getGlobalBounds().height));
+                live->setPosition(x,y);
+                player->add_live(live);
+                x += 20.0f;
+
+            }*/
+
             entity_representations.push_back(std::move(player));
 
             return;
