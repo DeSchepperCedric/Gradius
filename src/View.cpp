@@ -1,7 +1,6 @@
 
 #include "View.h"
 #include "Transformation.h"
-#include "PlayerRepresentation.h"
 
 #include <iostream>
 
@@ -27,7 +26,7 @@ namespace view {
             
             sf::Texture* live_text = &textures.at("Life");
             float x = 0.0f;
-            PlayerRepresentation::Shared player =std::make_shared<PlayerRepresentation>(texture, weak_entity);
+            EntityRepresentation::Shared player =std::make_shared<EntityRepresentation>(texture, weak_entity);
             player->scale_representation_to_entity(window->getSize());
 
             for(int i =0 ; i < weak_entity.lock()->get_health(); i++){

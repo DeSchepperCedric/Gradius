@@ -14,10 +14,8 @@
 namespace model {
     class Wave {
     private:
-
-
         double time = 0.0;
-        // shared because they will be added to model
+        // shared because model needs shared entities
         std::vector<Entity::Shared> entities = {};
 
     public:

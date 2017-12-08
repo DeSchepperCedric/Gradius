@@ -16,6 +16,7 @@ namespace model{
     }
 
     const std::string Obstacle::get_name() const {
+        // if health is negative : the obstacle is indestructable
         return ((health < 0) ? "IndestructableObstacle" : "DestructableObstacle");
     }
 }
