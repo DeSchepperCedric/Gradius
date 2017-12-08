@@ -5,6 +5,7 @@
 
 #include "fstream"
 #include "EnemyShip.h"
+#include "Exceptions.h"
 
 #include <iostream>
 
@@ -111,11 +112,12 @@ namespace parsers{
             const std::string type = value.at("name").get<std::string>();
             std::string image_name = value.at("texture").get<std::string>();
 
-            image_name = "../input/" + image_name;
-
+            const std::string location = "../input/" + image_name;
             sf::Texture texture;
 
-            texture.loadFromFile(image_name);
+            if(!texture.loadFromFile(location)){
+                throw exceptions::TextureException(image_name);
+            }
             view->add_texture(texture, type);
         }
     }

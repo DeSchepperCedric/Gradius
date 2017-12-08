@@ -41,8 +41,8 @@ void Game::run() {
 
         }
 
-        controller.execute_key_presses(utils::Stopwatch::get_instance().get_frame_time());
-        controller.update_model(utils::Stopwatch::get_instance().get_frame_time());
+        controller->execute_key_presses(utils::Stopwatch::get_instance().get_frame_time());
+        controller->update_model(utils::Stopwatch::get_instance().get_frame_time());
 
         view->get_window()->clear();
 
@@ -55,7 +55,6 @@ void Game::run() {
 
 
     }
-
 }
 
 Game::Game() {
@@ -73,10 +72,12 @@ Game::Game() {
         }
 
 
-        auto pointer = std::make_shared<sf::RenderWindow>(sf::VideoMode(window_size[0], window_size[1]), "Gradius");
+        auto pointer = std::make_unique<sf::RenderWindow>(sf::VideoMode(window_size[0], window_size[1]), "Gradius");
         Game::view = std::make_shared<view::View>(view::View(pointer));
 
         parsers::parse_view(j, Game::view);
+
+        Game::controller = std::make_unique<controller::Controller>();
 
 
         model::Model::Shared model = std::make_shared<model::Model>();
@@ -86,14 +87,22 @@ Game::Game() {
 
         parsers::parse_model(j, model);
 
-
-        controller.set_Model(std::move(model));
+        Game::controller->set_Model(std::move(model));
 
     }
     catch(const std::exception& e){
         std::cout << e.what() <<std::endl;
+        Game::set_up = false;
+        std::cout << "Game loading failed" <<std::endl;
+        return;
     }
 
+    Game::set_up = true;
+
+}
+
+bool Game::isSet_up() const {
+    return set_up;
 }
 
 /*
@@ -165,7 +174,8 @@ Game::Game() {
             std::shared_ptr<model::EnemyShip> enemy = std::make_shared<model::EnemyShip>(0.40, 0.40, 3.0, 0.0, 2, 1, 1,
                                                                                          1.0f);
             std::shared_ptr<model::Obstacle> ob = std::make_shared<model::Obstacle>(0.40, 0.80, 4.0, 0.0, 2, 1, 1);
-            std::shared_ptr<model::Obstacle> ob2 = std::make_shared<model::Obstacle>(0.80, 0.80, 4.0, 2.0, 2, -1, 1);
+            std::shared_ptr<model::Obstacle> ob
+            2 = std::make_shared<model::Obstacle>(0.80, 0.80, 4.0, 2.0, 2, -1, 1);
             model::Wave::Shared wave = std::make_shared<model::Wave>();
             wave->set_time(5.0);
             wave->add_entity(std::move(enemy));

@@ -19,22 +19,22 @@
 
 namespace view {
     class View : public observer::Observer {
-    private:
+    public:
         // Shared pointers to Entity_representations
         // reason : Entity_rep an observer to a subject (entity) so the subject needs a weak pointer to its observer
         std::vector<view::EntityRepresentation::Shared> entity_representations;
 
         std::unordered_map<std::string,sf::Texture> textures;
 
-        std::shared_ptr<sf::RenderWindow> window;
+        std::unique_ptr<sf::RenderWindow> window;
 
-    public:
         std::vector<std::unique_ptr<sf::Sprite>> lives;
 
     public:
+
         typedef std::shared_ptr<View> Shared;
 
-        explicit View(std::shared_ptr<sf::RenderWindow>& window);
+        explicit View(std::unique_ptr<sf::RenderWindow>& window);
 
         /**
          * @brief update the view: update the view and update + draw all entityRepresentation
@@ -70,7 +70,7 @@ namespace view {
          * @brief simple getter: get game window to be displayed
          * @return game window
          */
-        const std::shared_ptr<sf::RenderWindow> &get_window() const;
+        const std::unique_ptr<sf::RenderWindow> &get_window() const;
 
 
 

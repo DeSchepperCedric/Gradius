@@ -16,7 +16,7 @@ namespace view {
 
         PlayerRepresentation(const sf::Texture *texture, const std::weak_ptr<const model::Entity> &weak_entity);
 
-        void draw(std::shared_ptr<sf::RenderWindow>& window) override;
+        void draw(std::unique_ptr<sf::RenderWindow>& window) override;
 
         void add_live( std::unique_ptr<sf::Sprite>& live);
 

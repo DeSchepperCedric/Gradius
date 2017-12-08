@@ -7,7 +7,7 @@
 
 namespace view {
 
-    View::View(std::shared_ptr<sf::RenderWindow>& window) : window(std::move(window)) {}
+    View::View(std::unique_ptr<sf::RenderWindow>& window) : window(std::move(window)) {}
 
 
     void View::update() {
@@ -83,9 +83,7 @@ namespace view {
 
     }
 
-    const std::shared_ptr<sf::RenderWindow> &View::get_window() const {
+    const std::unique_ptr<sf::RenderWindow> &View::get_window() const {
         return window;
     }
-
-
 };

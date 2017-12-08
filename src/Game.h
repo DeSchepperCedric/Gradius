@@ -15,9 +15,11 @@
 
 class Game {
 private:
-    controller::Controller controller;
+    controller::Controller::Unique controller;
 
     view::View::Shared view;
+
+    bool set_up = false;
 
 public:
     Game();
@@ -26,6 +28,9 @@ public:
      * @brief runs the game using a game loop
      */
     void run();
+
+    bool isSet_up() const;
+
 };
 
 

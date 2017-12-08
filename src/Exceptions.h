@@ -5,12 +5,21 @@
 
 
 #include <exception>
+#include <string>
 
 namespace exceptions {
 
     class TextureException : public std::exception {
+    private:
+        std::string message;
+
+    public:
+        TextureException(const std::string &file_name){
+            message = "Cant' open texture file: " + file_name;
+        }
+
         const char *what() const throw() override {
-            return "Texture failure";
+            return message.c_str();
         }
     };
 

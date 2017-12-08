@@ -20,7 +20,10 @@ int main(int argc, char ** argv) {
 
 
     Game g;
-    g.run();
+
+    if(g.isSet_up()){
+        g.run();
+    }
 
     return 0;
 }

@@ -7,7 +7,7 @@
 #include <iostream>
 
 namespace view{
-    void EntityRepresentation::draw(std::shared_ptr<sf::RenderWindow>& window) {
+    void EntityRepresentation::draw(std::unique_ptr<sf::RenderWindow>& window) {
         //if (!entity->is_changed()) return;
 
         if(to_be_moved){
