@@ -24,7 +24,7 @@ namespace view {
         std::string name = weak_entity.lock()->get_name();
         sf::Texture* texture = &textures.at(name);
         if(name == "PlayerShip"){
-            
+
             sf::Texture* live_text = &textures.at("Life");
             float x = 0.0f;
             PlayerRepresentation::Shared player =std::make_shared<PlayerRepresentation>(texture, weak_entity);
