@@ -11,6 +11,11 @@ namespace view {
 
 
     void View::update() {
+        if(game_done != nullptr){
+            window->draw(*game_done);
+            return;
+        }
+
 
         for(auto& representation : entity_representations){
             representation->draw(window);
@@ -71,16 +76,18 @@ namespace view {
     }
 
     void View::on_notification(const observer::Notification& notification) {
-        if (auto destruction = dynamic_cast<const observer::DestructionNotification *>(&notification)) {
+        if (dynamic_cast<const observer::DestructionNotification *>(&notification)) {
             remove_entity_representation_of_entity();
-        } else if (auto creation = dynamic_cast<const observer::CreationNotification *>(&notification)) {
+
+        }
+        else if (auto creation = dynamic_cast<const observer::CreationNotification *>(&notification)) {
             add_entity_representation_of_entity(creation->get_weak_entity());
-        } else if (auto game_over = dynamic_cast<const observer::GameOverNotification *>(&notification)) {
-            while (!entity_representations.empty()) {
-                entity_representations.pop_back();
-            }
-            window->close();
-        } else if (auto lost_live = dynamic_cast<const observer::LoseLifeNotification *>(&notification)) {
+
+        }
+        else if (auto game_done = dynamic_cast<const observer::GameDoneNotification *>(&notification)) {
+            end_game(game_done->is_win());
+        }
+        else if (dynamic_cast<const observer::LoseLifeNotification *>(&notification)) {
             lives.pop_back();
         }
     }
@@ -93,4 +100,31 @@ namespace view {
     const std::unique_ptr<sf::RenderWindow> &View::get_window() const {
         return window;
     }
+
+    void View::end_game(bool win) {
+        while (!entity_representations.empty()) {
+            entity_representations.pop_back();
+        }
+        game_done = std::make_unique<sf::Sprite>();
+        try{
+            if(win){
+                sf::Texture* texture = &textures.at("GameWon");
+                game_done->setTexture(*texture);
+            }
+            else{
+                sf::Texture* texture = &textures.at("GameOver");
+                game_done->setTexture(*texture);
+            }
+
+        }
+
+        catch(const exceptions::TextureFileException& e){
+            std::cout << e.what() << std::endl;
+            window->close();
+            return;
+        }
+        game_done->setScale((1 / game_done->getGlobalBounds().width) * window->getSize().x , (1 / game_done->getGlobalBounds().height) * window->getSize().y);
+
+    }
+
 };

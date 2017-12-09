@@ -16,9 +16,9 @@ namespace observer{
             : EntityNotification(weak_entity) {}
 
 
-    GameOverNotification::GameOverNotification(bool win) : win(win) {}
+    GameDoneNotification::GameDoneNotification(bool win) : win(win) {}
 
-    bool GameOverNotification::is_win() const {
+    bool GameDoneNotification::is_win() const {
         return win;
     }
 

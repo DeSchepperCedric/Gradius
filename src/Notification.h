@@ -80,12 +80,12 @@ namespace observer {
      * @brief notification when the game is over
      *
      */
-    class GameOverNotification : public Notification{
+    class GameDoneNotification : public Notification{
     private:
         bool win;
 
     public:
-        explicit GameOverNotification(bool win);
+        explicit GameDoneNotification(bool win);
 
         /**
          * @brief simple getter: gets win

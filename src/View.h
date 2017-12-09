@@ -30,6 +30,8 @@ namespace view {
 
         std::vector<std::unique_ptr<sf::Sprite>> lives;
 
+        std::unique_ptr<sf::Sprite> game_done = nullptr;
+
     public:
 
         typedef std::shared_ptr<View> Shared;
@@ -57,7 +59,7 @@ namespace view {
          * @brief processes notification sent by subject (Observer Pattern)
          * @param notification
          */
-        virtual void on_notification(const observer::Notification& notification) override;
+        void on_notification(const observer::Notification& notification) override;
 
         /**
          * @brief add texture to be used on game sprites
@@ -72,6 +74,7 @@ namespace view {
          */
         const std::unique_ptr<sf::RenderWindow> &get_window() const;
 
+        void end_game(bool win);
 
 
     };

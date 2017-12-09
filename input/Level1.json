@@ -25,7 +25,7 @@
                "damage":1
             }
          },
- {
+         {
             "type":"Obstacle",
             "specs":{
                "length":0.40,
@@ -52,8 +52,7 @@
       ],
       "time":2.0
    },
-
-"Wave2":{
+   "Wave2":{
       "enemies":[
          {
             "type":"Obstacle",
@@ -79,7 +78,7 @@
                "damage":1
             }
          },
- {
+         {
             "type":"Obstacle",
             "specs":{
                "length":0.70,
@@ -132,13 +131,13 @@
                "damage":1
             }
          },
- {
+         {
             "type":"Obstacle",
             "specs":{
                "length":0.40,
                "width":0.60,
                "x_position":4.0,
-               "y_position": -0.30,
+               "y_position":-0.30,
                "speed":2.0,
                "health":1,
                "damage":1
@@ -159,7 +158,7 @@
       ],
       "time":2.0
    },
-"Wave4":{
+   "Wave4":{
       "enemies":[
          {
             "type":"Obstacle",
@@ -185,7 +184,219 @@
                "damage":1
             }
          },
- {
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":0.70,
+               "width":0.70,
+               "x_position":4.0,
+               "y_position":-0.30,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":0.70,
+               "width":0.70,
+               "x_position":4.0,
+               "y_position":1.0,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         }
+      ],
+      "time":2.0
+   },
+   "Wave5":{
+      "enemies":[
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":1.0,
+               "width":1.0,
+               "x_position":4.0,
+               "y_position":2.50,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":1.0,
+               "width":1.0,
+               "x_position":4.0,
+               "y_position":-1.50,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":0.60,
+               "width":0.60,
+               "x_position":4.0,
+               "y_position":-0.30,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":0.40,
+               "width":0.60,
+               "x_position":4.0,
+               "y_position":1.0,
+               "speed":2.0,
+               "health":1,
+               "damage":1
+            }
+         }
+      ],
+      "time":2.0
+   },
+   "Wave6":{
+      "enemies":[
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":1.0,
+               "width":1.0,
+               "x_position":4.0,
+               "y_position":2.40,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":1.0,
+               "width":1.0,
+               "x_position":4.0,
+               "y_position":-1.70,
+               "speed":2.0,
+               "health":1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":0.70,
+               "width":0.70,
+               "x_position":4.0,
+               "y_position":-0.30,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":0.70,
+               "width":0.70,
+               "x_position":4.0,
+               "y_position":1.0,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         }
+      ],
+      "time":2.0
+   },
+   "Wave7":{
+      "enemies":[
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":1.0,
+               "width":1.0,
+               "x_position":4.0,
+               "y_position":2.50,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":1.0,
+               "width":1.0,
+               "x_position":4.0,
+               "y_position":-1.50,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":0.50,
+               "width":0.50,
+               "x_position":4.0,
+               "y_position":-0.30,
+               "speed":2.0,
+               "health":-1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":0.40,
+               "width":0.60,
+               "x_position":4.0,
+               "y_position":1.0,
+               "speed":2.0,
+               "health":1,
+               "damage":1
+            }
+         }
+      ],
+      "time":2.0
+   },
+   "Wave8":{
+      "enemies":[
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":1.0,
+               "width":1.0,
+               "x_position":4.0,
+               "y_position":2.40,
+               "speed":2.0,
+               "health":1,
+               "damage":1
+            }
+         },
+         {
+            "type":"Obstacle",
+            "specs":{
+               "length":1.0,
+               "width":1.0,
+               "x_position":4.0,
+               "y_position":-1.70,
+               "speed":2.0,
+               "health":1,
+               "damage":1
+            }
+         },
+         {
             "type":"Obstacle",
             "specs":{
                "length":0.70,
@@ -212,7 +423,4 @@
       ],
       "time":2.0
    }
-
-
-
 }

@@ -40,7 +40,6 @@ void Game::run() {
 
 
         }
-
         // execute user input
         controller->execute_key_presses(utils::Stopwatch::get_instance().get_frame_time());
 
@@ -53,6 +52,7 @@ void Game::run() {
         view->update();
 
         view->get_window()->display();
+
 
         // reset frame timer
         utils::Stopwatch::get_instance().reset();

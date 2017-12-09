@@ -30,7 +30,7 @@ namespace model{
     }
 
     void Model::update_player(const Moves& actions, bool shoot, double time) {
-
+        if(game_done) return;
         player->move(actions, time);
         if(shoot){
             Bullet::Shared bullet = ship_shoots(player);
@@ -63,6 +63,9 @@ namespace model{
     }
 
     void Model::update_entities(double time) {
+        if(game_done){
+            return;
+        }
         wave_timer += time;
 
         int old_health = player->get_health();
@@ -93,7 +96,7 @@ namespace model{
         if(player->get_health() == 0){
             return game_over(false);
         }
-        if(levels.empty() and entities.size() == 4){
+        if(levels.empty()){
             return game_over(true);
         }
 
@@ -315,6 +318,9 @@ namespace model{
     }
 
     void Model::game_over(bool win) {
+
+        game_done = true;
+
         while(!entities.empty()){
             entities.pop_back();
 
@@ -325,7 +331,7 @@ namespace model{
         }
         player.reset();
 
-        observer::GameOverNotification notification(win);
+        observer::GameDoneNotification notification(win);
         notify(notification);
     }
 

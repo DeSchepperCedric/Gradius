@@ -17,11 +17,11 @@
    	[
    		{
    			"name":  "PlayerShip",
-   			"texture": "PlayerShip.png"
+   			"texture": "PlayerShip.jpg"
    		},
    		{
    			"name":  "EnemyShip",
-   			"texture": "EnemyShip.png"
+   			"texture": "EnemyShip.jpg"
    		},
    			{
    			"name":  "IndestructableObstacle",
@@ -29,11 +29,11 @@
    		},
    		{
    			"name":  "DestructableObstacle",
-   			"texture": "DestructableObstacle.png"
+   			"texture": "DestructableObstacle.jpg"
    		},
    		{
    			"name":  "World",
-   			"texture": "World.png"
+   			"texture": "World.jpg"
    		},
    		 {
    			"name":  "Bullet",
@@ -42,10 +42,18 @@
 		{
 			"name": "Life",
 			"texture": "Life.png"
+		},
+		{
+			"name": "GameWon",
+			"texture": "GameWon.png"
+		},
+		{
+			"name": "GameOver",
+			"texture": "GameOver.jpg"
 		}
 
    	],
    "Levels":[
-      "Level1.json", "Level2.json"
+      "Level1.json"
    ]
 }

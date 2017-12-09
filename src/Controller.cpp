@@ -23,8 +23,6 @@ namespace controller {
         moves.move_right = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
         bool shoot = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
 
-
-
         model->update_player(moves, shoot, time);
     }
 

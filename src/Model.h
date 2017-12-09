@@ -31,6 +31,8 @@ namespace model  {
         std::queue<Level::Shared> levels;
 
         double wave_timer = 0.0;
+
+        bool game_done = false;
     private:
 
         /**
