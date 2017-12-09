@@ -11,7 +11,6 @@ namespace controller {
 
     void Controller::set_Model(std::shared_ptr<model::Model> model) {
         Controller::model = model;
-
     }
 
 

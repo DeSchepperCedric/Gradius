@@ -19,6 +19,8 @@ namespace controller {
         std::shared_ptr<model::Model> model;
 
     public:
+        typedef std::unique_ptr<Controller> Unique;
+
         /**
          * @brief simple setter: set the model controlled by the Controller in MVC
          * @param model the model of MVC

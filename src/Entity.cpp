@@ -63,6 +63,7 @@ namespace model {
     }
 
     void Entity::check_borders() {
+        // if non-player entity is outside the game field : destroy the entity
         Hitbox hitbox = get_hitbox();
 
         if(hitbox.min_x > max_x_position){
@@ -130,18 +131,14 @@ namespace model {
         return co;
     }
 
-    void Entity::update(double time) {
-    }
-
     float Entity::get_speed() const {
-        std::cout << "test: "<< this->get_name()<<std::endl;
         return speed;
     }
 
     float Entity::get_radius() {
+        // calculate radius around entity for colission handling
+        // using pythagoras
        return powf((powf((length / 2.0f), 2.0f) + powf((height / 2.0f), 2.0f)), (0.5f));
-
-
     }
 
     int Entity::get_health() const {
@@ -153,6 +150,7 @@ namespace model {
     }
 
     void Entity::lose_lives(int damage) {
+        // if health is -1 : object is indestructable
         if(health < 0){
             return;
         }
@@ -165,7 +163,6 @@ namespace model {
         if(health == 0){
             destroyed = true;
         }
-
     }
 
     bool Entity::is_destroyed() const {

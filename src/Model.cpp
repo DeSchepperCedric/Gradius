@@ -288,7 +288,6 @@ namespace model{
         }
         // if no more waves, level is done
         if(levels.front()->level_done()){
-            cout << "new level"<<endl;
             levels.pop();
 
             // if no more levels, game is over
@@ -301,7 +300,6 @@ namespace model{
 
             return;
         }
-        cout << "new wave"<<endl;
         std::vector<Entity::Shared> test = wave->get_entities();
 
         for(const Entity::Shared& entity : wave->get_entities()){

@@ -1,13 +1,13 @@
 
 #include "View.h"
 #include "Transformation.h"
-#include "PlayerRepresentation.h"
+#include "Exceptions.h"
 
 #include <iostream>
 
 namespace view {
 
-    View::View(std::shared_ptr<sf::RenderWindow>& window) : window(std::move(window)) {}
+    View::View(std::unique_ptr<sf::RenderWindow>& window) : window(std::move(window)) {}
 
 
     void View::update() {
@@ -22,13 +22,13 @@ namespace view {
 
     void View::add_entity_representation_of_entity(const std::weak_ptr<const model::Entity>& weak_entity) {
         std::string name = weak_entity.lock()->get_name();
-        sf::Texture* texture = &textures.at(name);
+
+
+
         if(name == "PlayerShip"){
 
             sf::Texture* live_text = &textures.at("Life");
             float x = 0.0f;
-            PlayerRepresentation::Shared player =std::make_shared<PlayerRepresentation>(texture, weak_entity);
-            player->scale_representation_to_entity(window->getSize());
 
             for(int i =0 ; i < weak_entity.lock()->get_health(); i++){
                 std::unique_ptr<sf::Sprite> live = std::make_unique<sf::Sprite>(*live_text);
@@ -37,18 +37,25 @@ namespace view {
                 live->setPosition(x,0.0f);
                 lives.push_back(std::move(live));
                 x += 25.0f;
-
             }
+        }
+        try{
+            if(textures.find(name) == textures.end()){
+                throw exceptions::TextureKeyException(name);
+            }
+            sf::Texture* texture = &textures.at(name);
 
-            entity_representations.push_back(std::move(player));
+            EntityRepresentation::Shared entity_rep = std::make_shared<EntityRepresentation>(texture, weak_entity);
 
+            entity_rep->scale_representation_to_entity(window->getSize());
+            entity_representations.push_back(std::move(entity_rep));
+        }
+        catch(const exceptions::TextureFileException& e){
+            std::cout << e.what() << std::endl;
+            window->close();
             return;
         }
 
-        EntityRepresentation::Shared entity_rep = std::make_shared<EntityRepresentation>(texture, weak_entity);
-
-        entity_rep->scale_representation_to_entity(window->getSize());
-        entity_representations.push_back(std::move(entity_rep));
     }
 
     void View::remove_entity_representation_of_entity() {
@@ -83,9 +90,7 @@ namespace view {
 
     }
 
-    const std::shared_ptr<sf::RenderWindow> &View::get_window() const {
+    const std::unique_ptr<sf::RenderWindow> &View::get_window() const {
         return window;
     }
-
-
 };

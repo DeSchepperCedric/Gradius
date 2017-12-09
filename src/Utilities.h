@@ -1,3 +1,7 @@
+/**
+ * @brief header file for utility structures
+ */
+
 
 #ifndef GRADIUS_UTILITIES_H
 #define GRADIUS_UTILITIES_H

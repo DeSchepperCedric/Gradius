@@ -38,7 +38,7 @@ namespace view {
          * @brief draws the entityRepresentation on the window
          * @param window
          */
-        virtual void draw(std::shared_ptr<sf::RenderWindow>& window);
+        virtual void draw(std::unique_ptr<sf::RenderWindow>& window);
 
         /**
          * @brief scales representation compared to window size and entity size

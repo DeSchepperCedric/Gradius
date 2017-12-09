@@ -169,13 +169,13 @@ namespace model{
         float get_radius();
 
         /**
-         * @brief simple getter: gets health
+         * @brief simple getter: gets health the entity has
          * @return health
          */
         int get_health() const;
 
         /**
-         * @brief simple getter: gets damage
+         * @brief simple getter: gets damage the entity deals
          * @return damage
          */
         int get_damage() const;
@@ -192,20 +192,20 @@ namespace model{
         void check_lives();
 
         /**
-         * @brief simple getter: gets destroyed
+         * @brief simple getter: gets if the entity has been destroyed
          * @return destroyed
          */
         bool is_destroyed() const;
 
         /**
-         * @brief simple setter: sets destroyed
+         * @brief simple setter: sets if the entity has been destroyed
          * @param destroyed
          */
         void set_destroyed(bool destroyed);
 
         /**
-         * @brief get name
-         * @return entity name
+         * @brief simple getter: gets entity name
+         * @return name
          */
         virtual const std::string get_name() const = 0;
     };

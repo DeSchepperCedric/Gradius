@@ -42,7 +42,7 @@ namespace model {
         void update(double time) override = 0;
 
         /**
-         * @brief get name
+         * @brief get name of the entity
          * @return "Ship"
          */
         const std::string get_name() const override  = 0;

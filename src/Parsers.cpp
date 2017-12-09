@@ -2,11 +2,11 @@
 #include "Parsers.h"
 #include "Model.h"
 #include "Obstacle.h"
-
-#include "fstream"
 #include "EnemyShip.h"
+#include "Exceptions.h"
 
 #include <iostream>
+#include <fstream>
 
 namespace parsers{
 
@@ -15,9 +15,6 @@ namespace parsers{
 
         auto input = j.at("PlayerShip");
 
-        for(const auto &test : input){
-            std::cout << test<<std::endl;
-        }
         auto length = j.at("PlayerShip").at("length").get<float>();
 
         auto width= input.at("width").get<float>();
@@ -111,11 +108,12 @@ namespace parsers{
             const std::string type = value.at("name").get<std::string>();
             std::string image_name = value.at("texture").get<std::string>();
 
-            image_name = "../input/" + image_name;
-
+            const std::string location = "../input/" + image_name;
             sf::Texture texture;
 
-            texture.loadFromFile(image_name);
+            if(!texture.loadFromFile(location)){
+                throw exceptions::TextureFileException(image_name);
+            }
             view->add_texture(texture, type);
         }
     }

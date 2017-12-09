@@ -30,7 +30,7 @@ namespace utils{
          * @param window window used for window size
          * @return
          */
-        sf::Vector2f co_to_pixels(std::shared_ptr<const model::Entity> entity, std::shared_ptr<const sf::RenderWindow> window);
+        sf::Vector2f co_to_pixels(std::shared_ptr<const model::Entity> entity, const std::unique_ptr<sf::RenderWindow>& window);
     };
 }
 

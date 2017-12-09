@@ -2,6 +2,8 @@
  * @class model::Model
  *
  * @brief Model of MVC that contains all game data
+ *
+ * @author Cedric De Schepper
  */
 
 #ifndef GRADIUS_MODEL_H

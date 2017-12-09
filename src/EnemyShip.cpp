@@ -12,6 +12,7 @@ namespace model {
     }
 
     Co EnemyShip::get_gun_position() {
+        // gun position is left middle
         Co gun;
         gun.x = x_position - 0.55f;
         gun.y = y_position - (height / 2) + 0.10f;
@@ -19,6 +20,7 @@ namespace model {
     }
 
     void EnemyShip::update(double time) {
+        // reduce time before enemy can shoot again
         update_gun_timer(time);
 
         Moves actions;

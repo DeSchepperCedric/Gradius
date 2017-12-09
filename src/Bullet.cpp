@@ -13,6 +13,8 @@ namespace model {
 
     void Bullet::update(double time) {
         Moves actions;
+
+        // shoot bullet in right direction
         switch(direction){
             case DOWN:
                 actions.move_down = true;

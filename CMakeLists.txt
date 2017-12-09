@@ -11,7 +11,7 @@ file(GLOB_RECURSE SOURCE_FILES "src/*.cpp")
 ADD_EXECUTABLE(Gradius ${SOURCE_FILES} src/Observer.h src/Subject.cpp src/Subject.h src/Model.cpp src/Model.h
         src/Notification.cpp src/Notification.h src/Bullet.cpp src/Bullet.h src/Ship.cpp src/Ship.h src/Singleton.h
         src/Obstacle.cpp src/Obstacle.h src/World.cpp src/World.h src/EnemyShip.cpp src/EnemyShip.h src/Level.cpp
-        src/Level.h src/Utilities.h src/Exceptions.cpp src/Exceptions.h src/PlayerRepresentation.cpp src/PlayerRepresentation.h src/Parsers.h src/Parsers.cpp)
+        src/Level.h src/Utilities.h src/Exceptions.h src/Parsers.h src/Parsers.cpp src/Wave.cpp src/Wave.h)
 
 
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake_modules/")

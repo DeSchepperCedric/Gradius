@@ -7,7 +7,7 @@ namespace utils {
 
 
     sf::Vector2f Transformation::co_to_pixels(std::shared_ptr<const model::Entity> entity,
-                                              std::shared_ptr<const sf::RenderWindow> window) {
+                                              const std::unique_ptr<sf::RenderWindow>& window) {
         /// make float for pixels??
         float co_x_max = entity->get_max_x_position();
         float co_y_max = entity->get_max_y_position();

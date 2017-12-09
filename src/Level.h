@@ -1,39 +1,21 @@
-//
-// Created by Cedric De Schepper on 4/12/17.
-//
+/**@class model::Level
+ *
+ * @brief levels class that the player has to face in the game
+ *
+ * @author Cedric De Schepper
+ */
 
 #ifndef GRADIUS_LEVEL_H
 #define GRADIUS_LEVEL_H
 
 #include "Entity.h"
+#include "Wave.h"
 
 #include <vector>
 #include <queue>
 #include <memory>
 
 namespace model {
-    class Wave {
-    private:
-
-
-        double time = 0.0;
-        // shared because they will be added to model
-        std::vector<Entity::Shared> entities = {};
-
-    public:
-        typedef std::shared_ptr<Wave> Shared;
-
-        double get_time() const;
-
-        void set_time(double time);
-
-        void add_entity(const Entity::Shared& entity);
-
-        const std::vector<Entity::Shared> &get_entities() const;
-
-    };
-
-
 
     class Level {
     private:
@@ -45,12 +27,27 @@ namespace model {
 
         Level() = default;
 
+        /**
+         * @brief add a wave to the level
+         * @param wave wave to be added
+         */
         void add_wave(const Wave::Shared& wave);
 
+        /**
+         * @brief deploy a wave : give the first wave in the queue
+         * @return
+         */
         const Wave::Shared& deploy_wave();
 
+        /**
+         * @brief checks if the level is done
+         * @return level done
+         */
         bool level_done() const;
 
+        /**
+         * @brief remove a wave when it was time to deploy it
+         */
         void pop_wave();
     };
 
