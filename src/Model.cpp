@@ -96,7 +96,7 @@ namespace model{
         if(player->get_health() == 0){
             return game_over(false);
         }
-        if(levels.empty()){
+        if(levels.empty() and entities.size() == 4){
             return game_over(true);
         }
 

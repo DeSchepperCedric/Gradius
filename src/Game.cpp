@@ -61,10 +61,10 @@ void Game::run() {
     }
 }
 
-Game::Game() {
+Game::Game(const std::string& input_file) {
     try {
         // open input json file
-        std::ifstream i ("../input/Input.json");
+        std::ifstream i (input_file);
         json j;
 
         i >> j;

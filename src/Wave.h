@@ -21,6 +21,10 @@ namespace model {
 
     public:
         typedef std::shared_ptr<Wave> Shared;
+        /**
+         * @brief default constructor
+         */
+        Wave() = default;
 
         /**
          * @brief simple getter: get time before wave should be deployed

@@ -24,6 +24,17 @@ namespace model {
     public:
         typedef std::shared_ptr<PlayerShip> Shared;
 
+        /**
+         * @brief constructor
+         * @param length
+         * @param height
+         * @param x_position
+         * @param y_position
+         * @param speed
+         * @param health
+         * @param damage
+         * @param time_before_shot
+         */
         PlayerShip(float length, float height, float x_position, float y_position, float speed, int health, int damage,
                    double time_before_shot);
 

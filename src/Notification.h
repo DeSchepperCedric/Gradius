@@ -1,3 +1,9 @@
+/**
+ * @brief header file for notifactions used by Observer Pattern
+ *
+ * @author Cedric De Schepper
+ */
+
 
 #ifndef GRADIUS_NOTIFICATION_H
 #define GRADIUS_NOTIFICATION_H

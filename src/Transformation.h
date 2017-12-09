@@ -21,6 +21,7 @@ namespace utils{
     class Transformation : public Singleton<Transformation> {
         friend class Singleton<Transformation>;
     private:
+
         Transformation() = default;
 
     public:

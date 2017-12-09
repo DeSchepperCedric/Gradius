@@ -15,6 +15,17 @@
 namespace model {
     class Obstacle : public Entity{
     public:
+
+        /**
+         * @brief constructor
+         * @param length
+         * @param height
+         * @param x_position
+         * @param y_position
+         * @param speed
+         * @param health
+         * @param damage
+         */
         Obstacle(float length, float height, float x_position, float y_position, float speed, int health, int damage);
 
         /**

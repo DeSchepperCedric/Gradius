@@ -36,6 +36,10 @@ namespace view {
 
         typedef std::shared_ptr<View> Shared;
 
+        /**
+         * @brief constructor
+         * @param window window to be shown to player
+         */
         explicit View(std::unique_ptr<sf::RenderWindow>& window);
 
         /**
@@ -74,6 +78,10 @@ namespace view {
          */
         const std::unique_ptr<sf::RenderWindow> &get_window() const;
 
+        /**
+         * @brief make victory/loss sprite when game is done
+         * @param win game was won or lost
+         */
         void end_game(bool win);
 
 

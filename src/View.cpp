@@ -11,6 +11,7 @@ namespace view {
 
 
     void View::update() {
+        // draw loss/victory sprite when game is done
         if(game_done != nullptr){
             window->draw(*game_done);
             return;
@@ -26,12 +27,16 @@ namespace view {
     }
 
     void View::add_entity_representation_of_entity(const std::weak_ptr<const model::Entity>& weak_entity) {
+        try{
         std::string name = weak_entity.lock()->get_name();
 
 
 
         if(name == "PlayerShip"){
 
+            if(textures.find("Life") == textures.end()){
+                throw exceptions::TextureKeyException("Life");
+            }
             sf::Texture* live_text = &textures.at("Life");
             float x = 0.0f;
 
@@ -44,7 +49,6 @@ namespace view {
                 x += 25.0f;
             }
         }
-        try{
             if(textures.find(name) == textures.end()){
                 throw exceptions::TextureKeyException(name);
             }
@@ -55,7 +59,7 @@ namespace view {
             entity_rep->scale_representation_to_entity(window->getSize());
             entity_representations.push_back(std::move(entity_rep));
         }
-        catch(const exceptions::TextureFileException& e){
+        catch(const std::exception& e){
             std::cout << e.what() << std::endl;
             window->close();
             return;
@@ -108,16 +112,24 @@ namespace view {
         game_done = std::make_unique<sf::Sprite>();
         try{
             if(win){
+                if(textures.find("GameWon") == textures.end()){
+                    throw exceptions::TextureKeyException("GameWon");
+                }
+
+
                 sf::Texture* texture = &textures.at("GameWon");
                 game_done->setTexture(*texture);
             }
             else{
+                if(textures.find("GameOver") == textures.end()){
+                    throw exceptions::TextureKeyException("GameOver");
+                }
+
                 sf::Texture* texture = &textures.at("GameOver");
                 game_done->setTexture(*texture);
             }
 
         }
-
         catch(const exceptions::TextureFileException& e){
             std::cout << e.what() << std::endl;
             window->close();

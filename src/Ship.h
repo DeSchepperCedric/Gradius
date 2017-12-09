@@ -15,11 +15,22 @@
 namespace model {
     class Ship : public Entity {
     protected:
-        double remaining_time_before_shot = 0.0;
+        double remaining_time_before_shot = 0.5f;
         double time_before_shot;
     public:
         typedef std::shared_ptr<Ship> Shared;
 
+        /**
+         * @brief Constructor
+         * @param length
+         * @param height
+         * @param x_position
+         * @param y_position
+         * @param speed
+         * @param health
+         * @param damage
+         * @param time_before_shot
+         */
         Ship(float length, float height, float x_position, float y_position, float speed, int health, int damage,
              double time_before_shot);
 

@@ -14,8 +14,8 @@ namespace model {
     Co EnemyShip::get_gun_position() {
         // gun position is left middle
         Co gun;
-        gun.x = x_position - 0.55f;
-        gun.y = y_position - (height / 2) + 0.10f;
+        gun.x = x_position - (length * 1.5f);
+        gun.y = y_position - (height / 2) + (get_length() / 4);
         return gun;
     }
 

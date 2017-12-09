@@ -22,7 +22,12 @@ private:
     bool set_up = false;
 
 public:
-    Game();
+
+    /**
+     * @brief constructor
+     * @param input_file file used to set up the game
+     */
+    explicit Game(const std::string& input_file);
 
     /**
      * @brief runs the game using a game loop

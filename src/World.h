@@ -17,6 +17,16 @@ namespace model {
     public:
         typedef std::shared_ptr<World> Shared;
 
+        /**
+         * @brief Constructor
+         * @param length
+         * @param height
+         * @param x_position
+         * @param y_position
+         * @param speed
+         * @param health
+         * @param damage
+         */
         World(float length, float height, float x_position, float y_position, float speed, int health, int damage);
 
 
