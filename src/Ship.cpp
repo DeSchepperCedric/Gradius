@@ -1,9 +1,5 @@
-//
-// Created by Cedric De Schepper on 26/11/17.
-//
 
 #include "Ship.h"
-#include "Bullet.h"
 
 namespace model {
 

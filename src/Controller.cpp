@@ -26,7 +26,7 @@ namespace controller {
         model->update_player(moves, shoot, time);
     }
 
-    void Controller::update_model(double time) {
+    void Controller::update(double time) {
         model->update_entities(time);
     }
 }

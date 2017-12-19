@@ -2,7 +2,6 @@
 #include "Subject.h"
 
 #include <algorithm>
-
 #include <iostream>
 
 namespace observer{

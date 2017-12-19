@@ -37,7 +37,7 @@ namespace controller {
          * @brief updates the model
          * @param time
          */
-        void update_model(double time);
+        void update(double time);
     };
 
 }

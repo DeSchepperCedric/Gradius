@@ -8,6 +8,8 @@
 
 namespace view{
     void EntityRepresentation::draw(std::unique_ptr<sf::RenderWindow>& window) {
+        // safety precaution
+        if(weak_entity.expired()) return;
 
         // if entity has been moved, move representation to correct position
         if(to_be_moved){

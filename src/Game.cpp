@@ -44,7 +44,7 @@ void Game::run() {
         controller->execute_key_presses(utils::Stopwatch::get_instance().get_frame_time());
 
         // execute default updates
-        controller->update_model(utils::Stopwatch::get_instance().get_frame_time());
+        controller->update(utils::Stopwatch::get_instance().get_frame_time());
 
         view->get_window()->clear();
 

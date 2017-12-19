@@ -1,7 +1,5 @@
 
 #include "Bullet.h"
-#include "Entity.h"
-#include "Utilities.h"
 
 #include <iostream>
 
