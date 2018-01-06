@@ -21,7 +21,6 @@
 namespace view {
 
     class EntityRepresentation : public sf::Sprite, public observer::Observer {
-        friend class View;
 
     protected:
         std::weak_ptr<const model::Entity> weak_entity;

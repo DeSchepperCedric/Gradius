@@ -17,7 +17,7 @@ namespace model {
     class PlayerShip : public Ship {
         // invincibility so you don't instanly die after hitting your world
         // doesn't apply to other colissions with non-world entity
-        double max_invicibility = 5.0;
+        double max_invicibility = 1.0;
 
         // if invincibility is at 0.0, player can take damage
         double remaining_invicibility = 0.0;
@@ -41,7 +41,7 @@ namespace model {
         /**
          * @brief stop player from moving out of bounds
          */
-        virtual void check_borders() override;
+        void check_borders() override;
 
         /**
          * @brief get name

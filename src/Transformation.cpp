@@ -9,7 +9,6 @@ namespace utils {
 
     sf::Vector2f Transformation::co_to_pixels(std::shared_ptr<const model::Entity> entity,
                                               const std::unique_ptr<sf::RenderWindow>& window) {
-        /// make float for pixels??
         float co_x_max = entity->get_max_x_position();
         float co_y_max = entity->get_max_y_position();
 
@@ -21,9 +20,6 @@ namespace utils {
 
         float pixel_x;
         float pixel_y;
-
-        float entity_pixel_length = (entity->get_length() / co_x_max) * (pixel_x_max / 2);
-        float entity_pixel_height = roundf((entity->get_height() / co_y_max) * (pixel_y_max / 2));
 
         if (co_x >= 0) {
             pixel_x = (int) (roundf((co_x / co_x_max) * (pixel_x_max / 2) + (pixel_x_max / 2)));

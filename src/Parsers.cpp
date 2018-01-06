@@ -27,8 +27,6 @@ namespace parsers{
 
         auto time_before_shot = input.at("time_before_shot").get<double>();
 
-
-
         return std::move(std::make_shared<model::PlayerShip>(length, width,x_pos,y_pos,speed,health,damage,time_before_shot));
     }
 
