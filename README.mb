@@ -1,0 +1,15 @@
+====SPELREGELS====
+
+* Boven- of onderkant van het spel raken : verlies 2 levens
+* Planeet of asteroïde raken : verlies 1 leven
+* Planeten zijn onvernietigbaar door wapens. Ontploffen enkel bij impact met speler
+* Asteroïden zijn vernietigbaar door wapens.
+
+===SPELBESTURING===
+
+* ESC : sluit spel
+* pijl boven : speler naar boven
+* pijl beneden : speler naar beneden
+* pijl rechts : speler naar rechts
+* pijl links : speler naar links
+* spatiebalk : schieten
