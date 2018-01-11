@@ -21,7 +21,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":-1.50,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -33,7 +33,7 @@
                "width":0.60,
                "x_position":4.0,
                "y_position":-0.30,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1
             }
@@ -45,7 +45,7 @@
                "width":0.60,
                "x_position":4.0,
                "y_position":1.0,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1
             }
@@ -62,7 +62,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":2.40,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1
             }
@@ -74,7 +74,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":-1.70,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1
             }
@@ -99,14 +99,14 @@
                "width":0.50,
                "x_position":4.0,
                "y_position":1.0,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1,
                "time_before_shot":1.0
             }
          }
       ],
-      "time":2.0
+      "time":2.5
    },
    "Wave3":{
       "enemies":[
@@ -117,7 +117,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":2.50,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -129,7 +129,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":-1.50,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -141,7 +141,7 @@
                "width":0.50,
                "x_position":4.0,
                "y_position":-0.30,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1,
 		"time_before_shot" : 0.5
@@ -154,13 +154,13 @@
                "width":0.60,
                "x_position":4.0,
                "y_position":1.0,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1
             }
          }
       ],
-      "time":2.0
+      "time":2.5
    },
    "Wave4":{
       "enemies":[
@@ -171,7 +171,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":2.40,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1
             }
@@ -183,7 +183,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":-1.70,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1
             }
@@ -195,7 +195,7 @@
                "width":0.70,
                "x_position":4.0,
                "y_position":-0.30,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -207,13 +207,13 @@
                "width":0.70,
                "x_position":4.0,
                "y_position":1.0,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
          }
       ],
-      "time":2.0
+      "time":2.5
    },
    "Wave5":{
       "enemies":[
@@ -224,7 +224,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":2.50,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -236,7 +236,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":-1.50,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -248,7 +248,7 @@
                "width":0.60,
                "x_position":4.0,
                "y_position":-0.30,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -260,14 +260,14 @@
                "width":0.50,
                "x_position":4.0,
                "y_position":1.0,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1,
-		"time_before_shot" : 2.0
+		"time_before_shot" : 2.5
             }
          }
       ],
-      "time":2.0
+      "time":2.5
    },
    "Wave6":{
       "enemies":[
@@ -278,7 +278,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":2.40,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -290,7 +290,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":-1.70,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1
             }
@@ -302,7 +302,7 @@
                "width":0.70,
                "x_position":4.0,
                "y_position":-0.30,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -314,13 +314,13 @@
                "width":0.70,
                "x_position":4.0,
                "y_position":1.0,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
          }
       ],
-      "time":2.0
+      "time":2.5
    },
    "Wave7":{
       "enemies":[
@@ -331,7 +331,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":2.50,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -343,7 +343,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":-1.50,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -355,7 +355,7 @@
                "width":0.50,
                "x_position":4.0,
                "y_position":-0.30,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -367,13 +367,13 @@
                "width":0.60,
                "x_position":4.0,
                "y_position":1.0,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1
             }
          }
       ],
-      "time":2.0
+      "time":2.5
    },
    "Wave8":{
       "enemies":[
@@ -384,7 +384,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":2.40,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1
             }
@@ -396,7 +396,7 @@
                "width":1.0,
                "x_position":4.0,
                "y_position":-1.70,
-               "speed":2.0,
+               "speed":2.5,
                "health":1,
                "damage":1,
 		"time_before_shot": 0.3
@@ -409,7 +409,7 @@
                "width":0.70,
                "x_position":4.0,
                "y_position":-0.30,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
@@ -421,12 +421,12 @@
                "width":0.70,
                "x_position":4.0,
                "y_position":1.0,
-               "speed":2.0,
+               "speed":2.5,
                "health":-1,
                "damage":1
             }
          }
       ],
-      "time":2.0
+      "time":2.5
    }
 }
