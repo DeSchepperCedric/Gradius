@@ -1,15 +1,17 @@
-====SPELREGELS====
+simple Gradius arcade game developed for the course "Advanced Programming" at the University of Antwerp.
 
-* Boven- of onderkant van het spel raken : verlies 2 levens
-* Planeet of asteroïde raken : verlies 1 leven
-* Planeten zijn onvernietigbaar door wapens. Ontploffen enkel bij impact met speler
-* Asteroïden zijn vernietigbaar door wapens.
+====GAME RULES====
+
+* Hit upper or lower edge : lose 2 lives
+* Hit planet or asteroid : lose 1 life
+* Planets are indestructible by lasers. Explode at impact with player.
+* Asteroids are destructable.
 
 ===SPELBESTURING===
 
-* ESC : sluit spel
-* pijl boven : speler naar boven
-* pijl beneden : speler naar beneden
-* pijl rechts : speler naar rechts
-* pijl links : speler naar links
-* spatiebalk : schieten
+* ESC : close game
+* arrow-up : move up
+* arrow-down : move down
+* arrow-left : move left
+* arrow-right : move right
+* space : fire
